@@ -1,4 +1,4 @@
-package io.instaal.miniupdatechecker;
+package io.instaal.updatechecker;
 
 import android.content.Context;
 
