@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lib_name">Mini Update Checker</string>
+    <string name="new_update_available">New Update Available</string>
+    <string name="there_is_a_new_version_available_for">There is a new version available for</string>
+</resources>
