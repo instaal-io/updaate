@@ -2,7 +2,9 @@ package io.instaal.updatechecker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import io.instaal.miniupdatechecker.MiniUpdateChecker;
@@ -19,12 +21,20 @@ public class MainActivity extends AppCompatActivity {
         imageView.setOnClickListener(view -> {
             new MiniUpdateChecker(this)
                     .setTheme(MiniUpdateChecker.DEFAULT_THEME)
-                    .setTitle("New Version Available")
-                    .setAppIcon(R.drawable.update_icon)
+                    .setTitle("App Updater")
+                    .setAppIcon(R.drawable.ic_baseline_10mp_24)
+                    .setCloseIcon(R.drawable.ic_android_black_24dp)
+                    .setDescription("New Update For")
+                    .setAppName("MY APP")
+                    .setPositiveLabel("Do It")
+                    .setNegativeLabel("Never")
+                    .setBackgroundColor(Color.parseColor("#eeeeee"))
                     .showDialog();
         });
 
 
+        Log.e("TAG", "onCreate: " + getResources().getColor(R.color.colorAccent) );
+        Log.e("TAG", "onCreate: " + Color.MAGENTA );
 
 
     }

@@ -3,12 +3,19 @@ package io.instaal.miniupdatechecker;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+
+import org.w3c.dom.Text;
 
 public class MiniUpdateChecker {
 
@@ -21,6 +28,7 @@ public class MiniUpdateChecker {
     private static final String DEFAULT_DESCRIPTION = "There is a new version available for";
     private static final String DEFAULT_NOT_NOW = "Not Now";
     private static final String DEFAULT_UPDATE = "Update";
+    private static final int DEFAULT_COLOR = Color.parseColor("#FFFFFF");
 
 
     private final Activity activity;
@@ -37,7 +45,7 @@ public class MiniUpdateChecker {
     private String APP_NAME = "app_name";
     private String NOT_NOW = "not_now";
     private String UPDATE = "update_now";
-
+    private int COLOR = 0;
 
     public MiniUpdateChecker(Activity activity) {
         this.activity = activity;
@@ -46,38 +54,47 @@ public class MiniUpdateChecker {
 
 
     public void showDialog() {
+
         Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+        // set layout for different theme
         if (THEME.equals(MINI_THEME)) {
             dialog.setContentView(R.layout.minimal_layout);
-
         } else if (THEME.equals(SIMPLE_THEME)) {
             dialog.setContentView(R.layout.simple_layout);
-
         } else if (THEME.equals("default")) {
             dialog.setContentView(R.layout.default_layout);
-
         } else {
             dialog.setContentView(R.layout.default_layout);
         }
 
+        // setting up dialog
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(true);
 
 
+        // changes for each theme
         if (THEME.equals(MINI_THEME)) {
             ImageView app_icon = dialog.findViewById(R.id.app_icon);
-            if (APP_ICON==0){
+            ImageView close_icon = dialog.findViewById(R.id.close_icon);
+            TextView current_version = dialog.findViewById(R.id.current_version);
+            TextView latest_version = dialog.findViewById(R.id.latest_version);
+
+            if (APP_ICON == 0) {
                 app_icon.setImageResource(DEFAULT_APP_ICON);
             } else {
                 app_icon.setImageResource(APP_ICON);
             }
 
-            ImageView close_icon = dialog.findViewById(R.id.close_icon);
-            TextView current_version = dialog.findViewById(R.id.current_version);
-            TextView latest_version = dialog.findViewById(R.id.latest_version);
+            if (CLOSE_ICON == 0) {
+                close_icon.setImageResource(DEFAULT_CLOSE_ICON);
+            } else {
+                close_icon.setImageResource(CLOSE_ICON);
+            }
+
+            close_icon.setOnClickListener(view -> dialog.dismiss());
 
         } else if (THEME.equals(SIMPLE_THEME)) {
 
@@ -86,20 +103,46 @@ public class MiniUpdateChecker {
 
         } else {
             ImageView app_icon = dialog.findViewById(R.id.app_icon);
-            if (APP_ICON==0){
-                app_icon.setImageResource(DEFAULT_APP_ICON);
-            } else {
-                app_icon.setImageResource(APP_ICON);
-            }
-
             ImageView close_icon = dialog.findViewById(R.id.close_icon);
             TextView update_description = dialog.findViewById(R.id.update_description);
             TextView app_name = dialog.findViewById(R.id.app_name);
             TextView current_version = dialog.findViewById(R.id.current_version);
             TextView latest_version = dialog.findViewById(R.id.latest_version);
-            CardView not_now_button = dialog.findViewById(R.id.not_now_button);
-            CardView update_button = dialog.findViewById(R.id.update_button);
 
+            if (APP_ICON == 0) {
+                app_icon.setImageResource(DEFAULT_APP_ICON);
+            } else {
+                app_icon.setImageResource(APP_ICON);
+            }
+
+            if (CLOSE_ICON == 0) {
+                close_icon.setImageResource(DEFAULT_CLOSE_ICON);
+            } else {
+                close_icon.setImageResource(CLOSE_ICON);
+            }
+
+            if (DESCRIPTION.equals("desc")) {
+                update_description.setText(DEFAULT_DESCRIPTION);
+            } else {
+                update_description.setText(DESCRIPTION);
+            }
+
+            if (APP_NAME.equals("app_name")) {
+                String appName = "";
+                PackageManager packageManager = activity.getPackageManager();
+                try {
+                    appName = (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA));
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                    Log.e("TAG", " Can't find AppName ");
+                }
+                app_name.setText(appName);
+
+            } else {
+                app_name.setText(APP_NAME);
+            }
+
+            close_icon.setOnClickListener(view -> dialog.dismiss());
 
         }
 
@@ -113,9 +156,43 @@ public class MiniUpdateChecker {
         }
 
 
+        CardView wholeView = dialog.findViewById(R.id.main_card);
+
+        if (COLOR==0){
+            wholeView.setCardBackgroundColor(DEFAULT_COLOR);
+        } else {
+
+            try {
+                wholeView.setCardBackgroundColor(ContextCompat.getColor(activity,COLOR));
+            } catch (Resources.NotFoundException e){
+                wholeView.setCardBackgroundColor(COLOR);
+            }
+
+
+        }
+
+
+
+
         CardView not_now_button = dialog.findViewById(R.id.not_now_button);
+        not_now_button.setOnClickListener(view -> dialog.dismiss());
 
         CardView update_button = dialog.findViewById(R.id.update_button);
+
+        TextView positive_text = dialog.findViewById(R.id.positive_text);
+        if (UPDATE.equals("update_now")) {
+            positive_text.setText(DEFAULT_UPDATE);
+        } else {
+            positive_text.setText(UPDATE);
+        }
+
+
+        TextView negative_text = dialog.findViewById(R.id.negative_text);
+        if (NOT_NOW.equals("not_now")) {
+            negative_text.setText(DEFAULT_NOT_NOW);
+        } else {
+            negative_text.setText(NOT_NOW);
+        }
 
 
         dialog.show();
@@ -166,6 +243,10 @@ public class MiniUpdateChecker {
         return this;
     }
 
+    public MiniUpdateChecker setBackgroundColor(int i) {
+        COLOR = i;
+        return this;
+    }
 
 
 

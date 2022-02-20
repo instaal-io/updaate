@@ -7,10 +7,11 @@
     android:layout_gravity="center">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/main_card"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        app:cardBackgroundColor="#fff"
+        app:cardBackgroundColor="#ffffff"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
@@ -32,7 +33,7 @@
                     android:layout_height="30dp"
                     android:layout_marginStart="10dp"
                     android:contentDescription="@string/lib_name"
-                    android:src="@drawable/update_icon" />
+ />
 
                 <TextView
                     android:id="@+id/title_text"
@@ -43,7 +44,6 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/new_update_available"
                     android:textSize="17sp" />
 
 
@@ -53,7 +53,6 @@
                     android:layout_height="30dp"
                     android:layout_marginEnd="10dp"
                     android:padding="2dp"
-                    android:src="@drawable/cancel_icon"
                     tools:ignore="ContentDescription" />
 
             </LinearLayout>
@@ -168,10 +167,10 @@
                     app:cardCornerRadius="10dp">
 
                     <TextView
+                        android:id="@+id/negative_text"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="@string/not_now"
                         android:textSize="16sp" />
 
 
@@ -191,10 +190,10 @@
                     app:cardCornerRadius="10dp">
 
                     <TextView
+                        android:id="@+id/positive_text"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="@string/update"
                         android:textColor="#fff"
                         android:textSize="16sp" />
 
