@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                     .setNegativeLabel("Never")
                     .setBackgroundColor(Color.parseColor("#eeeeee"))
                     .showDialog();
+
         });
 
 
