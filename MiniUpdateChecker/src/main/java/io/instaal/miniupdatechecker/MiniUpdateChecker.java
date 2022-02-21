@@ -15,8 +15,6 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
-import org.w3c.dom.Text;
-
 public class MiniUpdateChecker {
 
     public static final String DEFAULT_THEME = "default";
@@ -29,6 +27,12 @@ public class MiniUpdateChecker {
     private static final String DEFAULT_NOT_NOW = "Not Now";
     private static final String DEFAULT_UPDATE = "Update";
     private static final int DEFAULT_COLOR = Color.parseColor("#FFFFFF");
+    private static final int DEFAULT_POSITIVE_COLOR = Color.parseColor("#29B7C8");
+    private static final int DEFAULT_NEGATIVE_COLOR = Color.parseColor("#dddddd");
+    private static final int DEFAULT_PRIMARY_COLOR = Color.parseColor("#29B7C8");
+    private static final int DEFAULT_SECONDARY_COLOR = Color.parseColor("#444444");
+    private static final int DEFAULT_POSITIVE_TEXT_COLOR = Color.parseColor("#FFFFFF");
+    private static final int DEFAULT_NEGATIVE_TEXT_COLOR = Color.parseColor("#444444");
 
 
     private final Activity activity;
@@ -46,6 +50,12 @@ public class MiniUpdateChecker {
     private String NOT_NOW = "not_now";
     private String UPDATE = "update_now";
     private int COLOR = 0;
+    private int POSITIVE_COLOR = 0;
+    private int NEGATIVE_COLOR = 0;
+    private int PRIMARY_COLOR = 0;
+    private int SECONDARY_COLOR = 0;
+    private int POSITIVE_TEXT_COLOR = 0;
+    private int NEGATIVE_TEXT_COLOR = 0;
 
     public MiniUpdateChecker(Activity activity) {
         this.activity = activity;
@@ -81,6 +91,9 @@ public class MiniUpdateChecker {
             ImageView close_icon = dialog.findViewById(R.id.close_icon);
             TextView current_version = dialog.findViewById(R.id.current_version);
             TextView latest_version = dialog.findViewById(R.id.latest_version);
+            TextView ur_version_text = dialog.findViewById(R.id.ur_version_text);
+            TextView lt_version_text = dialog.findViewById(R.id.lt_version_text);
+
 
             if (APP_ICON == 0) {
                 app_icon.setImageResource(DEFAULT_APP_ICON);
@@ -96,18 +109,53 @@ public class MiniUpdateChecker {
 
             close_icon.setOnClickListener(view -> dialog.dismiss());
 
+
+            if (PRIMARY_COLOR == 0) {
+                latest_version.setTextColor(DEFAULT_PRIMARY_COLOR);
+            } else {
+                try {
+                    latest_version.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+                } catch (Resources.NotFoundException e) {
+                    latest_version.setTextColor(PRIMARY_COLOR);
+                }
+            }
+
+            if (SECONDARY_COLOR == 0) {
+                current_version.setTextColor(DEFAULT_SECONDARY_COLOR);
+                ur_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
+                lt_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
+            } else {
+                try {
+                    current_version.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                    ur_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                    lt_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+
+                } catch (Resources.NotFoundException e) {
+
+                    current_version.setTextColor(SECONDARY_COLOR);
+                    ur_version_text.setTextColor(SECONDARY_COLOR);
+                    lt_version_text.setTextColor(SECONDARY_COLOR);
+
+                }
+            }
+
+
         } else if (THEME.equals(SIMPLE_THEME)) {
 
             // nothing special
             CardView not_now_button = dialog.findViewById(R.id.not_now_button);
 
+
         } else {
+
             ImageView app_icon = dialog.findViewById(R.id.app_icon);
             ImageView close_icon = dialog.findViewById(R.id.close_icon);
             TextView update_description = dialog.findViewById(R.id.update_description);
             TextView app_name = dialog.findViewById(R.id.app_name);
             TextView current_version = dialog.findViewById(R.id.current_version);
             TextView latest_version = dialog.findViewById(R.id.latest_version);
+            TextView ur_version_text = dialog.findViewById(R.id.ur_version_text);
+            TextView lt_version_text = dialog.findViewById(R.id.lt_version_text);
 
             if (APP_ICON == 0) {
                 app_icon.setImageResource(DEFAULT_APP_ICON);
@@ -142,7 +190,53 @@ public class MiniUpdateChecker {
                 app_name.setText(APP_NAME);
             }
 
+            if (PRIMARY_COLOR == 0) {
+                latest_version.setTextColor(DEFAULT_PRIMARY_COLOR);
+                app_name.setTextColor(DEFAULT_PRIMARY_COLOR);
+            } else {
+
+                try {
+                    latest_version.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+                    app_name.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+
+
+                } catch (Resources.NotFoundException e) {
+
+                    latest_version.setTextColor(PRIMARY_COLOR);
+                    app_name.setTextColor(PRIMARY_COLOR);
+
+                }
+
+            }
+
+            if (SECONDARY_COLOR == 0) {
+                current_version.setTextColor(DEFAULT_SECONDARY_COLOR);
+                ur_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
+                lt_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
+                update_description.setTextColor(DEFAULT_SECONDARY_COLOR);
+            } else {
+
+                try {
+                    current_version.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                    ur_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                    lt_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                    update_description.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+
+                } catch (Resources.NotFoundException e) {
+
+                    current_version.setTextColor(SECONDARY_COLOR);
+                    ur_version_text.setTextColor(SECONDARY_COLOR);
+                    lt_version_text.setTextColor(SECONDARY_COLOR);
+                    update_description.setTextColor(SECONDARY_COLOR);
+
+                }
+
+
+            }
+
+
             close_icon.setOnClickListener(view -> dialog.dismiss());
+
 
         }
 
@@ -155,35 +249,78 @@ public class MiniUpdateChecker {
             titleText.setText(TITLE);
         }
 
-
-        CardView wholeView = dialog.findViewById(R.id.main_card);
-
-        if (COLOR==0){
-            wholeView.setCardBackgroundColor(DEFAULT_COLOR);
+        if (PRIMARY_COLOR == 0) {
+            titleText.setTextColor(DEFAULT_PRIMARY_COLOR);
         } else {
 
             try {
-                wholeView.setCardBackgroundColor(ContextCompat.getColor(activity,COLOR));
-            } catch (Resources.NotFoundException e){
-                wholeView.setCardBackgroundColor(COLOR);
-            }
+                titleText.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
 
+            } catch (Resources.NotFoundException e) {
+                titleText.setTextColor(PRIMARY_COLOR);
+            }
 
         }
 
 
+        CardView wholeView = dialog.findViewById(R.id.main_card);
+        if (COLOR == 0) {
+            wholeView.setCardBackgroundColor(DEFAULT_COLOR);
+        } else {
+
+            try {
+                wholeView.setCardBackgroundColor(ContextCompat.getColor(activity, COLOR));
+            } catch (Resources.NotFoundException e) {
+                wholeView.setCardBackgroundColor(COLOR);
+            }
+
+        }
 
 
         CardView not_now_button = dialog.findViewById(R.id.not_now_button);
-        not_now_button.setOnClickListener(view -> dialog.dismiss());
+        if (NEGATIVE_COLOR == 0) {
+            not_now_button.setCardBackgroundColor(DEFAULT_NEGATIVE_COLOR);
+        } else {
+
+            try {
+                not_now_button.setCardBackgroundColor(ContextCompat.getColor(activity, NEGATIVE_COLOR));
+            } catch (Resources.NotFoundException e) {
+                not_now_button.setCardBackgroundColor(NEGATIVE_COLOR);
+            }
+
+        }
 
         CardView update_button = dialog.findViewById(R.id.update_button);
+        if (POSITIVE_COLOR == 0) {
+            update_button.setCardBackgroundColor(DEFAULT_POSITIVE_COLOR);
+        } else {
+
+            try {
+                update_button.setCardBackgroundColor(ContextCompat.getColor(activity, POSITIVE_COLOR));
+            } catch (Resources.NotFoundException e) {
+                update_button.setCardBackgroundColor(POSITIVE_COLOR);
+            }
+
+        }
+
 
         TextView positive_text = dialog.findViewById(R.id.positive_text);
         if (UPDATE.equals("update_now")) {
             positive_text.setText(DEFAULT_UPDATE);
         } else {
             positive_text.setText(UPDATE);
+        }
+        if (POSITIVE_TEXT_COLOR == 0) {
+            positive_text.setTextColor(DEFAULT_POSITIVE_TEXT_COLOR);
+        } else {
+
+            try {
+                positive_text.setTextColor(ContextCompat.getColor(activity, POSITIVE_TEXT_COLOR));
+
+            } catch (Resources.NotFoundException e) {
+                positive_text.setTextColor(POSITIVE_TEXT_COLOR);
+            }
+
         }
 
 
@@ -193,7 +330,21 @@ public class MiniUpdateChecker {
         } else {
             negative_text.setText(NOT_NOW);
         }
+        if (NEGATIVE_TEXT_COLOR == 0) {
+            negative_text.setTextColor(DEFAULT_NEGATIVE_TEXT_COLOR);
+        } else {
 
+            try {
+                negative_text.setTextColor(ContextCompat.getColor(activity, NEGATIVE_TEXT_COLOR));
+
+            } catch (Resources.NotFoundException e) {
+                negative_text.setTextColor(NEGATIVE_TEXT_COLOR);
+            }
+
+        }
+
+
+        not_now_button.setOnClickListener(view -> dialog.dismiss());
 
         dialog.show();
 
@@ -248,6 +399,37 @@ public class MiniUpdateChecker {
         return this;
     }
 
+    public MiniUpdateChecker setPositiveButtonColor(int i) {
+        POSITIVE_COLOR = i;
+        return this;
+    }
+
+    public MiniUpdateChecker setNegativeButtonColor(int i) {
+        NEGATIVE_COLOR = i;
+        return this;
+    }
+
+
+    public MiniUpdateChecker setPrimaryTextColor(int i) {
+        PRIMARY_COLOR = i;
+        return this;
+    }
+
+    public MiniUpdateChecker setSecondaryTextColor(int i) {
+        SECONDARY_COLOR = i;
+        return this;
+    }
+
+
+    public MiniUpdateChecker setPositiveTextColor(int i) {
+        POSITIVE_TEXT_COLOR = i;
+        return this;
+    }
+
+    public MiniUpdateChecker setNegativeTextColor(int i) {
+        NEGATIVE_TEXT_COLOR = i;
+        return this;
+    }
 
 
 }

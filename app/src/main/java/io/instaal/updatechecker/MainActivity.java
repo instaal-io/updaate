@@ -29,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
                     .setPositiveLabel("Do It")
                     .setNegativeLabel("Never")
                     .setBackgroundColor(Color.parseColor("#eeeeee"))
+                    .setPositiveButtonColor(Color.parseColor("#FFA726"))
+                    .setNegativeButtonColor(Color.parseColor("#FF7043"))
+                    .setPrimaryTextColor(R.color.colorAccent)
+                    .setSecondaryTextColor(Color.MAGENTA)
+                    .setPositiveTextColor(R.color.black)
+                    .setNegativeTextColor(R.color.white)
                     .showDialog();
 
         });
