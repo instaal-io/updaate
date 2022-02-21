@@ -39,7 +39,7 @@ Here is some screenshots of the library
 
 ## Prerequisites
 
-#### Old
+### Old
 If you're using old gradle versions then follow this.
 Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
 
@@ -52,7 +52,7 @@ allprojects {
 }
 ```
 
-#### New
+### New
 If you're using new gradle versions then follow this.
 Add this in your `settings.gradle` file:
 
@@ -79,10 +79,36 @@ dependencies {
 
 
 ## Usage
+Here the usage for MiniUpdateChecker
 
-#### Basic
+### Basic
+#### Default Theme
 
-#### Customized
+```java
+new MiniUpdateChecker(this).check();
+```
+```java
+ new MiniUpdateChecker(this)
+                .setTheme(MiniUpdateChecker.DEFAULT_THEME)
+                .check();	
+```
+
+#### Mini Theme
+```java
+ new MiniUpdateChecker(this)
+                .setTheme(MiniUpdateChecker.MINI_THEME)
+                .check();	
+```
+
+#### Simple Theme
+```java
+new MiniUpdateChecker(this)
+                .setTheme(MiniUpdateChecker.SIMPLE_THEME)
+                .check();	
+```
+
+
+### Customized
 
 ## Customizations
 
