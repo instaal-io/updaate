@@ -40,15 +40,47 @@ Here is some screenshots of the library
 ## Prerequisites
 
 #### Old
+If you're using old gradle versions then follow this.
+Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
+
+```gradle
+allprojects {
+	repositories {
+		...
+		maven { url "https://jitpack.io" }
+	}
+}
+```
 
 #### New
+If you're using new gradle versions then follow this.
+Add this in your `settings.gradle` file:
+
+```gradle
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+       ...
+        maven { url 'https://jitpack.io' }
+
+    }
+}
+```
 
 ## Dependencies
+Add this to your module's `build.gradle` file (make sure the version matches the JitPack badge above):
+
+```gradle
+dependencies {
+	...
+	implementation 'com.github.instaal-io:MiniUpdateChecker:1.0'
+}
+```
 
 
 ## Usage
 
-#### Simple
+#### Basic
 
 #### Customized
 
