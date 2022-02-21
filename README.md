@@ -1,5 +1,5 @@
 <h1 align="center"><img src="https://user-images.githubusercontent.com/42619122/155006230-75e7e844-97f6-4cfa-93c1-f0aa20eeaf7f.png" height="30" weight="30" alt="GitHub forks"> <b>MiniUpdateChecker</b></h1>
-<h4 align="center">A Minimalist App Update Checker for Android</h4>
+<p align="center"><b>A Minimalist App Update Checker for Android</b></p>
 
 <br/>
 
@@ -16,27 +16,99 @@
 <b>Minimalist Update Checker</b> is a Smart Android Library for checking your Android App Updates on <b>Google Play Store</b>. <b>MiniUpdateChecker</b> checks the updates and notifies with beautiful <b>material design dialogs</b>. You can <b>customize</b> the dialog in various ways.
 
 ## Demo
+Download and Check out the demo app for more
+
+<a href="https://github.com/instaal-io/MiniUpdateChecker/blob/master/MiniUpdateChecker%20Demo.apk"> <img src="https://user-images.githubusercontent.com/42619122/155009169-c92bbebb-7e96-452e-956b-b5905d2cdcdc.png" height="100" width="200" alt="Download"/> </a>
+
 
 ## What's New
+Initial release with initial features, everything is new. Check out `Releases` Tab for Info.
 
 ## Features
+MiniUpdateChecker has these features:
+- Checking Update for Your Android App on Google Play Store
+- Material Design UI
+- 3 Themes
+- Highly Customizable
 
 ## Screenshot
+Here is some screenshots of the library
+<p><img src="https://user-images.githubusercontent.com/42619122/155010041-95b0e60d-d296-4c49-96ba-8cc0c154db68.png" width="280" alt="Screenshot_1645468216">
+<img src="https://user-images.githubusercontent.com/42619122/155010049-d24a96d3-ec8f-4c89-98a4-81460473d14d.png" width="280" alt="Screenshot_1645468238">
+<img src="https://user-images.githubusercontent.com/42619122/155010051-31df497c-b2a7-4f0d-9f4a-61388de02c78.png" width="280" alt="Screenshot_1645468252"></p>
 
 ## Prerequisites
 
-#### Old
+### Old
+If you're using old gradle versions then follow this.
+Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
 
-#### New
+```gradle
+allprojects {
+	repositories {
+		...
+		maven { url "https://jitpack.io" }
+	}
+}
+```
+
+### New
+If you're using new gradle versions then follow this.
+Add this in your `settings.gradle` file:
+
+```gradle
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+       ...
+        maven { url 'https://jitpack.io' }
+
+    }
+}
+```
 
 ## Dependencies
+Add this to your module's `build.gradle` file (make sure the version matches the JitPack badge above):
+
+```gradle
+dependencies {
+	...
+	implementation 'com.github.instaal-io:MiniUpdateChecker:1.0'
+}
+```
 
 
 ## Usage
+Here the usage for MiniUpdateChecker
 
-#### Simple
+### Basic
+#### Default Theme
 
-#### Customized
+```java
+new MiniUpdateChecker(this).check();
+```
+```java
+ new MiniUpdateChecker(this)
+                .setTheme(MiniUpdateChecker.DEFAULT_THEME)
+                .check();	
+```
+
+#### Mini Theme
+```java
+ new MiniUpdateChecker(this)
+                .setTheme(MiniUpdateChecker.MINI_THEME)
+                .check();	
+```
+
+#### Simple Theme
+```java
+new MiniUpdateChecker(this)
+                .setTheme(MiniUpdateChecker.SIMPLE_THEME)
+                .check();	
+```
+
+
+### Customized
 
 ## Customizations
 
@@ -45,5 +117,31 @@
 ## Notes
 
 ## Contribute
+Please fork this repository and contribute back using [pull requests](https://github.com/instaal-io/MiniUpdateChecker/pulls).
+
+Any contributions, large or small, major features, bug fixes, are welcomed and appreciated.
+
+Let me know which features you want in the future in `Request Feature` tab. 
+
+If this project helps you a little bit, then give a to Star ⭐ the Repo. 
+
 
 ## License
+* [Apache Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+
+```
+Copyright 2022 Instaal Studio
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+```
