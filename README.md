@@ -10,3 +10,40 @@
  <p align="center">
  <a href="https://github.com/instaal-io/MiniUpdateChecker/issues"><img src="https://img.shields.io/github/issues/instaal-io/MiniUpdateChecker" alt="GitHub issues"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/network"><img src="https://img.shields.io/github/forks/instaal-io/MiniUpdateChecker" alt="GitHub forks"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/stargazers"><img src="https://img.shields.io/github/stars/instaal-io/MiniUpdateChecker" alt="GitHub stars"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/graphs/contributors"><img src="https://img.shields.io/github/contributors/instaal-io/MiniUpdateChecker" alt="GitHub contributors"></a>
   </p>
+
+## Purpose
+
+<b>Minimalist Update Checker</b> is a Smart Android Library for checking your Android App Updates on <b>Google Play Store</b>. <b>MiniUpdateChecker</b> checks the updates and notifies with beautiful <b>material design dialogs</b>. You can <b>customize</b> the dialog in various ways.
+
+## Demo
+
+## What's New
+
+## Features
+
+## Screenshot
+
+## Prerequisites
+
+#### Old
+
+#### New
+
+## Dependencies
+
+
+## Usage
+
+#### Simple
+
+#### Customized
+
+## Customizations
+
+## Attributes
+
+## Notes
+
+## Contribute
+
+## License
