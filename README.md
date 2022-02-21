@@ -1,4 +1,4 @@
-<h1 align="center"><b>MiniUpdateChecker</b></h1>
+<h1 align="center"><img src="https://user-images.githubusercontent.com/42619122/155006230-75e7e844-97f6-4cfa-93c1-f0aa20eeaf7f.png" height="45" weight="45" alt="GitHub forks"> <b>MiniUpdateChecker</b></h1>
 <h4 align="center">A Minimalist App Update Checker for Android</h4>
 
 <br/>
@@ -10,4 +10,3 @@
  <p align="center">
  <a href="https://github.com/instaal-io/MiniUpdateChecker/issues"><img src="https://img.shields.io/github/issues/instaal-io/MiniUpdateChecker" alt="GitHub issues"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/network"><img src="https://img.shields.io/github/forks/instaal-io/MiniUpdateChecker" alt="GitHub forks"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/stargazers"><img src="https://img.shields.io/github/stars/instaal-io/MiniUpdateChecker" alt="GitHub stars"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/graphs/contributors"><img src="https://img.shields.io/github/contributors/instaal-io/MiniUpdateChecker" alt="GitHub contributors"></a>
   </p>
-![update (2)](https://user-images.githubusercontent.com/42619122/155006230-75e7e844-97f6-4cfa-93c1-f0aa20eeaf7f.png)
