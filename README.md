@@ -214,6 +214,13 @@ You can set recheck again for next launches, like after 5 app launch. If nothing
 
 
 ## Notes
+Here are some things you should remember:
+- Always call `check()` at the end. Library won't work without it.
+- If you don't set any them then the Default Theme will be selected automatically.
+- If you don't set App name then it will be picked automatically. 
+- If `shouldCheckAfterLaunch` is not used then lib will check for update in every launch.
+- If the app is not live on store, then it won't show any dialog
+- If the app is already latest version, then it won't show any dialog.
 
 ## Contribute
 Please fork this repository and contribute back using [pull requests](https://github.com/instaal-io/MiniUpdateChecker/pulls).
