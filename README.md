@@ -79,7 +79,7 @@ dependencies {
 
 
 ## Usage
-Here the usage for MiniUpdateChecker
+MiniUpdateChecker has plenty of Options. Use Default theme or you can customize as much as you want. Here the usages for MiniUpdateChecker:
 
 ### Basic
 #### Default Theme
@@ -110,9 +110,108 @@ new MiniUpdateChecker(this)
 
 ### Customized
 
+```java
+  new MiniUpdateChecker(this)
+                .setTheme(MiniUpdateChecker.DEFAULT_THEME)
+                .setTitle("App Updater")
+                .setAppIcon(R.drawable.ic_baseline_10mp_24)
+                .setCloseIcon(R.drawable.ic_android_black_24dp)
+                .setDescription("New Update For")
+                .setAppName("MY APP")
+                .setPositiveLabel("Do It")
+                .setNegativeLabel("Never")
+                .setBackgroundColor(Color.parseColor("#ffffff"))
+                .setPositiveButtonColor(Color.parseColor("#00ACC1"))
+                .setNegativeButtonColor(Color.parseColor("#DDDDDD"))
+                .setPrimaryTextColor(Color.parseColor("#00ACC1"))
+                .setSecondaryTextColor(Color.parseColor("#444444"))
+                .setPositiveTextColor(Color.parseColor("#FFFFFF"))
+                .setNegativeTextColor(Color.parseColor("#444444"))
+                .shouldCheckAfterLaunch(1)
+                .check();
+```
+
+
 ## Customizations
 
+### Themes
+There different themese with pre desgined layouts, but you can customize them as well. If no theme defined then `Default Theme` will be used.
+
+#### Default Theme
+```Java
+.setTheme(MiniUpdateChecker.DEFAULT_THEME)
+```
+
+#### Mini Theme
+```Java
+.setTheme(MiniUpdateChecker.MINI_THEME)
+```
+
+#### Simple Theme
+```Java
+.setTheme(MiniUpdateChecker.SIMPLE_THEME)
+```
+
+### Text (Title, Description, App Name, Positive Button Text, Negative Button Text)
+
+Change different text on the layout by using these snippets.
+
+```Java
+.setTitle("")
+.setDescription("")
+.setAppName("")
+.setPositiveLabel("")
+.setNegativeLabel("")
+```
+
+
+### Image (App Icon, Close Icon)
+Change the icons on the layout by using these snippets.
+
+```Java
+.setAppIcon(R.drawable.ic_baseline_10mp_24)
+.setCloseIcon(R.drawable.ic_android_black_24dp)
+```
+
+### Colors (Background, Positive Button BG, Negative Button BG, Primary Text, Secondary Text, Positive Text Color, Negative Text Color)
+Change the colors on the layout by using these snippets.
+```Java
+.setBackgroundColor(Color.parseColor("#ffffff"))
+.setPositiveButtonColor(Color.parseColor("#00ACC1"))
+.setNegativeButtonColor(Color.parseColor("#DDDDDD"))
+.setPrimaryTextColor(Color.parseColor("#00ACC1"))
+.setSecondaryTextColor(Color.parseColor("#444444"))
+.setPositiveTextColor(Color.parseColor("#FFFFFF"))
+.setNegativeTextColor(Color.parseColor("#444444"))
+```
+### Recheck Again
+You can set recheck again for next launches, like after 5 app launch. If nothing set then it will check on Every Launch.
+```Java
+.shouldCheckAfterLaunch(1)
+
+```
+
 ## Attributes
+
+| Keyword | Attribute | Description
+|---------------|---------|----------------------|
+| `setTheme` | DEFAULT , MINI, SIMPLE | Select From Prebuilt Theme |
+| `setTitle` | String | Dialog Title |
+| `setAppIcon` | Drawable | Dialog Top Icon |
+| `setCloseIcon` | Drawable | Dialog Close Icon |
+| `setAppName` | String | Set App Name |
+| `setPositiveLabel` | String | Positive Button Text |
+| `setNegativeLabel` | String | Negative Button Text |
+| `setBackgroundColor` | Int | Dialog Background Color |
+| `setPositiveButtonColor` | Int | Positive Button Background Color |
+| `setNegativeButtonColor` | Int | Negative Button Background Color |
+| `setPrimaryTextColor` | Int | Color for Primary Texts |
+| `setSecondaryTextColor` | Int | Color for Secondary Texts |
+| `setPositiveTextColor` | Int | Color for Positive Button Text |
+| `setNegativeTextColor` | Int | Color For Negative Button Text |
+| `shouldCheckAfterLaunch` | Int | Again Check Settings |
+| `check` |  | Start Checking for update |
+
 
 ## Notes
 
