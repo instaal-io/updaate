@@ -233,7 +233,7 @@ If this project helps you a little bit, then give a to Star ⭐ the Repo.
 
 ## Credits
 
-Created with Love by @instaal-io & @github/ahmmedrejowan
+Created with Love by <a href="https://github.com/instaal-io"> Instaal Studio </a> & <a href="https://github.com/ahmmedrejowan"> K M Rejowan Ahmmed </a>
 
 ## License
 * [Apache Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
