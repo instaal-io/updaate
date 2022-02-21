@@ -16,12 +16,26 @@
 <b>Minimalist Update Checker</b> is a Smart Android Library for checking your Android App Updates on <b>Google Play Store</b>. <b>MiniUpdateChecker</b> checks the updates and notifies with beautiful <b>material design dialogs</b>. You can <b>customize</b> the dialog in various ways.
 
 ## Demo
+Download and Check out the demo app for more
+
+<a href="https://github.com/instaal-io/MiniUpdateChecker/blob/master/MiniUpdateChecker%20Demo.apk"> <img src="https://user-images.githubusercontent.com/42619122/155009169-c92bbebb-7e96-452e-956b-b5905d2cdcdc.png" height="100" width="200" alt="Download"/> </a>
+
 
 ## What's New
+Initial release with initial features, everything is new. Check out `Releases` Tab for Info.
 
 ## Features
+MiniUpdateChecker has these features:
+- Checking Update for Your Android App on Google Play Store
+- Material Design UI
+- 3 Themes
+- Highly Customizable
 
 ## Screenshot
+Here is some screenshots of the library
+<p><img src="https://user-images.githubusercontent.com/42619122/155010041-95b0e60d-d296-4c49-96ba-8cc0c154db68.png" width="300" alt="Screenshot_1645468216">
+<img src="https://user-images.githubusercontent.com/42619122/155010049-d24a96d3-ec8f-4c89-98a4-81460473d14d.png" width="300" alt="Screenshot_1645468238">
+<img src="https://user-images.githubusercontent.com/42619122/155010051-31df497c-b2a7-4f0d-9f4a-61388de02c78.png" width="300" alt="Screenshot_1645468252"></p>
 
 ## Prerequisites
 
