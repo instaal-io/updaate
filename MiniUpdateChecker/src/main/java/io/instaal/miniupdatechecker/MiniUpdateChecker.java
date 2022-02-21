@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
@@ -36,10 +37,7 @@ public class MiniUpdateChecker {
     private static final String LAUNCHES = "launches";
 
     private final Activity activity;
-    OnUpdateEventListener onUpdateEventListener;
     SharedPreferences sharedPreferences;
-    private String packageName, oldVersionCode, newVersionCode, changes;
-    private String updateText, remindText, negativeText;
 
     private String THEME = "default";
     private String TITLE = "main";
@@ -56,7 +54,6 @@ public class MiniUpdateChecker {
     private int SECONDARY_COLOR = 0;
     private int POSITIVE_TEXT_COLOR = 0;
     private int NEGATIVE_TEXT_COLOR = 0;
-    private int LAUNCH_COUNT = 0;
     private int USER_LAUNCH_COUNT = 0;
 
     public MiniUpdateChecker(Activity activity) {
@@ -71,7 +68,7 @@ public class MiniUpdateChecker {
             showDialog();
         } else {
 
-            LAUNCH_COUNT = sharedPreferences.getInt(LAUNCHES, 0);
+            int LAUNCH_COUNT = sharedPreferences.getInt(LAUNCHES, 0);
             sharedPreferences.edit().putInt(LAUNCHES, ++LAUNCH_COUNT).apply();
 
             if (LAUNCH_COUNT == USER_LAUNCH_COUNT) {
@@ -90,14 +87,17 @@ public class MiniUpdateChecker {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         // set layout for different theme
-        if (THEME.equals(MINI_THEME)) {
-            dialog.setContentView(R.layout.minimal_layout);
-        } else if (THEME.equals(SIMPLE_THEME)) {
-            dialog.setContentView(R.layout.simple_layout);
-        } else if (THEME.equals("default")) {
-            dialog.setContentView(R.layout.default_layout);
-        } else {
-            dialog.setContentView(R.layout.default_layout);
+        switch (THEME) {
+            case MINI_THEME:
+                dialog.setContentView(R.layout.minimal_layout);
+                break;
+            case SIMPLE_THEME:
+                dialog.setContentView(R.layout.simple_layout);
+                break;
+            case "default":
+            default:
+                dialog.setContentView(R.layout.default_layout);
+                break;
         }
 
         // setting up dialog
@@ -161,105 +161,105 @@ public class MiniUpdateChecker {
             }
 
 
-        } else if (THEME.equals(SIMPLE_THEME)) {
+        } else //noinspection StatementWithEmptyBody
+            if (THEME.equals(SIMPLE_THEME)) {
 
-            // nothing special
-            CardView not_now_button = dialog.findViewById(R.id.not_now_button);
+                // nothing special
 
-
-        } else {
-
-            ImageView app_icon = dialog.findViewById(R.id.app_icon);
-            ImageView close_icon = dialog.findViewById(R.id.close_icon);
-            TextView update_description = dialog.findViewById(R.id.update_description);
-            TextView app_name = dialog.findViewById(R.id.app_name);
-            TextView current_version = dialog.findViewById(R.id.current_version);
-            TextView latest_version = dialog.findViewById(R.id.latest_version);
-            TextView ur_version_text = dialog.findViewById(R.id.ur_version_text);
-            TextView lt_version_text = dialog.findViewById(R.id.lt_version_text);
-
-            if (APP_ICON == 0) {
-                app_icon.setImageResource(DEFAULT_APP_ICON);
-            } else {
-                app_icon.setImageResource(APP_ICON);
-            }
-
-            if (CLOSE_ICON == 0) {
-                close_icon.setImageResource(DEFAULT_CLOSE_ICON);
-            } else {
-                close_icon.setImageResource(CLOSE_ICON);
-            }
-
-            if (DESCRIPTION.equals("desc")) {
-                update_description.setText(DEFAULT_DESCRIPTION);
-            } else {
-                update_description.setText(DESCRIPTION);
-            }
-
-            if (APP_NAME.equals("app_name")) {
-                String appName = "";
-                PackageManager packageManager = activity.getPackageManager();
-                try {
-                    appName = (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA));
-                } catch (PackageManager.NameNotFoundException e) {
-                    e.printStackTrace();
-                    Log.e("TAG", " Can't find AppName ");
-                }
-                app_name.setText(appName);
 
             } else {
-                app_name.setText(APP_NAME);
-            }
 
-            if (PRIMARY_COLOR == 0) {
-                latest_version.setTextColor(DEFAULT_PRIMARY_COLOR);
-                app_name.setTextColor(DEFAULT_PRIMARY_COLOR);
-            } else {
+                ImageView app_icon = dialog.findViewById(R.id.app_icon);
+                ImageView close_icon = dialog.findViewById(R.id.close_icon);
+                TextView update_description = dialog.findViewById(R.id.update_description);
+                TextView app_name = dialog.findViewById(R.id.app_name);
+                TextView current_version = dialog.findViewById(R.id.current_version);
+                TextView latest_version = dialog.findViewById(R.id.latest_version);
+                TextView ur_version_text = dialog.findViewById(R.id.ur_version_text);
+                TextView lt_version_text = dialog.findViewById(R.id.lt_version_text);
 
-                try {
-                    latest_version.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
-                    app_name.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
-
-
-                } catch (Resources.NotFoundException e) {
-
-                    latest_version.setTextColor(PRIMARY_COLOR);
-                    app_name.setTextColor(PRIMARY_COLOR);
-
+                if (APP_ICON == 0) {
+                    app_icon.setImageResource(DEFAULT_APP_ICON);
+                } else {
+                    app_icon.setImageResource(APP_ICON);
                 }
 
-            }
+                if (CLOSE_ICON == 0) {
+                    close_icon.setImageResource(DEFAULT_CLOSE_ICON);
+                } else {
+                    close_icon.setImageResource(CLOSE_ICON);
+                }
 
-            if (SECONDARY_COLOR == 0) {
-                current_version.setTextColor(DEFAULT_SECONDARY_COLOR);
-                ur_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
-                lt_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
-                update_description.setTextColor(DEFAULT_SECONDARY_COLOR);
-            } else {
+                if (DESCRIPTION.equals("desc")) {
+                    update_description.setText(DEFAULT_DESCRIPTION);
+                } else {
+                    update_description.setText(DESCRIPTION);
+                }
 
-                try {
-                    current_version.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-                    ur_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-                    lt_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-                    update_description.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                if (APP_NAME.equals("app_name")) {
+                    String appName = "";
+                    PackageManager packageManager = activity.getPackageManager();
+                    try {
+                        appName = (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA));
+                    } catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
+                        Log.e("TAG", " Can't find AppName ");
+                    }
+                    app_name.setText(appName);
 
-                } catch (Resources.NotFoundException e) {
+                } else {
+                    app_name.setText(APP_NAME);
+                }
 
-                    current_version.setTextColor(SECONDARY_COLOR);
-                    ur_version_text.setTextColor(SECONDARY_COLOR);
-                    lt_version_text.setTextColor(SECONDARY_COLOR);
-                    update_description.setTextColor(SECONDARY_COLOR);
+                if (PRIMARY_COLOR == 0) {
+                    latest_version.setTextColor(DEFAULT_PRIMARY_COLOR);
+                    app_name.setTextColor(DEFAULT_PRIMARY_COLOR);
+                } else {
+
+                    try {
+                        latest_version.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+                        app_name.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+
+
+                    } catch (Resources.NotFoundException e) {
+
+                        latest_version.setTextColor(PRIMARY_COLOR);
+                        app_name.setTextColor(PRIMARY_COLOR);
+
+                    }
 
                 }
 
+                if (SECONDARY_COLOR == 0) {
+                    current_version.setTextColor(DEFAULT_SECONDARY_COLOR);
+                    ur_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
+                    lt_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
+                    update_description.setTextColor(DEFAULT_SECONDARY_COLOR);
+                } else {
+
+                    try {
+                        current_version.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                        ur_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                        lt_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                        update_description.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+
+                    } catch (Resources.NotFoundException e) {
+
+                        current_version.setTextColor(SECONDARY_COLOR);
+                        ur_version_text.setTextColor(SECONDARY_COLOR);
+                        lt_version_text.setTextColor(SECONDARY_COLOR);
+                        update_description.setTextColor(SECONDARY_COLOR);
+
+                    }
+
+
+                }
+
+
+                close_icon.setOnClickListener(view -> dialog.dismiss());
+
 
             }
-
-
-            close_icon.setOnClickListener(view -> dialog.dismiss());
-
-
-        }
 
 
         // All Theme
@@ -373,87 +373,87 @@ public class MiniUpdateChecker {
     }
 
 
-    public MiniUpdateChecker setTheme(String s) {
-        THEME = s;
+    public MiniUpdateChecker setTheme(String string) {
+        THEME = string;
         return this;
 
     }
 
-    public MiniUpdateChecker setTitle(String s) {
-        TITLE = s;
+    public MiniUpdateChecker setTitle(String string) {
+        TITLE = string;
         return this;
     }
 
-    public MiniUpdateChecker setAppIcon(int i) {
-        APP_ICON = i;
+    public MiniUpdateChecker setAppIcon(int res) {
+        APP_ICON = res;
         return this;
     }
 
-    public MiniUpdateChecker setCloseIcon(int i) {
-        CLOSE_ICON = i;
-        return this;
-    }
-
-
-    public MiniUpdateChecker setDescription(String s) {
-        DESCRIPTION = s;
-        return this;
-    }
-
-    public MiniUpdateChecker setAppName(String s) {
-        APP_NAME = s;
-        return this;
-    }
-
-    public MiniUpdateChecker setPositiveLabel(String s) {
-        UPDATE = s;
-        return this;
-    }
-
-    public MiniUpdateChecker setNegativeLabel(String s) {
-        NOT_NOW = s;
-        return this;
-    }
-
-    public MiniUpdateChecker setBackgroundColor(int i) {
-        COLOR = i;
-        return this;
-    }
-
-    public MiniUpdateChecker setPositiveButtonColor(int i) {
-        POSITIVE_COLOR = i;
-        return this;
-    }
-
-    public MiniUpdateChecker setNegativeButtonColor(int i) {
-        NEGATIVE_COLOR = i;
+    public MiniUpdateChecker setCloseIcon(int res) {
+        CLOSE_ICON = res;
         return this;
     }
 
 
-    public MiniUpdateChecker setPrimaryTextColor(int i) {
-        PRIMARY_COLOR = i;
+    public MiniUpdateChecker setDescription(String string) {
+        DESCRIPTION = string;
         return this;
     }
 
-    public MiniUpdateChecker setSecondaryTextColor(int i) {
-        SECONDARY_COLOR = i;
+    public MiniUpdateChecker setAppName(String string) {
+        APP_NAME = string;
+        return this;
+    }
+
+    public MiniUpdateChecker setPositiveLabel(String string) {
+        UPDATE = string;
+        return this;
+    }
+
+    public MiniUpdateChecker setNegativeLabel(String string) {
+        NOT_NOW = string;
+        return this;
+    }
+
+    public MiniUpdateChecker setBackgroundColor(int color) {
+        COLOR = color;
+        return this;
+    }
+
+    public MiniUpdateChecker setPositiveButtonColor(int color) {
+        POSITIVE_COLOR = color;
+        return this;
+    }
+
+    public MiniUpdateChecker setNegativeButtonColor(int color) {
+        NEGATIVE_COLOR = color;
         return this;
     }
 
 
-    public MiniUpdateChecker setPositiveTextColor(int i) {
-        POSITIVE_TEXT_COLOR = i;
+    public MiniUpdateChecker setPrimaryTextColor(int color) {
+        PRIMARY_COLOR = color;
         return this;
     }
 
-    public MiniUpdateChecker setNegativeTextColor(int i) {
-        NEGATIVE_TEXT_COLOR = i;
+    public MiniUpdateChecker setSecondaryTextColor(int color) {
+        SECONDARY_COLOR = color;
         return this;
     }
 
-    public MiniUpdateChecker shouldCheckAfterLaunch(int i) {
-        USER_LAUNCH_COUNT = i;
+
+    public MiniUpdateChecker setPositiveTextColor(int color) {
+        POSITIVE_TEXT_COLOR = color;
+        return this;
+    }
+
+    public MiniUpdateChecker setNegativeTextColor(int color) {
+        NEGATIVE_TEXT_COLOR = color;
+        return this;
+    }
+
+    public MiniUpdateChecker shouldCheckAfterLaunch(int color) {
+        USER_LAUNCH_COUNT = color;
         return this;
 
     }
