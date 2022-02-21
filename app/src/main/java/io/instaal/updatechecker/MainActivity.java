@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
                     .setSecondaryTextColor(Color.MAGENTA)
                     .setPositiveTextColor(R.color.black)
                     .setNegativeTextColor(R.color.white)
-                    .shouldCheckAfterLaunch(2)
-                    .checkUpdate();
+                    .shouldCheckAfterLaunch(1)
+                    .check();
 
      //   });
 

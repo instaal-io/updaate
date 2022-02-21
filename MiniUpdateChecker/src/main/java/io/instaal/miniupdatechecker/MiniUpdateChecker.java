@@ -2,19 +2,28 @@ package io.instaal.miniupdatechecker;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.net.Uri;
 import android.util.Log;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.ColorInt;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
+
+import org.jsoup.Jsoup;
+
+import java.io.IOException;
+import java.util.Objects;
+import java.util.concurrent.Executors;
 
 public class MiniUpdateChecker {
 
@@ -55,6 +64,9 @@ public class MiniUpdateChecker {
     private int POSITIVE_TEXT_COLOR = 0;
     private int NEGATIVE_TEXT_COLOR = 0;
     private int USER_LAUNCH_COUNT = 0;
+    private String CURRENT_VERSION = "";
+    private String LATEST_VERSION = "";
+
 
     public MiniUpdateChecker(Activity activity) {
         this.activity = activity;
@@ -62,19 +74,65 @@ public class MiniUpdateChecker {
     }
 
 
-    public void checkUpdate() {
+    public void check() {
+
+        PackageManager packageManager = activity.getPackageManager();
+        PackageInfo packageInfo;
+        try {
+            packageInfo = packageManager.getPackageInfo(activity.getPackageName(), 0);
+            CURRENT_VERSION = packageInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
 
         if (USER_LAUNCH_COUNT == 0) {
-            showDialog();
+            CheckForUpdate();
+
         } else {
 
             int LAUNCH_COUNT = sharedPreferences.getInt(LAUNCHES, 0);
             sharedPreferences.edit().putInt(LAUNCHES, ++LAUNCH_COUNT).apply();
 
-            if (LAUNCH_COUNT == USER_LAUNCH_COUNT) {
-                showDialog();
+            if (LAUNCH_COUNT >= USER_LAUNCH_COUNT) {
+                CheckForUpdate();
                 sharedPreferences.edit().putInt(LAUNCHES, 0).apply();
             }
+        }
+
+    }
+
+    private void CheckForUpdate() {
+
+        Executors.newSingleThreadExecutor().execute(() -> {
+            try {
+                LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=com.andronius.numberconverterplus&hl=en")
+                        .timeout(30000)
+                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
+                        .referrer("http://www.google.com")
+                        .get()
+                        .select("div.hAyfc:nth-child(4) > span:nth-child(2) > div:nth-child(1) > span:nth-child(1)")
+                        .first())
+                        .ownText();
+
+                activity.runOnUiThread(() -> ValidateUpdate(LATEST_VERSION));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.e("TAG", "CheckForUpdate: Not Found");
+            }
+        });
+
+
+    }
+
+
+    private void ValidateUpdate(String latest_version) {
+
+        if (!latest_version.equals(CURRENT_VERSION)) {
+            showDialog();
+        } else {
+            Log.d("TAG", "ValidateUpdate: Already Latest Version");
         }
 
 
@@ -94,7 +152,7 @@ public class MiniUpdateChecker {
             case SIMPLE_THEME:
                 dialog.setContentView(R.layout.simple_layout);
                 break;
-            case "default":
+            case DEFAULT_THEME:
             default:
                 dialog.setContentView(R.layout.default_layout);
                 break;
@@ -115,6 +173,8 @@ public class MiniUpdateChecker {
             TextView ur_version_text = dialog.findViewById(R.id.ur_version_text);
             TextView lt_version_text = dialog.findViewById(R.id.lt_version_text);
 
+            current_version.setText(CURRENT_VERSION);
+            latest_version.setText(LATEST_VERSION);
 
             if (APP_ICON == 0) {
                 app_icon.setImageResource(DEFAULT_APP_ICON);
@@ -177,6 +237,9 @@ public class MiniUpdateChecker {
                 TextView latest_version = dialog.findViewById(R.id.latest_version);
                 TextView ur_version_text = dialog.findViewById(R.id.ur_version_text);
                 TextView lt_version_text = dialog.findViewById(R.id.lt_version_text);
+
+                current_version.setText(CURRENT_VERSION);
+                latest_version.setText(LATEST_VERSION);
 
                 if (APP_ICON == 0) {
                     app_icon.setImageResource(DEFAULT_APP_ICON);
@@ -366,10 +429,26 @@ public class MiniUpdateChecker {
 
 
         not_now_button.setOnClickListener(view -> dialog.dismiss());
+        update_button.setOnClickListener(view -> launchForUpdate());
+
 
         dialog.show();
 
 
+    }
+
+    private void launchForUpdate() {
+        Uri uri = Uri.parse("market://details?id=" + activity.getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        try {
+            activity.startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            activity.startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://play.google.com/store/apps/details?id=" + activity.getPackageName())));
+        }
     }
 
 
@@ -457,5 +536,6 @@ public class MiniUpdateChecker {
         return this;
 
     }
+
 
 }
