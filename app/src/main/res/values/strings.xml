@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Minimalist Update Checker</string>
+    <string name="check">Check</string>
 </resources>
