@@ -231,6 +231,9 @@ Let me know which features you want in the future in `Request Feature` tab.
 
 If this project helps you a little bit, then give a to Star ⭐ the Repo. 
 
+## Credits
+
+Created with Love by @Instaal-io & @ahmmedrejowan
 
 ## License
 * [Apache Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
