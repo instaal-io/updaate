@@ -34,9 +34,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Log.e("TAG", "onCreate: " + getResources().getColor(R.color.colorAccent) );
-        Log.e("TAG", "onCreate: " + Color.MAGENTA );
-
-
     }
 }

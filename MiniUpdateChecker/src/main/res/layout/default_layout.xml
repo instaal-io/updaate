@@ -108,7 +108,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/demo_version1"
                     android:textSize="15sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -136,7 +135,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/demo_version2"
                     android:textColor="#29B7C8"
                     android:textSize="16sp"
                     android:textStyle="bold" />
