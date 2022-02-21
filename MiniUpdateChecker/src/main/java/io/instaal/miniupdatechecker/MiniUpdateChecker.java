@@ -33,7 +33,7 @@ public class MiniUpdateChecker {
     private static final int DEFAULT_SECONDARY_COLOR = Color.parseColor("#444444");
     private static final int DEFAULT_POSITIVE_TEXT_COLOR = Color.parseColor("#FFFFFF");
     private static final int DEFAULT_NEGATIVE_TEXT_COLOR = Color.parseColor("#444444");
-
+    private static final String LAUNCHES = "launches";
 
     private final Activity activity;
     OnUpdateEventListener onUpdateEventListener;
@@ -56,6 +56,8 @@ public class MiniUpdateChecker {
     private int SECONDARY_COLOR = 0;
     private int POSITIVE_TEXT_COLOR = 0;
     private int NEGATIVE_TEXT_COLOR = 0;
+    private int LAUNCH_COUNT = 0;
+    private int USER_LAUNCH_COUNT = 0;
 
     public MiniUpdateChecker(Activity activity) {
         this.activity = activity;
@@ -63,7 +65,26 @@ public class MiniUpdateChecker {
     }
 
 
-    public void showDialog() {
+    public void checkUpdate() {
+
+        if (USER_LAUNCH_COUNT == 0) {
+            showDialog();
+        } else {
+
+            LAUNCH_COUNT = sharedPreferences.getInt(LAUNCHES, 0);
+            sharedPreferences.edit().putInt(LAUNCHES, ++LAUNCH_COUNT).apply();
+
+            if (LAUNCH_COUNT == USER_LAUNCH_COUNT) {
+                showDialog();
+                sharedPreferences.edit().putInt(LAUNCHES, 0).apply();
+            }
+        }
+
+
+    }
+
+
+    private void showDialog() {
 
         Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -431,5 +452,10 @@ public class MiniUpdateChecker {
         return this;
     }
 
+    public MiniUpdateChecker shouldCheckAfterLaunch(int i) {
+        USER_LAUNCH_COUNT = i;
+        return this;
+
+    }
 
 }

@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView imageView = findViewById(R.id.image_button);
-        imageView.setOnClickListener(view -> {
+    //    imageView.setOnClickListener(view -> {
             new MiniUpdateChecker(this)
                     .setTheme(MiniUpdateChecker.DEFAULT_THEME)
                     .setTitle("App Updater")
@@ -35,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
                     .setSecondaryTextColor(Color.MAGENTA)
                     .setPositiveTextColor(R.color.black)
                     .setNegativeTextColor(R.color.white)
-                    .showDialog();
+                    .shouldCheckAfterLaunch(2)
+                    .checkUpdate();
 
-        });
+     //   });
 
 
     }
