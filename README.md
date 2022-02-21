@@ -33,9 +33,9 @@ MiniUpdateChecker has these features:
 
 ## Screenshot
 Here is some screenshots of the library
-<p><img src="https://user-images.githubusercontent.com/42619122/155010041-95b0e60d-d296-4c49-96ba-8cc0c154db68.png" width="300" alt="Screenshot_1645468216">
-<img src="https://user-images.githubusercontent.com/42619122/155010049-d24a96d3-ec8f-4c89-98a4-81460473d14d.png" width="300" alt="Screenshot_1645468238">
-<img src="https://user-images.githubusercontent.com/42619122/155010051-31df497c-b2a7-4f0d-9f4a-61388de02c78.png" width="300" alt="Screenshot_1645468252"></p>
+<p><img src="https://user-images.githubusercontent.com/42619122/155010041-95b0e60d-d296-4c49-96ba-8cc0c154db68.png" width="280" alt="Screenshot_1645468216">
+<img src="https://user-images.githubusercontent.com/42619122/155010049-d24a96d3-ec8f-4c89-98a4-81460473d14d.png" width="280" alt="Screenshot_1645468238">
+<img src="https://user-images.githubusercontent.com/42619122/155010051-31df497c-b2a7-4f0d-9f4a-61388de02c78.png" width="280" alt="Screenshot_1645468252"></p>
 
 ## Prerequisites
 
