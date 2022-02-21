@@ -1,5 +1,5 @@
 <h1 align="center"><img src="https://user-images.githubusercontent.com/42619122/155006230-75e7e844-97f6-4cfa-93c1-f0aa20eeaf7f.png" height="30" weight="30" alt="GitHub forks"> <b>MiniUpdateChecker</b></h1>
-<h4 align="center">A Minimalist App Update Checker for Android</h4>
+<p align="center"><b>A Minimalist App Update Checker for Android</b></p>
 
 <br/>
 
