@@ -184,8 +184,8 @@ Change the colors on the layout by using these snippets.
 .setPositiveTextColor(Color.parseColor("#FFFFFF"))
 .setNegativeTextColor(Color.parseColor("#444444"))
 ```
-### Recheck Again
-You can set recheck again for next launches, like after 5 app launch. If nothing set then it will check on Every Launch.
+### Recheck
+You can set check again for next launches, like after 5 app launch. If nothing set then it will check on Every Launch.
 ```Java
 .shouldCheckAfterLaunch(1)
 
