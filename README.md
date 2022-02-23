@@ -31,6 +31,15 @@ MiniUpdateChecker has these features:
 - 3 Themes
 - Highly Customizable
 
+## Build Info
+This library is built by this conifg:
+- Compile SDK 32
+- Minimum SDK 21
+- Target SDK 32
+- Built on Java 1.8
+- Material Design using Androidx Library
+- Jsoup for Parsing
+
 ## Screenshot
 Here is some screenshots of the library
 <p><img src="https://user-images.githubusercontent.com/42619122/155010041-95b0e60d-d296-4c49-96ba-8cc0c154db68.png" width="260" alt="Screenshot_1645468216">
