@@ -18,81 +18,126 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
+            <ImageView
+                android:id="@+id/app_icon"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/lib_name"
+                android:src="@drawable/fancy_image_header" />
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="New Update Available!"
+                android:textColor="#5a3ae7"
+                android:textSize="19sp" />
+
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
-
 
                 <TextView
-                    android:id="@+id/title_text"
-                    android:layout_width="0dp"
+                    android:id="@+id/ur_version_text"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
+                    android:layout_marginEnd="5dp"
                     android:gravity="center"
-                    android:textSize="17sp" />
+                    android:textColor="@color/secondary_text_color"
+                    android:text="@string/your_version"
+                    android:textSize="14sp" />
 
-
+                <TextView
+                    android:id="@+id/current_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/demo_version1"
+                    android:textColor="@color/secondary_text_color"
+                    android:textSize="15sp" />
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginStart="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/not_now_button"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="#ddd"
-                    app:cardCornerRadius="10dp">
+                <TextView
+                    android:id="@+id/lt_version_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:textStyle="bold"
+                    android:textColor="#5a3ae7"
+                    android:gravity="center"
+                    android:text="@string/latest_version"
+                    android:textSize="15sp" />
 
-                    <TextView
-                        android:id="@+id/negative_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:textSize="14sp" />
-
-
-                </androidx.cardview.widget.CardView>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="10dp"
-                    android:layout_weight="0.4" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/update_button"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="#29B7C8"
-                    app:cardCornerRadius="10dp">
-
-                    <TextView
-                        android:id="@+id/positive_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:textColor="#fff"
-                        android:textSize="14sp" />
-
-                </androidx.cardview.widget.CardView>
-
-
+                <TextView
+                    android:id="@+id/latest_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/demo_version2"
+                    android:textColor="#5a3ae7"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
             </LinearLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/update_button"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                app:cardBackgroundColor="#5a3ae7"
+                app:cardCornerRadius="10dp">
+
+                <TextView
+                    android:id="@+id/positive_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Update Now"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <TextView
+                android:id="@+id/negative_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/secondary_text_color"
+                android:text="Maybe later"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"/>
+
 
 
         </LinearLayout>
