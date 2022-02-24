@@ -8,7 +8,7 @@
  <a href="https://android-arsenal.com/api?level=21"><img src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat" alt="API"></a> <a href="https://jitpack.io/#instaal-io/MiniUpdateChecker"><img src="https://img.shields.io/jitpack/v/github/instaal-io/MiniUpdateChecker" alt="JitPack"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/blob/master/LICENSE"><img src="https://img.shields.io/github/license/instaal-io/MiniUpdateChecker" alt="GitHub license"></a>
  </p>
  <p align="center">
- <a href="https://github.com/instaal-io/MiniUpdateChecker/issues"><img src="https://img.shields.io/github/issues/instaal-io/MiniUpdateChecker" alt="GitHub issues"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/network"><img src="https://img.shields.io/github/forks/instaal-io/MiniUpdateChecker" alt="GitHub forks"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/stargazers"><img src="https://img.shields.io/github/stars/instaal-io/MiniUpdateChecker" alt="GitHub stars"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/graphs/contributors"><img src="https://img.shields.io/github/contributors/instaal-io/MiniUpdateChecker" alt="GitHub contributors"></a>
+ <a href="https://github.com/instaal-io/MiniUpdateChecker/issues"><img src="https://img.shields.io/github/issues/instaal-io/MiniUpdateChecker" alt="GitHub issues"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/network"><img src="https://img.shields.io/github/forks/instaal-io/MiniUpdateChecker" alt="GitHub forks"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/stargazers"><img src="https://img.shields.io/github/stars/instaal-io/MiniUpdateChecker" alt="GitHub stars"></a> <a href="https://github.com/instaal-io/MiniUpdateChecker/graphs/contributors"> <img src="https://img.shields.io/github/contributors/instaal-io/MiniUpdateChecker" alt="GitHub contributors"></a> <img src="https://img.shields.io/github/languages/code-size/instaal-io/MiniUpdateChecker" alt="Code Size"> 
   </p>
 
 ## Purpose
@@ -30,6 +30,15 @@ MiniUpdateChecker has these features:
 - Material Design UI
 - 3 Themes
 - Highly Customizable
+
+## Build Info
+This library is built by this conifg:
+- Compile SDK 32
+- Minimum SDK 21
+- Target SDK 32
+- Built on Java 1.8
+- Material Design using Androidx Library
+- Jsoup for Parsing
 
 ## Screenshot
 Here is some screenshots of the library
@@ -184,8 +193,8 @@ Change the colors on the layout by using these snippets.
 .setPositiveTextColor(Color.parseColor("#FFFFFF"))
 .setNegativeTextColor(Color.parseColor("#444444"))
 ```
-### Recheck Again
-You can set recheck again for next launches, like after 5 app launch. If nothing set then it will check on Every Launch.
+### Recheck
+You can set check again for next launches, like after 5 app launch. If nothing set then it will check on Every Launch.
 ```Java
 .shouldCheckAfterLaunch(1)
 
