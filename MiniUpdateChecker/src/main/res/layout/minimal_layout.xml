@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#717171">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/main_card"
@@ -25,8 +26,8 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
-                android:contentDescription="@string/lib_name"
-                android:src="@drawable/update_icon" />
+                android:src="@drawable/ic_updated"
+                app:tint="#222" />
 
             <TextView
                 android:id="@+id/title_text"
@@ -40,7 +41,7 @@
                 android:gravity="center"
                 android:text="New Update Available!"
                 android:textColor="#5a3ae7"
-                android:textSize="22sp"  />
+                android:textSize="22sp" />
 
 
             <LinearLayout
@@ -59,8 +60,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:gravity="center"
-                    android:textColor="@color/secondary_text_color"
                     android:text="@string/your_version"
+                    android:textColor="@color/secondary_text_color"
                     android:textSize="14sp" />
 
                 <TextView
@@ -88,11 +89,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:textStyle="bold"
-                    android:textColor="#5a3ae7"
                     android:gravity="center"
                     android:text="@string/latest_version"
-                    android:textSize="15sp" />
+                    android:textColor="#5a3ae7"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/latest_version"
@@ -127,10 +128,10 @@
                     <TextView
                         android:id="@+id/negative_text"
                         android:layout_width="match_parent"
-                        android:text="Not Now"
-                        android:textColor="@color/secondary_text_color"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:text="Not Now"
+                        android:textColor="@color/secondary_text_color"
                         android:textSize="16sp" />
 
 
@@ -154,8 +155,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textColor="#fff"
                         android:text="Update"
+                        android:textColor="#fff"
                         android:textSize="16sp" />
 
                 </androidx.cardview.widget.CardView>

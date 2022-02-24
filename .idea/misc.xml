@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Rejowan/Desktop/MinimalistUpdateChecker/MiniUpdateChecker/src/main/res/drawable/ic_updated.xml" value="0.2455" />
+        <entry key="..\:/Users/Rejowan/Desktop/MinimalistUpdateChecker/MiniUpdateChecker/src/main/res/drawable/update_check_icon.xml" value="0.2455" />
         <entry key="..\:/Users/Rejowan/Desktop/MinimalistUpdateChecker/MiniUpdateChecker/src/main/res/layout/default_layout.xml" value="0.371875" />
         <entry key="..\:/Users/Rejowan/Desktop/MinimalistUpdateChecker/MiniUpdateChecker/src/main/res/layout/material_layout.xml" value="0.371875" />
         <entry key="..\:/Users/Rejowan/Desktop/MinimalistUpdateChecker/MiniUpdateChecker/src/main/res/layout/minimal_layout.xml" value="0.371875" />
         <entry key="..\:/Users/Rejowan/Desktop/MinimalistUpdateChecker/MiniUpdateChecker/src/main/res/layout/simple_layout.xml" value="0.25" />
         <entry key="..\:/Users/Rejowan/Desktop/MinimalistUpdateChecker/MiniUpdateChecker/src/main/res/layout/smart_layout.xml" value="0.371875" />
         <entry key="..\:/Users/Rejowan/Desktop/MinimalistUpdateChecker/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.2455" />
+        <entry key="..\:/Users/Rejowan/Desktop/MinimalistUpdateChecker/app/src/main/res/drawable/ic_updated.xml" value="0.2455" />
         <entry key="..\:/Users/Rejowan/Desktop/MinimalistUpdateChecker/app/src/main/res/layout/activity_main.xml" value="0.371875" />
         <entry key="..\:/Users/Riju/AndroidStudioProjects/MinimalistUpdateChecker/MiniUpdateChecker/src/main/res/layout/compact_layout.xml" value="0.4" />
         <entry key="..\:/Users/Riju/AndroidStudioProjects/MinimalistUpdateChecker/MiniUpdateChecker/src/main/res/layout/default_layout.xml" value="0.264" />
