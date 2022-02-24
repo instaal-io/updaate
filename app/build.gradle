@@ -30,7 +30,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':Updaate')
+    implementation project(':updaate')
     // implementation 'com.github.instaal-io:MiniUpdateChecker:1.0'
 
     implementation 'androidx.appcompat:appcompat:1.4.1'

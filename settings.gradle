@@ -17,4 +17,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Minimalist Update Checker"
 include ':app'
-include ':Updaate'
+include ':updaate'
