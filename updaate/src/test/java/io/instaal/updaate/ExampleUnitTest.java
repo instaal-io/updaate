@@ -1,4 +1,4 @@
-package io.instaal.miniupdatechecker;
+package io.instaal.updaate;
 
 import org.junit.Test;
 

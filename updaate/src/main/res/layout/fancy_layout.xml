@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#717171"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="#717171">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/main_card"
@@ -20,13 +20,14 @@
             android:orientation="vertical">
 
 
-            <ImageView
-                android:id="@+id/app_icon"
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/lib_name"
-                android:src="@drawable/fancy_image_header" />
+                app:lottie_autoPlay="true"
+                android:layout_marginTop="10dp"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/fancy_update_style" />
 
             <TextView
                 android:id="@+id/title_text"
@@ -35,6 +36,7 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="15sp"
                 android:layout_marginEnd="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
@@ -59,8 +61,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:gravity="center"
-                    android:textColor="@color/secondary_text_color"
                     android:text="@string/your_version"
+                    android:textColor="@color/secondary_text_color"
                     android:textSize="14sp" />
 
                 <TextView
@@ -88,11 +90,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:textStyle="bold"
-                    android:textColor="#5a3ae7"
                     android:gravity="center"
                     android:text="@string/latest_version"
-                    android:textSize="15sp" />
+                    android:textColor="#5a3ae7"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/latest_version"
@@ -111,7 +113,7 @@
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="30dp"
                 app:cardBackgroundColor="#5a3ae7"
                 app:cardCornerRadius="10dp">
 
@@ -127,18 +129,16 @@
             </androidx.cardview.widget.CardView>
 
 
-
             <TextView
                 android:id="@+id/negative_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/secondary_text_color"
-                android:text="Maybe later"
-                android:textSize="14sp"
                 android:layout_gravity="center"
-                android:layout_margin="15dp"/>
-
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:text="Maybe later"
+                android:textColor="@color/secondary_text_color"
+                android:textSize="14sp" />
 
 
         </LinearLayout>

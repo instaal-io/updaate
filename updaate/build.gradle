@@ -34,5 +34,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'org.jsoup:jsoup:1.14.3'
-
+    implementation 'com.airbnb.android:lottie:5.0.1'
 }
