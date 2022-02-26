@@ -134,24 +134,20 @@ MiniUpdateChecker has plenty of Options. Use Default theme or you can customize 
 ### Customized
 
 ```java
-  new MiniUpdateChecker(this)
-                .setTheme(MiniUpdateChecker.DEFAULT_THEME)
-                .setTitle("App Updater")
-                .setAppIcon(R.drawable.ic_baseline_10mp_24)
-                .setCloseIcon(R.drawable.ic_android_black_24dp)
-                .setDescription("New Update For")
-                .setAppName("MY APP")
-                .setPositiveLabel("Do It")
-                .setNegativeLabel("Never")
-                .setBackgroundColor(Color.parseColor("#ffffff"))
-                .setPositiveButtonColor(Color.parseColor("#00ACC1"))
-                .setNegativeButtonColor(Color.parseColor("#DDDDDD"))
-                .setPrimaryTextColor(Color.parseColor("#00ACC1"))
-                .setSecondaryTextColor(Color.parseColor("#444444"))
-                .setPositiveTextColor(Color.parseColor("#FFFFFF"))
-                .setNegativeTextColor(Color.parseColor("#444444"))
-                .shouldCheckAfterLaunch(1)
-                .check();
+	new updaate(this)
+		.setTheme(updaate.DEFAULT_THEME)
+		.setAppIcon(R.drawable.ic_baseline_account_balance_24)
+		.setIconColor(R.color.colorPrimary)
+		.setTitle("A New Update Available")
+		.setPositiveLabel("Update Now")
+		.setNegativeLabel("Maybe Later")
+		.setBackgroundColor(R.color.white)
+		.setPrimaryColor(R.color.colorPrimary)
+		.setSecondaryColor(Color.parseColor("#888888"))
+		.setPositiveTextColor(Color.parseColor("#eeeeee"))
+		.setNegativeButtonColor(Color.parseColor("#eeeeee"))
+		.shouldCheckAfterLaunch(1)
+		.check();
 ```
 
 
@@ -162,17 +158,18 @@ There different themese with pre desgined layouts, but you can customize them as
 
 #### Default Theme
 ```Java
-.setTheme(MiniUpdateChecker.DEFAULT_THEME)
+.setTheme(updaate.DEFAULT_THEME)
+```
+(If you don't select any theme, then default will be choosed automatically)
+
+#### Smart Theme
+```Java
+.setTheme(updaate.SMART_THEME)
 ```
 
-#### Mini Theme
+#### Fancy Theme
 ```Java
-.setTheme(MiniUpdateChecker.MINI_THEME)
-```
-
-#### Simple Theme
-```Java
-.setTheme(MiniUpdateChecker.SIMPLE_THEME)
+.setTheme(updaate.FANCY_THEME)
 ```
 
 ### Text (Title, Description, App Name, Positive Button Text, Negative Button Text)
