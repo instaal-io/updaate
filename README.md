@@ -18,7 +18,7 @@
 ## Demo
 Download and Check out the demo app for more
 
-<a href="https://github.com/instaal-io/updaate/blob/master/updaate%20Demo.apk"> <img src="https://user-images.githubusercontent.com/42619122/155009169-c92bbebb-7e96-452e-956b-b5905d2cdcdc.png" height="100" width="200" alt="Download"/> </a>
+<a href="https://github.com/instaal-io/updaate/blob/master/test_demo.apk"> <img src="https://user-images.githubusercontent.com/42619122/155009169-c92bbebb-7e96-452e-956b-b5905d2cdcdc.png" height="100" width="200" alt="Download"/> </a>
 
 
 ## What's New
@@ -39,12 +39,15 @@ This library is built by this conifg:
 - Built on Java 1.8
 - Material Design using Androidx Library
 - Jsoup for Parsing
+- Lottiefiles for Animations
 
 ## Screenshot
 Here is some screenshots of the library
-<p><img src="https://user-images.githubusercontent.com/42619122/155010041-95b0e60d-d296-4c49-96ba-8cc0c154db68.png" width="260" alt="Screenshot_1645468216">
-<img src="https://user-images.githubusercontent.com/42619122/155010049-d24a96d3-ec8f-4c89-98a4-81460473d14d.png" width="260" alt="Screenshot_1645468238">
-<img src="https://user-images.githubusercontent.com/42619122/155010051-31df497c-b2a7-4f0d-9f4a-61388de02c78.png" width="260" alt="Screenshot_1645468252"></p>
+<p><img src="https://user-images.githubusercontent.com/42619122/155828397-f27780c7-db86-42b0-ac2d-e7a439f2ffc7.png" width="260" alt="Screenshot_1645468216">
+<img src="https://user-images.githubusercontent.com/42619122/155828399-deee9cb7-be9e-466a-b34d-1cc5aa693073.png" width="260" alt="Screenshot_1645468238">
+<img src="https://user-images.githubusercontent.com/42619122/155828401-c3ece947-c03a-444f-a77a-9502961f279f.png" width="260" alt="Screenshot_1645468252"></p>
+
+
 
 ## Prerequisites
 
