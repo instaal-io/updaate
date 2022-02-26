@@ -215,7 +215,7 @@ public class updaate {
 
         // secondary colors
         if (SECONDARY_COLOR == 0) {
-            titleText.setTextColor(DEFAULT_PRIMARY_COLOR);
+            titleText.setTextColor(DEFAULT_SECONDARY_COLOR);
             negative_text.setTextColor(DEFAULT_SECONDARY_COLOR);
             current_version.setTextColor(DEFAULT_SECONDARY_COLOR);
             ur_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
