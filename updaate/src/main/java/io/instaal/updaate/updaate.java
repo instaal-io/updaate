@@ -179,13 +179,13 @@ public class updaate {
         }
 
         if (UPDATE.equals("update_now")) {
-            positive_text.setText("Update Now");
+            positive_text.setText("Update");
         } else {
             positive_text.setText(UPDATE);
         }
 
         if (NOT_NOW.equals("not_now")) {
-            negative_text.setText("Maybe Later");
+            negative_text.setText("Not Now");
         } else {
             negative_text.setText(NOT_NOW);
         }
@@ -521,13 +521,13 @@ public class updaate {
         }
 
         if (UPDATE.equals("update_now")) {
-            positive_text.setText("Update Now");
+            positive_text.setText("Update");
         } else {
             positive_text.setText(UPDATE);
         }
 
         if (NOT_NOW.equals("not_now")) {
-            negative_text.setText("Maybe Later");
+            negative_text.setText("Not Now");
         } else {
             negative_text.setText(NOT_NOW);
         }
@@ -536,6 +536,7 @@ public class updaate {
         // primary colors
 
         if (PRIMARY_COLOR == 0) {
+            titleText.setTextColor(DEFAULT_PRIMARY_COLOR);
             update_button.setCardBackgroundColor(DEFAULT_PRIMARY_COLOR);
             lt_version_text.setTextColor(DEFAULT_PRIMARY_COLOR);
             latest_version.setTextColor(DEFAULT_PRIMARY_COLOR);
@@ -545,12 +546,15 @@ public class updaate {
                 update_button.setCardBackgroundColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
                 lt_version_text.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
                 latest_version.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+                titleText.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
 
 
             } catch (Resources.NotFoundException e) {
                 update_button.setCardBackgroundColor(PRIMARY_COLOR);
                 lt_version_text.setTextColor(PRIMARY_COLOR);
                 latest_version.setTextColor(PRIMARY_COLOR);
+                titleText.setTextColor(PRIMARY_COLOR);
+
             }
         }
 
@@ -568,7 +572,6 @@ public class updaate {
 
         // secondary colors
         if (SECONDARY_COLOR == 0) {
-            titleText.setTextColor(DEFAULT_SECONDARY_COLOR);
             negative_text.setTextColor(DEFAULT_SECONDARY_COLOR);
             current_version.setTextColor(DEFAULT_SECONDARY_COLOR);
             ur_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
@@ -578,14 +581,12 @@ public class updaate {
                 negative_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
                 current_version.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
                 ur_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-                titleText.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
 
 
             } catch (Resources.NotFoundException e) {
                 negative_text.setTextColor(SECONDARY_COLOR);
                 current_version.setTextColor(SECONDARY_COLOR);
                 ur_version_text.setTextColor(SECONDARY_COLOR);
-                titleText.setTextColor(SECONDARY_COLOR);
 
 
             }
