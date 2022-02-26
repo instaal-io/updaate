@@ -210,29 +210,34 @@ You can set check again for next launches, like after 5 app launch. If nothing s
 
 | Keyword | Attribute | Description | Used In |
 |---------------|---------|---------|----------| 
-| `setTheme` | DEFAULT , MINI, SIMPLE | Select From Prebuilt Theme |
-| `setTitle` | String | Dialog Title |
-| `setAppIcon` | Drawable | Dialog Top Icon |
-| `setCloseIcon` | Drawable | Dialog Close Icon |
-| `setAppName` | String | Set App Name |
-| `setPositiveLabel` | String | Positive Button Text |
-| `setNegativeLabel` | String | Negative Button Text |
-| `setBackgroundColor` | Int | Dialog Background Color |
-| `setPositiveButtonColor` | Int | Positive Button Background Color |
-| `setNegativeButtonColor` | Int | Negative Button Background Color |
-| `setPrimaryTextColor` | Int | Color for Primary Texts |
-| `setSecondaryTextColor` | Int | Color for Secondary Texts |
-| `setPositiveTextColor` | Int | Color for Positive Button Text |
-| `setNegativeTextColor` | Int | Color For Negative Button Text |
-| `shouldCheckAfterLaunch` | Int | Again Check Settings |
-| `check` |  | Start Checking for update |
+| `setTheme` | DEFAULT , SMART, FANCY | Select From Prebuilt Theme | All Theme |
+| `setAppIcon` | Drawable | Dialog Top Icon | Only SMART Theme |
+| `setIconColor` | Int | Color for App Icon (Only use if it's a vector) | Only SMART Theme |
+| `setTitle` | String | Dialog Title | All Theme |
+| `setPositiveLabel` | String | Positive Button Text | All Theme |
+| `setNegativeLabel` | String | Negative Button Text | All Theme |
+| `setBackgroundColor` | Int | Dialog Background Color | All Theme |
+| `setPrimaryColor` | Int | Color for Primary Objects | All Theme |
+| `setSecondaryColor` | Int | Color for Secondary Objects | All Theme |
+| `setPositiveTextColor` | Int | Color for Positive Button Text | All Theme |
+| `setNegativeButtonColor` | Int | Negative Button Background Color | Default & SMART | 
+| `shouldCheckAfterLaunch` | Int | Again Check for Launch | All Theme
+| `check` |  | Start Checking for update | |
+
+
+## Theme Differences
+| Topic | Default | Smart | Fancy |
+|-------|---------|-------|-------|
+| App Icon | No | Yes | No |
+| Animation | No | No | Yes |
+| Negative Button | Yes | Yes | No |
+| Preview | ![Default](https://user-images.githubusercontent.com/42619122/155840252-1ee6e581-22f2-4a70-ae89-51e63884b434.png) | ![Smart](https://user-images.githubusercontent.com/42619122/155840255-4016f6da-3984-4a95-8b80-02e96edc08d6.png) | ![Fancy](https://user-images.githubusercontent.com/42619122/155840256-001cb494-6392-43d0-a4a9-a885d9e9ec8f.png) |
 
 
 ## Notes
 Here are some things you should remember:
-- Always call `check()` at the end. Library won't work without it.
+- **Always call `check()` at the end**. Library won't work without it.
 - If you don't set any them then the Default Theme will be selected automatically.
-- If you don't set App name then it will be picked automatically. 
 - If `shouldCheckAfterLaunch` is not used then lib will check for update in every launch.
 - If the app is not live on store, then it won't show any dialog
 - If the app is already latest version, then it won't show any dialog.
