@@ -150,6 +150,17 @@ MiniUpdateChecker has plenty of Options. Use Default theme or you can customize 
 		.check();
 ```
 
+### Recommended for Easy and Best Use
+
+```java
+	new updaate(this)
+		.setTheme(updaate.DEFAULT_THEME) // or Smart/Fancy
+		.setPrimaryColor(R.color.colorPrimary)
+		.check();
+
+```
+
+For Smart Theme, don't forget to call the `setAppIcon()` method. 
 
 ## Customizations
 
