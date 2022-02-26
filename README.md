@@ -150,7 +150,7 @@ MiniUpdateChecker has plenty of Options. Use Default theme or you can customize 
 		.check();
 ```
 
-### Recommended for Easy and Best Use
+### Recommended for Easy Use
 
 ```java
 	new updaate(this)
