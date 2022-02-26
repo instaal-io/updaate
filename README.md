@@ -172,37 +172,32 @@ There different themese with pre desgined layouts, but you can customize them as
 .setTheme(updaate.FANCY_THEME)
 ```
 
-### Text (Title, Description, App Name, Positive Button Text, Negative Button Text)
-
+### Text 
 Change different text on the layout by using these snippets.
 
 ```Java
-.setTitle("")
-.setDescription("")
-.setAppName("")
-.setPositiveLabel("")
-.setNegativeLabel("")
+.setTitle()
+.setPositiveLabel()
+.setNegativeLabel()
 ```
 
 
-### Image (App Icon, Close Icon)
+### Image
 Change the icons on the layout by using these snippets.
 
 ```Java
-.setAppIcon(R.drawable.ic_baseline_10mp_24)
-.setCloseIcon(R.drawable.ic_android_black_24dp)
+.setAppIcon()
 ```
 
 ### Colors (Background, Positive Button BG, Negative Button BG, Primary Text, Secondary Text, Positive Text Color, Negative Text Color)
 Change the colors on the layout by using these snippets.
 ```Java
-.setBackgroundColor(Color.parseColor("#ffffff"))
-.setPositiveButtonColor(Color.parseColor("#00ACC1"))
-.setNegativeButtonColor(Color.parseColor("#DDDDDD"))
-.setPrimaryTextColor(Color.parseColor("#00ACC1"))
-.setSecondaryTextColor(Color.parseColor("#444444"))
-.setPositiveTextColor(Color.parseColor("#FFFFFF"))
-.setNegativeTextColor(Color.parseColor("#444444"))
+.setIconColor()
+.setBackgroundColor()
+.setPrimaryColor()
+.setSecondaryColor()
+.setPositiveTextColor()
+.setNegativeButtonColor()
 ```
 ### Recheck
 You can set check again for next launches, like after 5 app launch. If nothing set then it will check on Every Launch.
@@ -213,8 +208,8 @@ You can set check again for next launches, like after 5 app launch. If nothing s
 
 ## Attributes
 
-| Keyword | Attribute | Description
-|---------------|---------|----------------------|
+| Keyword | Attribute | Description | Used In |
+|---------------|---------|---------|----------| 
 | `setTheme` | DEFAULT , MINI, SIMPLE | Select From Prebuilt Theme |
 | `setTitle` | String | Dialog Title |
 | `setAppIcon` | Drawable | Dialog Top Icon |
