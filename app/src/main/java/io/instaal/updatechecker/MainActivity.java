@@ -66,26 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    private void checkForUpdate() {
-//        new updaate(this)
-//                .setTheme(updaate.DEFAULT_THEME)
-//                .setTitle("App Updater")
-//                .setAppIcon(R.drawable.ic_baseline_10mp_24)
-//                .setCloseIcon(R.drawable.ic_android_black_24dp)
-//                .setDescription("New Update For")
-//                .setAppName("MY APP")
-//                .setPositiveLabel("Do It")
-//                .setNegativeLabel("Never")
-//                .setBackgroundColor(Color.parseColor("#ffffff"))
-//                .setPositiveButtonColor(Color.parseColor("#00ACC1"))
-//                .setNegativeButtonColor(Color.parseColor("#DDDDDD"))
-//                .setPrimaryTextColor(Color.parseColor("#00ACC1"))
-//                .setSecondaryTextColor(Color.parseColor("#444444"))
-//                .setPositiveTextColor(Color.parseColor("#FFFFFF"))
-//                .setNegativeTextColor(Color.parseColor("#444444"))
-//                .shouldCheckAfterLaunch(1)
-//                .check();
-//    }
 
 
 }
