@@ -225,14 +225,14 @@ public class updaate {
                 negative_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
                 current_version.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
                 ur_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-                titleText.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+                titleText.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
 
 
             } catch (Resources.NotFoundException e) {
                 negative_text.setTextColor(SECONDARY_COLOR);
                 current_version.setTextColor(SECONDARY_COLOR);
                 ur_version_text.setTextColor(SECONDARY_COLOR);
-                titleText.setTextColor(PRIMARY_COLOR);
+                titleText.setTextColor(SECONDARY_COLOR);
 
 
             }
@@ -578,14 +578,14 @@ public class updaate {
                 negative_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
                 current_version.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
                 ur_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-                titleText.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+                titleText.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
 
 
             } catch (Resources.NotFoundException e) {
                 negative_text.setTextColor(SECONDARY_COLOR);
                 current_version.setTextColor(SECONDARY_COLOR);
                 ur_version_text.setTextColor(SECONDARY_COLOR);
-                titleText.setTextColor(PRIMARY_COLOR);
+                titleText.setTextColor(SECONDARY_COLOR);
 
 
             }
