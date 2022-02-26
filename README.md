@@ -5,7 +5,7 @@
 
 <p align="center">
 <a href="https://www.android.com"><img src="https://img.shields.io/badge/platform-Android-yellow.svg" alt="platform"></a>
- <a href="https://android-arsenal.com/api?level=21"><img src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat" alt="API"></a> <a href="https://jitpack.io/#instaal-io/updaate"><img src="https://img.shields.io/jitpack/v/github/instaal-io/updaate" alt="JitPack"></a> <a href="https://github.com/instaal-io/updaate/blob/master/LICENSE"><img src="https://img.shields.io/github/license/instaal-io/updaate" alt="GitHub license"></a>
+ <a href="https://android-arsenal.com/api?level=21"><img src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat" alt="API"></a> <a href="https://jitpack.io/#instaal-io/updaate"><img src="https://jitpack.io/v/instaal-io/updaate.svg" alt="JitPack"></a> <a href="https://github.com/instaal-io/updaate/blob/master/LICENSE"><img src="https://img.shields.io/github/license/instaal-io/updaate" alt="GitHub license"></a>
  </p>
  <p align="center">
  <a href="https://github.com/instaal-io/updaate/issues"><img src="https://img.shields.io/github/issues/instaal-io/updaate" alt="GitHub issues"></a> <a href="https://github.com/instaal-io/updaate/network"><img src="https://img.shields.io/github/forks/instaal-io/updaate" alt="GitHub forks"></a> <a href="https://github.com/instaal-io/updaate/stargazers"><img src="https://img.shields.io/github/stars/instaal-io/updaate" alt="GitHub stars"></a> <a href="https://github.com/instaal-io/updaate/graphs/contributors"> <img src="https://img.shields.io/github/contributors/instaal-io/updaate" alt="GitHub contributors"></a> <img src="https://img.shields.io/github/languages/code-size/instaal-io/updaate" alt="Code Size"> 
@@ -22,7 +22,13 @@ Download and Check out the demo app for more
 
 
 ## What's New
-Initial release with initial features, everything is new. Check out `Releases` Tab for Info.
+(Changes in 1.1)
+- We have our brand new name "updaate".
+- New 3 Different Layout Designs.
+- Cool Looking **Editable** Animations.
+- Easy Customization Options.
+
+Check out `Releases` Tab for Info. Check out old documentation <a href="https://github.com/instaal-io/updaate/blob/master/old_readme.md">here</a>.
 
 ## Features
 MiniUpdateChecker has these features:
@@ -43,9 +49,10 @@ This library is built by this conifg:
 
 ## Screenshot
 Here is some screenshots of the library
-<p><img src="https://user-images.githubusercontent.com/42619122/155828397-f27780c7-db86-42b0-ac2d-e7a439f2ffc7.png" width="260" alt="Screenshot_1645468216">
-<img src="https://user-images.githubusercontent.com/42619122/155828399-deee9cb7-be9e-466a-b34d-1cc5aa693073.png" width="260" alt="Screenshot_1645468238">
-<img src="https://user-images.githubusercontent.com/42619122/155828401-c3ece947-c03a-444f-a77a-9502961f279f.png" width="260" alt="Screenshot_1645468252"></p>
+
+| Default | Smart | Fancy |
+|---------|--------|------|
+| ![default](https://user-images.githubusercontent.com/42619122/155828397-f27780c7-db86-42b0-ac2d-e7a439f2ffc7.png) | ![smart](https://user-images.githubusercontent.com/42619122/155828399-deee9cb7-be9e-466a-b34d-1cc5aa693073.png) | ![fancy](https://user-images.githubusercontent.com/42619122/155828401-c3ece947-c03a-444f-a77a-9502961f279f.png) |
 
 
 
@@ -82,10 +89,13 @@ dependencyResolutionManagement {
 ## Dependencies
 Add this to your module's `build.gradle` file (make sure the version matches the JitPack badge above):
 
+(Always use the latest version. Current Latest version is <a href="https://jitpack.io/#instaal-io/updaate"><img src="https://jitpack.io/v/instaal-io/updaate.svg" alt="JitPack"></a> )
+
 ```gradle
 dependencies {
 	...
-	implementation 'com.github.instaal-io:MiniUpdateChecker:1.0'
+		implementation 'com.github.instaal-io:updaate:1.1'
+
 }
 ```
 
@@ -97,26 +107,27 @@ MiniUpdateChecker has plenty of Options. Use Default theme or you can customize 
 #### Default Theme
 
 ```java
-new MiniUpdateChecker(this).check();
+	new updaate(this).check();
 ```
 ```java
- new MiniUpdateChecker(this)
-                .setTheme(MiniUpdateChecker.DEFAULT_THEME)
-                .check();	
+	new updaate(this)
+		.setTheme(updaate.DEFAULT_THEME)
+		.check();	
+```
+(Selecting no theme will automatically pick default theme)
+
+#### Smart Theme
+```java
+	new updaate(this)
+		.setTheme(updaate.SMART_THEME)
+		.check();
 ```
 
-#### Mini Theme
+#### Fancy Theme
 ```java
- new MiniUpdateChecker(this)
-                .setTheme(MiniUpdateChecker.MINI_THEME)
-                .check();	
-```
-
-#### Simple Theme
-```java
-new MiniUpdateChecker(this)
-                .setTheme(MiniUpdateChecker.SIMPLE_THEME)
-                .check();	
+	new updaate(this)
+		.setTheme(updaate.FANCY_THEME)
+		.check();
 ```
 
 
