@@ -9,4 +9,9 @@
     <string name="demo_version2">1.4.2</string>
     <string name="not_now">Not Now</string>
     <string name="update">Update</string>
+    <string name="new_update_available">New Update Available</string>
+    <string name="not_now">Not Now</string>
+    <string name="update">Update</string>
+    <string name="update_now">Update Now</string>
+    <string name="maybe_later">Maybe later</string>
 </resources>

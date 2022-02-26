@@ -35,7 +35,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="New Update Available"
+                    android:text="@string/new_update_available"
                     android:textColor="@color/secondary_text_color"
                     android:textSize="17sp" />
 
@@ -160,7 +160,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="Not Now"
+                        android:text="@string/not_now"
                         android:textColor="@color/secondary_text_color"
                         android:textSize="16sp" />
 
@@ -182,7 +182,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="Update"
+                        android:text="@string/update"
                         android:textColor="#fff"
                         android:textSize="16sp" />
 

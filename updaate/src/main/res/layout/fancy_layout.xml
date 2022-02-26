@@ -39,7 +39,7 @@
                 android:layout_marginBottom="10dp"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
-                android:text="New Update Available!"
+                android:text="@string/new_update_available"
                 android:textColor="#5a3ae7"
                 android:textSize="19sp" />
 
@@ -121,7 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Update Now"
+                    android:text="@string/update_now"
                     android:textColor="#fff"
                     android:textSize="16sp" />
 
@@ -135,7 +135,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="15dp"
                 android:gravity="center"
-                android:text="Maybe later"
+                android:text="@string/maybe_later"
                 android:textColor="@color/secondary_text_color"
                 android:textSize="14sp" />
 
