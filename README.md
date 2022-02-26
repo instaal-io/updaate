@@ -22,7 +22,7 @@ Download and Check out the demo app for more
 
 
 ## What's New
-(Changes in 1.1)
+Changes in 1.1
 - We have our brand new name "updaate".
 - New 3 Different Layout Designs.
 - Cool Looking **Editable** Animations.
@@ -176,9 +176,9 @@ There different themese with pre desgined layouts, but you can customize them as
 Change different text on the layout by using these snippets.
 
 ```Java
-.setTitle()
-.setPositiveLabel()
-.setNegativeLabel()
+.setTitle()  // Change Title  Text
+.setPositiveLabel() // Change Positive Button Text
+.setNegativeLabel() // Change Negative Button Text
 ```
 
 
@@ -189,15 +189,15 @@ Change the icons on the layout by using these snippets.
 .setAppIcon()
 ```
 
-### Colors (Background, Positive Button BG, Negative Button BG, Primary Text, Secondary Text, Positive Text Color, Negative Text Color)
+### Colors
 Change the colors on the layout by using these snippets.
 ```Java
-.setIconColor()
-.setBackgroundColor()
-.setPrimaryColor()
-.setSecondaryColor()
-.setPositiveTextColor()
-.setNegativeButtonColor()
+.setIconColor() // Change Icon Color. Only works if it is a Vector.
+.setBackgroundColor() // Change the whole layouts background
+.setPrimaryColor() // Change color for primary obejects
+.setSecondaryColor() // Change color for secondary obejects
+.setPositiveTextColor() // Change Text Color for Positive Text
+.setNegativeButtonColor() // Change Text Color for Negative Text
 ```
 ### Recheck
 You can set check again for next launches, like after 5 app launch. If nothing set then it will check on Every Launch.
