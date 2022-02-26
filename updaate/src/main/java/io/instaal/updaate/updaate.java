@@ -726,8 +726,8 @@ public class updaate {
         return this;
     }
 
-    public updaate shouldCheckAfterLaunch(int color) {
-        USER_LAUNCH_COUNT = color;
+    public updaate shouldCheckAfterLaunch(int launch) {
+        USER_LAUNCH_COUNT = launch;
         return this;
 
     }
