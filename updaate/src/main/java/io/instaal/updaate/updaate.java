@@ -47,6 +47,8 @@ public class updaate {
     private static final int DEFAULT_POSITIVE_TEXT_COLOR = Color.parseColor("#FFFFFF");
     private static final String LAUNCHES = "launches";
 
+
+
     private final Activity activity;
     SharedPreferences sharedPreferences;
     private String THEME = "default";

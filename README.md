@@ -22,17 +22,16 @@ Download and Check out the demo app for more
 
 
 ## What's New
-Changes in 1.2
+Changes in 1.1
 - We have our brand new name "updaate".
 - New 3 Different Layout Designs.
 - Cool Looking **Editable** Animations.
 - Easy Customization Options.
-- Bug fixed.
 
 Check out `Releases` Tab for Info. Check out old documentation <a href="https://github.com/instaal-io/updaate/blob/master/old_readme.md">here</a>.
 
 ## Features
-updaate has these features:
+MiniUpdateChecker has these features:
 - Checking Update for Your Android App on Google Play Store
 - Material Design UI
 - 3 Themes
@@ -95,8 +94,7 @@ Add this to your module's `build.gradle` file (make sure the version matches the
 ```gradle
 dependencies {
 	...
-		implementation 'com.github.instaal-io:updaate:1.2'
-
+		implementation 'com.github.instaal-io:updaate:1.1'
 
 }
 ```
