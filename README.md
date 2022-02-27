@@ -32,7 +32,7 @@ Changes in 1.2
 Check out `Releases` Tab for Info. Check out old documentation <a href="https://github.com/instaal-io/updaate/blob/master/old_readme.md">here</a>.
 
 ## Features
-MiniUpdateChecker has these features:
+updaate has these features:
 - Checking Update for Your Android App on Google Play Store
 - Material Design UI
 - 3 Themes
