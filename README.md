@@ -50,7 +50,7 @@ This library is built by this conifg:
 ## Screenshot
 Here is some screenshots of the library
 
-| Default | Smart | Fancy |
+| Simple | Default | Advanced |
 |---------|--------|------|
 | ![default](https://user-images.githubusercontent.com/42619122/155828397-f27780c7-db86-42b0-ac2d-e7a439f2ffc7.png) | ![smart](https://user-images.githubusercontent.com/42619122/155828399-deee9cb7-be9e-466a-b34d-1cc5aa693073.png) | ![fancy](https://user-images.githubusercontent.com/42619122/155828401-c3ece947-c03a-444f-a77a-9502961f279f.png) |
 
