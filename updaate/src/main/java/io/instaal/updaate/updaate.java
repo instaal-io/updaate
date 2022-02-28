@@ -119,20 +119,12 @@ public class updaate {
 
     }
 
-    // TODO
+    // Done
     private void CheckForUpdate() {
 
         Executors.newSingleThreadExecutor().execute(() -> {
             try {
-//                LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=" + activity.getPackageName() + "&hl=en")
-//                        .timeout(30000)
-//                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
-//                        .referrer("http://www.google.com")
-//                        .get()
-//                        .select("div.hAyfc:nth-child(4) > span:nth-child(2) > div:nth-child(1) > span:nth-child(1)")
-//                        .first())
-//                        .ownText();
-                LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=com.andronius.numberconverterplus&hl=en")
+                LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=" + activity.getPackageName() + "&hl=en")
                         .timeout(30000)
                         .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
                         .referrer("http://www.google.com")
@@ -140,6 +132,14 @@ public class updaate {
                         .select("div.hAyfc:nth-child(4) > span:nth-child(2) > div:nth-child(1) > span:nth-child(1)")
                         .first())
                         .ownText();
+//                LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=com.andronius.numberconverterplus&hl=en")
+//                        .timeout(30000)
+//                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
+//                        .referrer("http://www.google.com")
+//                        .get()
+//                        .select("div.hAyfc:nth-child(4) > span:nth-child(2) > div:nth-child(1) > span:nth-child(1)")
+//                        .first())
+//                        .ownText();
 
                 activity.runOnUiThread(() -> ValidateUpdate(LATEST_VERSION));
 
@@ -166,15 +166,15 @@ public class updaate {
 
     private void chooseDialog() {
         switch (THEME) {
-            case SMART_THEME:
-                showSmartDialog();
-                break;
             case FANCY_THEME:
                 showFancyDialog();
                 break;
             case DEFAULT_THEME:
-            default:
                 showDefaultDialog();
+                break;
+            case SMART_THEME:
+            default:
+                showSmartDialog();
                 break;
         }
 
@@ -190,7 +190,7 @@ public class updaate {
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(isCancelable);
-        dialog.setContentView(R.layout.default_layout);
+        dialog.setContentView(R.layout.simple_layout);
 
         TextView titleText = dialog.findViewById(R.id.title_text);
         TextView current_version = dialog.findViewById(R.id.current_version);
@@ -335,6 +335,7 @@ public class updaate {
     }
 
 
+    // Done
     @SuppressLint("SetTextI18n")
     private void showSmartDialog() {
 
@@ -509,7 +510,7 @@ public class updaate {
         dialog.show();
     }
 
-
+    // Done
     @SuppressLint("SetTextI18n")
     private void showFancyDialog() {
 
@@ -518,7 +519,7 @@ public class updaate {
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(isCancelable);
-        dialog.setContentView(R.layout.fancy_layout);
+        dialog.setContentView(R.layout.advanced_layout);
 
         TextView titleText = dialog.findViewById(R.id.title_text);
         TextView current_version = dialog.findViewById(R.id.current_version);

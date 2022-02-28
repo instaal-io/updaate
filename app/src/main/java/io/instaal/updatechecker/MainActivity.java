@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 new updaate(this)
                         .setTheme(updaate.SMART_THEME)
                         .hideNegativeButton(false)
+                        .setIconColor(R.color.black)
                         .setCancelable(true)
                         .check());
 
