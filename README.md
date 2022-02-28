@@ -22,16 +22,11 @@ Download and Check out the demo app for more
 
 
 ## What's New
-Changes in 1.1
-- We have our brand new name "updaate".
-- New 3 Different Layout Designs.
-- Cool Looking **Editable** Animations.
-- Easy Customization Options.
-
-Check out `Releases` Tab for Info. Check out old documentation <a href="https://github.com/instaal-io/updaate/blob/master/old_readme.md">here</a>.
+It's first release, so everything is new.
+Check out `Releases` Tab for Info. 
 
 ## Features
-MiniUpdateChecker has these features:
+updaate has these features:
 - Checking Update for Your Android App on Google Play Store
 - Material Design UI
 - 3 Themes
@@ -58,7 +53,7 @@ Here is some screenshots of the library
 
 ## Prerequisites
 
-### Old
+#### Old
 If you're using old gradle versions then follow this.
 Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
 
@@ -71,7 +66,7 @@ allprojects {
 }
 ```
 
-### New
+#### New
 If you're using new gradle versions then follow this.
 Add this in your `settings.gradle` file:
 
@@ -94,71 +89,56 @@ Add this to your module's `build.gradle` file (make sure the version matches the
 ```gradle
 dependencies {
 	...
-		implementation 'com.github.instaal-io:updaate:1.1'
+		implementation 'com.github.instaal-io:updaate:1.0'
 
 }
 ```
 
 
 ## Usage
-MiniUpdateChecker has plenty of Options. Use Default theme or you can customize as much as you want. Here the usages for MiniUpdateChecker:
+updaate has plenty of Options. Use Default theme or you can customize as much as you want. Here the usages for updaate:
 
-### Basic
-#### Default Theme
+### SIMPLE THEME
 
-```java
-	new updaate(this).check();
-```
-```java
-	new updaate(this)
-		.setTheme(updaate.DEFAULT_THEME)
-		.check();	
-```
-(Selecting no theme will automatically pick default theme)
+A Simple Material Design Theme. Basic Functionalities with Basic Customization
 
-#### Smart Theme
-```java
-	new updaate(this)
-		.setTheme(updaate.SMART_THEME)
-		.check();
+#### Basic
+
+``` java
+
+        new updaate(this)
+                .setTheme(updaate.SIMPLE_THEME)
+                .check());
+
 ```
 
-#### Fancy Theme
-```java
-	new updaate(this)
-		.setTheme(updaate.FANCY_THEME)
-		.check();
+#### Customizations
+
+``` java
+
+        new updaate(this)
+                .setTheme(updaate.SIMPLE_THEME)
+                .setAppIcon(R.mipmap.ic_launcher)
+                .setTitle("An Update Available")
+                .setPositiveLabel("Update Now")
+                .setNegativeLabel("Maybe Later")
+                .setBackgroundColor(Color.parseColor("#FFFFFF"))
+                .setNegativeButtonColor(Color.parseColor("#dddddd"))
+                .setPrimaryColor(R.color.colorPrimary)
+                .setSecondaryColor(Color.parseColor("#666666"))
+                .setPositiveTextColor(Color.WHITE)
+                .shouldCheckAfterLaunch(1)
+                .setCancelable(true)
+                .check());
+
 ```
 
+### DEFAULT THEME
+
+### Fancy Theme
 
 ### Customized
 
-```java
-	new updaate(this)
-		.setTheme(updaate.DEFAULT_THEME)
-		.setAppIcon(R.drawable.ic_baseline_account_balance_24)
-		.setIconColor(R.color.colorPrimary)
-		.setTitle("A New Update Available")
-		.setPositiveLabel("Update Now")
-		.setNegativeLabel("Maybe Later")
-		.setBackgroundColor(R.color.white)
-		.setPrimaryColor(R.color.colorPrimary)
-		.setSecondaryColor(Color.parseColor("#888888"))
-		.setPositiveTextColor(Color.parseColor("#eeeeee"))
-		.setNegativeButtonColor(Color.parseColor("#eeeeee"))
-		.shouldCheckAfterLaunch(1)
-		.check();
-```
-
-### Recommended for Easy Use
-
-```java
-	new updaate(this)
-		.setTheme(updaate.DEFAULT_THEME) // or Smart/Fancy
-		.setPrimaryColor(R.color.colorPrimary)
-		.check();
-
-```
 
 For Smart Theme, don't forget to call the `setAppIcon()` method. 
 
