@@ -25,7 +25,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         CardView cardView2 = findViewById(R.id.checkButton2);
-        cardView2.setOnClickListener(view -> new updaate(this).setTheme(updaate.SMART_THEME).check());
+        cardView2.setOnClickListener(view ->
+                new updaate(this)
+                        .setTheme(updaate.SMART_THEME)
+                        .hideNegativeButton(true)
+                        .setCancelable(false)
+                        .check());
 
         CardView cardView3 = findViewById(R.id.checkButton3);
         cardView3.setOnClickListener(view ->

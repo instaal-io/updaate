@@ -121,6 +121,7 @@ public class updaate {
 
     }
 
+    // TODO
     private void CheckForUpdate() {
 
         Executors.newSingleThreadExecutor().execute(() -> {
@@ -181,6 +182,8 @@ public class updaate {
 
     }
 
+
+    // Done
     @SuppressLint("SetTextI18n")
     private void showDefaultDialog() {
 
@@ -342,7 +345,7 @@ public class updaate {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(true);
+        dialog.setCancelable(isCancelable);
         dialog.setContentView(R.layout.smart_layout);
 
 
@@ -382,11 +385,15 @@ public class updaate {
             negative_text.setText(NOT_NOW);
         }
 
+        if (hideNegativeButton){
+            not_now_button.setVisibility(View.GONE);
+        } else {
+            not_now_button.setVisibility(View.VISIBLE);
+        }
 
 
 
         // primary colors
-
         if (PRIMARY_COLOR == 0) {
             titleText.setTextColor(DEFAULT_PRIMARY_COLOR);
             update_button.setCardBackgroundColor(DEFAULT_PRIMARY_COLOR);
