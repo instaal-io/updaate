@@ -27,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
                 new updaate(this)
                         .setTheme(updaate.FANCY_THEME)
                         .useImageInsteadAnim(false)
-                        .setHeaderAnimation(updaate.ANIMATION_5)
+                        .setHeaderImage(updaate.IMAGE_9)
+                        .setHeaderAnimation(updaate.ANIMATION_4)
+                        .hideNegativeButton(false)
+                        .setCancelable(false)
                         .check());
 
 

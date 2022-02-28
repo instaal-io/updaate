@@ -84,6 +84,8 @@ public class updaate {
     private boolean isImageOn = false;
     private String ANIM_SELECT = "0";
     private String IMAGE_SELECT = "0";
+    private boolean isCancelable = true;
+    private boolean hideNegativeButton = false;
 
     public updaate(Activity activity) {
         this.activity = activity;
@@ -332,7 +334,7 @@ public class updaate {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(true);
+        dialog.setCancelable(isCancelable);
         dialog.setContentView(R.layout.fancy_layout);
 
         TextView titleText = dialog.findViewById(R.id.title_text);
@@ -438,6 +440,11 @@ public class updaate {
             negative_text.setText(NOT_NOW);
         }
 
+        if (hideNegativeButton){
+            negative_text.setVisibility(View.GONE);
+        } else {
+            negative_text.setVisibility(View.VISIBLE);
+        }
 
         // primary colors
 
@@ -578,6 +585,8 @@ public class updaate {
         } else {
             negative_text.setText(NOT_NOW);
         }
+
+
 
 
         // primary colors
@@ -793,6 +802,16 @@ public class updaate {
         IMAGE_SELECT = imageName;
         return this;
 
+    }
+
+    public updaate setCancelable(boolean cancelable){
+        isCancelable = cancelable;
+        return this;
+    }
+
+    public updaate hideNegativeButton(boolean hide){
+        hideNegativeButton = hide;
+        return this;
     }
 
 }
