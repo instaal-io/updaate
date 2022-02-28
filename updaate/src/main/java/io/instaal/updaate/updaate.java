@@ -32,9 +32,9 @@ import java.util.concurrent.Executors;
 
 public class updaate {
 
+    public static final String SIMPLE_THEME = "simple";
     public static final String DEFAULT_THEME = "default";
-    public static final String SMART_THEME = "smart";
-    public static final String FANCY_THEME = "fancy";
+    public static final String ADVANCED_THEME = "advanced";
     public static final String ANIMATION_1 = "anim1";
     public static final String ANIMATION_2 = "anim2";
     public static final String ANIMATION_3 = "anim3";
@@ -124,15 +124,7 @@ public class updaate {
 
         Executors.newSingleThreadExecutor().execute(() -> {
             try {
-                LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=" + activity.getPackageName() + "&hl=en")
-                        .timeout(30000)
-                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
-                        .referrer("http://www.google.com")
-                        .get()
-                        .select("div.hAyfc:nth-child(4) > span:nth-child(2) > div:nth-child(1) > span:nth-child(1)")
-                        .first())
-                        .ownText();
-//                LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=com.andronius.numberconverterplus&hl=en")
+//                LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=" + activity.getPackageName() + "&hl=en")
 //                        .timeout(30000)
 //                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
 //                        .referrer("http://www.google.com")
@@ -140,6 +132,14 @@ public class updaate {
 //                        .select("div.hAyfc:nth-child(4) > span:nth-child(2) > div:nth-child(1) > span:nth-child(1)")
 //                        .first())
 //                        .ownText();
+                LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=com.andronius.numberconverterplus&hl=en")
+                        .timeout(30000)
+                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
+                        .referrer("http://www.google.com")
+                        .get()
+                        .select("div.hAyfc:nth-child(4) > span:nth-child(2) > div:nth-child(1) > span:nth-child(1)")
+                        .first())
+                        .ownText();
 
                 activity.runOnUiThread(() -> ValidateUpdate(LATEST_VERSION));
 
@@ -166,15 +166,15 @@ public class updaate {
 
     private void chooseDialog() {
         switch (THEME) {
-            case FANCY_THEME:
-                showFancyDialog();
+            case ADVANCED_THEME:
+                showAdvancedDialog();
+                break;
+            case SIMPLE_THEME:
+                showSimpleDialog();
                 break;
             case DEFAULT_THEME:
-                showDefaultDialog();
-                break;
-            case SMART_THEME:
             default:
-                showSmartDialog();
+                showDefaultDialog();
                 break;
         }
 
@@ -183,7 +183,7 @@ public class updaate {
 
     // Done
     @SuppressLint("SetTextI18n")
-    private void showDefaultDialog() {
+    private void showSimpleDialog() {
 
         Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -337,14 +337,14 @@ public class updaate {
 
     // Done
     @SuppressLint("SetTextI18n")
-    private void showSmartDialog() {
+    private void showDefaultDialog() {
 
         Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(isCancelable);
-        dialog.setContentView(R.layout.smart_layout);
+        dialog.setContentView(R.layout.default_layout);
 
 
         TextView titleText = dialog.findViewById(R.id.title_text);
@@ -512,7 +512,7 @@ public class updaate {
 
     // Done
     @SuppressLint("SetTextI18n")
-    private void showFancyDialog() {
+    private void showAdvancedDialog() {
 
         Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
