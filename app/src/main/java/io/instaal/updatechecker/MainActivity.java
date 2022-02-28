@@ -18,20 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
         CardView cardView = findViewById(R.id.checkButton);
         cardView.setOnClickListener(view ->
-                new updaate(this)
-                        .setTheme(updaate.SIMPLE_THEME)
-                        .setAppIcon(R.mipmap.ic_launcher)
-                        .setTitle("An Update Available")
-                        .setPositiveLabel("Update Now")
-                        .setNegativeLabel("Maybe Later")
-                        .setBackgroundColor(Color.parseColor("#FFFFFF"))
-                        .setNegativeButtonColor(Color.parseColor("#dddddd"))
-                        .setPrimaryColor(R.color.colorPrimary)
-                        .setSecondaryColor(Color.parseColor("#666666"))
-                        .setPositiveTextColor(Color.WHITE)
-                        .shouldCheckAfterLaunch(1)
-                        .setCancelable(true)
-                        .check());
+        new updaate(this)
+                .setTheme(updaate.SIMPLE_THEME)
+                .check());
 
 
         CardView cardView2 = findViewById(R.id.checkButton2);
