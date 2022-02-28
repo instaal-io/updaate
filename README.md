@@ -22,13 +22,8 @@ Download and Check out the demo app for more
 
 
 ## What's New
-Changes in 1.1
-- We have our brand new name "updaate".
-- New 3 Different Layout Designs.
-- Cool Looking **Editable** Animations.
-- Easy Customization Options.
-
-Check out `Releases` Tab for Info. Check out old documentation <a href="https://github.com/instaal-io/updaate/blob/master/old_readme.md">here</a>.
+It's first release, so everything is new.
+Check out `Releases` Tab for Info. 
 
 ## Features
 MiniUpdateChecker has these features:
@@ -58,7 +53,7 @@ Here is some screenshots of the library
 
 ## Prerequisites
 
-### Old
+#### Old
 If you're using old gradle versions then follow this.
 Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
 
@@ -71,7 +66,7 @@ allprojects {
 }
 ```
 
-### New
+#### New
 If you're using new gradle versions then follow this.
 Add this in your `settings.gradle` file:
 
@@ -94,7 +89,7 @@ Add this to your module's `build.gradle` file (make sure the version matches the
 ```gradle
 dependencies {
 	...
-		implementation 'com.github.instaal-io:updaate:1.1'
+		implementation 'com.github.instaal-io:updaate:1.0'
 
 }
 ```
