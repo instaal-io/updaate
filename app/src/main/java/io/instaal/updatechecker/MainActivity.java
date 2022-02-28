@@ -16,7 +16,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         CardView cardView = findViewById(R.id.checkButton);
-        cardView.setOnClickListener(view -> new updaate(this).setTheme(updaate.DEFAULT_THEME).check());
+        cardView.setOnClickListener(view ->
+                new updaate(this)
+                        .setTheme(updaate.DEFAULT_THEME)
+                        .setAppIcon(R.mipmap.ic_launcher)
+                        .hideNegativeButton(true)
+                        .check());
 
 
         CardView cardView2 = findViewById(R.id.checkButton2);
@@ -30,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                         .setHeaderImage(updaate.IMAGE_9)
                         .setHeaderAnimation(updaate.ANIMATION_4)
                         .hideNegativeButton(false)
-                        .setCancelable(false)
+                        .setCancelable(true)
                         .check());
 
 

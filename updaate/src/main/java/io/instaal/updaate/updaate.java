@@ -188,7 +188,7 @@ public class updaate {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(true);
+        dialog.setCancelable(isCancelable);
         dialog.setContentView(R.layout.default_layout);
 
         TextView titleText = dialog.findViewById(R.id.title_text);
@@ -200,7 +200,13 @@ public class updaate {
         CardView not_now_button = dialog.findViewById(R.id.not_now_button);
         TextView negative_text = dialog.findViewById(R.id.negative_text);
         TextView positive_text = dialog.findViewById(R.id.positive_text);
+        ImageView app_icon = dialog.findViewById(R.id.app_icon);
 
+        if (APP_ICON == 0) {
+            app_icon.setImageResource(DEFAULT_APP_ICON);
+        } else {
+            app_icon.setImageResource(APP_ICON);
+        }
 
         if (TITLE.equals("main")) {
             titleText.setText(DEFAULT_TITLE);
@@ -326,6 +332,179 @@ public class updaate {
 
         dialog.show();
     }
+
+
+
+    @SuppressLint("SetTextI18n")
+    private void showSmartDialog() {
+
+        Dialog dialog = new Dialog(activity);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.smart_layout);
+
+
+        TextView titleText = dialog.findViewById(R.id.title_text);
+        TextView current_version = dialog.findViewById(R.id.current_version);
+        TextView latest_version = dialog.findViewById(R.id.latest_version);
+        TextView ur_version_text = dialog.findViewById(R.id.ur_version_text);
+        TextView lt_version_text = dialog.findViewById(R.id.lt_version_text);
+        CardView update_button = dialog.findViewById(R.id.update_button);
+        CardView not_now_button = dialog.findViewById(R.id.not_now_button);
+        TextView negative_text = dialog.findViewById(R.id.negative_text);
+        TextView positive_text = dialog.findViewById(R.id.positive_text);
+        ImageView app_icon = dialog.findViewById(R.id.app_icon);
+
+
+        if (APP_ICON == 0) {
+            app_icon.setImageResource(DEFAULT_APP_ICON);
+        } else {
+            app_icon.setImageResource(APP_ICON);
+        }
+
+        if (TITLE.equals("main")) {
+            titleText.setText(DEFAULT_TITLE);
+        } else {
+            titleText.setText(TITLE);
+        }
+
+        if (UPDATE.equals("update_now")) {
+            positive_text.setText("Update");
+        } else {
+            positive_text.setText(UPDATE);
+        }
+
+        if (NOT_NOW.equals("not_now")) {
+            negative_text.setText("Not Now");
+        } else {
+            negative_text.setText(NOT_NOW);
+        }
+
+
+
+
+        // primary colors
+
+        if (PRIMARY_COLOR == 0) {
+            titleText.setTextColor(DEFAULT_PRIMARY_COLOR);
+            update_button.setCardBackgroundColor(DEFAULT_PRIMARY_COLOR);
+            lt_version_text.setTextColor(DEFAULT_PRIMARY_COLOR);
+            latest_version.setTextColor(DEFAULT_PRIMARY_COLOR);
+
+        } else {
+            try {
+                update_button.setCardBackgroundColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+                lt_version_text.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+                latest_version.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+                titleText.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+
+
+            } catch (Resources.NotFoundException e) {
+                update_button.setCardBackgroundColor(PRIMARY_COLOR);
+                lt_version_text.setTextColor(PRIMARY_COLOR);
+                latest_version.setTextColor(PRIMARY_COLOR);
+                titleText.setTextColor(PRIMARY_COLOR);
+
+            }
+        }
+
+
+        if (ICON_COLOR != 0) {
+            try {
+                app_icon.setColorFilter(ContextCompat.getColor(activity, ICON_COLOR));
+
+
+            } catch (Resources.NotFoundException e) {
+
+                app_icon.setColorFilter(ICON_COLOR);
+            }
+        }
+
+        // secondary colors
+        if (SECONDARY_COLOR == 0) {
+            negative_text.setTextColor(DEFAULT_SECONDARY_COLOR);
+            current_version.setTextColor(DEFAULT_SECONDARY_COLOR);
+            ur_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
+
+        } else {
+            try {
+                negative_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                current_version.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                ur_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+
+
+            } catch (Resources.NotFoundException e) {
+                negative_text.setTextColor(SECONDARY_COLOR);
+                current_version.setTextColor(SECONDARY_COLOR);
+                ur_version_text.setTextColor(SECONDARY_COLOR);
+
+
+            }
+        }
+
+
+        if (NEGATIVE_COLOR == 0) {
+            not_now_button.setCardBackgroundColor(DEFAULT_NEGATIVE_COLOR);
+
+        } else {
+            try {
+                not_now_button.setCardBackgroundColor(ContextCompat.getColor(activity, NEGATIVE_COLOR));
+
+            } catch (Resources.NotFoundException e) {
+
+                not_now_button.setCardBackgroundColor(NEGATIVE_COLOR);
+
+            }
+        }
+
+        // Positive Button Text Color
+        if (POSITIVE_TEXT_COLOR == 0) {
+            positive_text.setTextColor(DEFAULT_POSITIVE_TEXT_COLOR);
+
+        } else {
+            try {
+                positive_text.setTextColor(ContextCompat.getColor(activity, POSITIVE_TEXT_COLOR));
+
+            } catch (Resources.NotFoundException e) {
+                positive_text.setTextColor(POSITIVE_TEXT_COLOR);
+
+
+            }
+        }
+
+
+        // background color
+        CardView wholeView = dialog.findViewById(R.id.main_card);
+        if (COLOR == 0) {
+            wholeView.setCardBackgroundColor(DEFAULT_COLOR);
+        } else {
+
+            try {
+                wholeView.setCardBackgroundColor(ContextCompat.getColor(activity, COLOR));
+            } catch (Resources.NotFoundException e) {
+                wholeView.setCardBackgroundColor(COLOR);
+            }
+
+        }
+
+        current_version.setText(CURRENT_VERSION);
+        latest_version.setText(LATEST_VERSION);
+
+        not_now_button.setOnClickListener(view -> dialog.dismiss());
+        update_button.setOnClickListener(view -> {
+                    dialog.dismiss();
+                    launchForUpdate();
+                }
+        );
+
+        dialog.show();
+    }
+
+
+
+
 
     @SuppressLint("SetTextI18n")
     private void showFancyDialog() {
@@ -539,172 +718,6 @@ public class updaate {
     }
 
 
-    @SuppressLint("SetTextI18n")
-    private void showSmartDialog() {
-
-        Dialog dialog = new Dialog(activity);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(true);
-        dialog.setContentView(R.layout.smart_layout);
-
-
-        TextView titleText = dialog.findViewById(R.id.title_text);
-        TextView current_version = dialog.findViewById(R.id.current_version);
-        TextView latest_version = dialog.findViewById(R.id.latest_version);
-        TextView ur_version_text = dialog.findViewById(R.id.ur_version_text);
-        TextView lt_version_text = dialog.findViewById(R.id.lt_version_text);
-        CardView update_button = dialog.findViewById(R.id.update_button);
-        CardView not_now_button = dialog.findViewById(R.id.not_now_button);
-        TextView negative_text = dialog.findViewById(R.id.negative_text);
-        TextView positive_text = dialog.findViewById(R.id.positive_text);
-        ImageView app_icon = dialog.findViewById(R.id.app_icon);
-
-
-        if (APP_ICON == 0) {
-            app_icon.setImageResource(DEFAULT_APP_ICON);
-        } else {
-            app_icon.setImageResource(APP_ICON);
-        }
-
-        if (TITLE.equals("main")) {
-            titleText.setText(DEFAULT_TITLE);
-        } else {
-            titleText.setText(TITLE);
-        }
-
-        if (UPDATE.equals("update_now")) {
-            positive_text.setText("Update");
-        } else {
-            positive_text.setText(UPDATE);
-        }
-
-        if (NOT_NOW.equals("not_now")) {
-            negative_text.setText("Not Now");
-        } else {
-            negative_text.setText(NOT_NOW);
-        }
-
-
-
-
-        // primary colors
-
-        if (PRIMARY_COLOR == 0) {
-            titleText.setTextColor(DEFAULT_PRIMARY_COLOR);
-            update_button.setCardBackgroundColor(DEFAULT_PRIMARY_COLOR);
-            lt_version_text.setTextColor(DEFAULT_PRIMARY_COLOR);
-            latest_version.setTextColor(DEFAULT_PRIMARY_COLOR);
-
-        } else {
-            try {
-                update_button.setCardBackgroundColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
-                lt_version_text.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
-                latest_version.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
-                titleText.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
-
-
-            } catch (Resources.NotFoundException e) {
-                update_button.setCardBackgroundColor(PRIMARY_COLOR);
-                lt_version_text.setTextColor(PRIMARY_COLOR);
-                latest_version.setTextColor(PRIMARY_COLOR);
-                titleText.setTextColor(PRIMARY_COLOR);
-
-            }
-        }
-
-
-        if (ICON_COLOR != 0) {
-            try {
-                app_icon.setColorFilter(ContextCompat.getColor(activity, ICON_COLOR));
-
-
-            } catch (Resources.NotFoundException e) {
-
-                app_icon.setColorFilter(ICON_COLOR);
-            }
-        }
-
-        // secondary colors
-        if (SECONDARY_COLOR == 0) {
-            negative_text.setTextColor(DEFAULT_SECONDARY_COLOR);
-            current_version.setTextColor(DEFAULT_SECONDARY_COLOR);
-            ur_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
-
-        } else {
-            try {
-                negative_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-                current_version.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-                ur_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-
-
-            } catch (Resources.NotFoundException e) {
-                negative_text.setTextColor(SECONDARY_COLOR);
-                current_version.setTextColor(SECONDARY_COLOR);
-                ur_version_text.setTextColor(SECONDARY_COLOR);
-
-
-            }
-        }
-
-
-        if (NEGATIVE_COLOR == 0) {
-            not_now_button.setCardBackgroundColor(DEFAULT_NEGATIVE_COLOR);
-
-        } else {
-            try {
-                not_now_button.setCardBackgroundColor(ContextCompat.getColor(activity, NEGATIVE_COLOR));
-
-            } catch (Resources.NotFoundException e) {
-
-                not_now_button.setCardBackgroundColor(NEGATIVE_COLOR);
-
-            }
-        }
-
-        // Positive Button Text Color
-        if (POSITIVE_TEXT_COLOR == 0) {
-            positive_text.setTextColor(DEFAULT_POSITIVE_TEXT_COLOR);
-
-        } else {
-            try {
-                positive_text.setTextColor(ContextCompat.getColor(activity, POSITIVE_TEXT_COLOR));
-
-            } catch (Resources.NotFoundException e) {
-                positive_text.setTextColor(POSITIVE_TEXT_COLOR);
-
-
-            }
-        }
-
-
-        // background color
-        CardView wholeView = dialog.findViewById(R.id.main_card);
-        if (COLOR == 0) {
-            wholeView.setCardBackgroundColor(DEFAULT_COLOR);
-        } else {
-
-            try {
-                wholeView.setCardBackgroundColor(ContextCompat.getColor(activity, COLOR));
-            } catch (Resources.NotFoundException e) {
-                wholeView.setCardBackgroundColor(COLOR);
-            }
-
-        }
-
-        current_version.setText(CURRENT_VERSION);
-        latest_version.setText(LATEST_VERSION);
-
-        not_now_button.setOnClickListener(view -> dialog.dismiss());
-        update_button.setOnClickListener(view -> {
-                    dialog.dismiss();
-                    launchForUpdate();
-                }
-        );
-
-        dialog.show();
-    }
 
 
     private void launchForUpdate() {
