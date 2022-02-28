@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         cardView2.setOnClickListener(view ->
                 new updaate(this)
                         .setTheme(updaate.SMART_THEME)
-                        .hideNegativeButton(true)
-                        .setCancelable(false)
+                        .hideNegativeButton(false)
+                        .setCancelable(true)
                         .check());
 
         CardView cardView3 = findViewById(R.id.checkButton3);
@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
                         .setHeaderImage(updaate.IMAGE_9)
                         .setHeaderAnimation(updaate.ANIMATION_4)
                         .hideNegativeButton(false)
+                        .setDialogCornerRadius(10)
+                        .setButtonCornerRadius(10)
                         .setCancelable(true)
                         .check());
 

@@ -35,15 +35,6 @@ public class updaate {
     public static final String DEFAULT_THEME = "default";
     public static final String SMART_THEME = "smart";
     public static final String FANCY_THEME = "fancy";
-    private static final String DEFAULT_TITLE = "New Update Available";
-    private static final int DEFAULT_APP_ICON = R.drawable.update_icon_main;
-    private static final int DEFAULT_COLOR = Color.parseColor("#FFFFFF");
-    private static final int DEFAULT_NEGATIVE_COLOR = Color.parseColor("#dddddd");
-    private static final int DEFAULT_PRIMARY_COLOR = Color.parseColor("#5a3ae7");
-    private static final int DEFAULT_SECONDARY_COLOR = Color.parseColor("#666666");
-    private static final int DEFAULT_POSITIVE_TEXT_COLOR = Color.parseColor("#FFFFFF");
-    private static final String LAUNCHES = "launches";
-
     public static final String ANIMATION_1 = "anim1";
     public static final String ANIMATION_2 = "anim2";
     public static final String ANIMATION_3 = "anim3";
@@ -53,7 +44,6 @@ public class updaate {
     public static final String ANIMATION_7 = "anim7";
     public static final String ANIMATION_8 = "anim8";
     public static final String ANIMATION_9 = "anim9";
-
     public static final String IMAGE_1 = "img1";
     public static final String IMAGE_2 = "img2";
     public static final String IMAGE_3 = "img3";
@@ -63,8 +53,14 @@ public class updaate {
     public static final String IMAGE_7 = "img7";
     public static final String IMAGE_8 = "img8";
     public static final String IMAGE_9 = "img9";
-
-
+    private static final String DEFAULT_TITLE = "New Update Available";
+    private static final int DEFAULT_APP_ICON = R.drawable.update_icon_main;
+    private static final int DEFAULT_COLOR = Color.parseColor("#FFFFFF");
+    private static final int DEFAULT_NEGATIVE_COLOR = Color.parseColor("#dddddd");
+    private static final int DEFAULT_PRIMARY_COLOR = Color.parseColor("#5a3ae7");
+    private static final int DEFAULT_SECONDARY_COLOR = Color.parseColor("#666666");
+    private static final int DEFAULT_POSITIVE_TEXT_COLOR = Color.parseColor("#FFFFFF");
+    private static final String LAUNCHES = "launches";
     private final Activity activity;
     SharedPreferences sharedPreferences;
     private String THEME = "default";
@@ -86,6 +82,8 @@ public class updaate {
     private String IMAGE_SELECT = "0";
     private boolean isCancelable = true;
     private boolean hideNegativeButton = false;
+    private int cardCornerRadius = 10;
+    private int buttonCornerRadius = 10;
 
     public updaate(Activity activity) {
         this.activity = activity;
@@ -337,7 +335,6 @@ public class updaate {
     }
 
 
-
     @SuppressLint("SetTextI18n")
     private void showSmartDialog() {
 
@@ -359,6 +356,7 @@ public class updaate {
         TextView negative_text = dialog.findViewById(R.id.negative_text);
         TextView positive_text = dialog.findViewById(R.id.positive_text);
         ImageView app_icon = dialog.findViewById(R.id.app_icon);
+        CardView wholeView = dialog.findViewById(R.id.main_card);
 
 
         if (APP_ICON == 0) {
@@ -385,12 +383,11 @@ public class updaate {
             negative_text.setText(NOT_NOW);
         }
 
-        if (hideNegativeButton){
+        if (hideNegativeButton) {
             not_now_button.setVisibility(View.GONE);
         } else {
             not_now_button.setVisibility(View.VISIBLE);
         }
-
 
 
         // primary colors
@@ -483,7 +480,6 @@ public class updaate {
 
 
         // background color
-        CardView wholeView = dialog.findViewById(R.id.main_card);
         if (COLOR == 0) {
             wholeView.setCardBackgroundColor(DEFAULT_COLOR);
         } else {
@@ -495,6 +491,10 @@ public class updaate {
             }
 
         }
+
+        wholeView.setRadius(cardCornerRadius * 4);
+        not_now_button.setRadius(buttonCornerRadius * 4);
+        update_button.setRadius(buttonCornerRadius * 4);
 
         current_version.setText(CURRENT_VERSION);
         latest_version.setText(LATEST_VERSION);
@@ -508,9 +508,6 @@ public class updaate {
 
         dialog.show();
     }
-
-
-
 
 
     @SuppressLint("SetTextI18n")
@@ -626,7 +623,7 @@ public class updaate {
             negative_text.setText(NOT_NOW);
         }
 
-        if (hideNegativeButton){
+        if (hideNegativeButton) {
             negative_text.setVisibility(View.GONE);
         } else {
             negative_text.setVisibility(View.VISIBLE);
@@ -718,13 +715,15 @@ public class updaate {
                 }
         );
 
+
+        wholeView.setRadius(cardCornerRadius * 4);
+        update_button.setRadius(buttonCornerRadius * 4);
+
         current_version.setText(CURRENT_VERSION);
         latest_version.setText(LATEST_VERSION);
 
         dialog.show();
     }
-
-
 
 
     private void launchForUpdate() {
@@ -824,13 +823,23 @@ public class updaate {
 
     }
 
-    public updaate setCancelable(boolean cancelable){
+    public updaate setCancelable(boolean cancelable) {
         isCancelable = cancelable;
         return this;
     }
 
-    public updaate hideNegativeButton(boolean hide){
+    public updaate hideNegativeButton(boolean hide) {
         hideNegativeButton = hide;
+        return this;
+    }
+
+    public updaate setButtonCornerRadius(int cornerRadius) {
+        buttonCornerRadius = cornerRadius;
+        return this;
+    }
+
+    public updaate setDialogCornerRadius(int cornerRadius) {
+        cardCornerRadius = cornerRadius;
         return this;
     }
 
