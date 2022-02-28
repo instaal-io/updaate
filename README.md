@@ -135,67 +135,105 @@ A Simple Material Design Theme. Basic Functionalities with Basic Customization
 
 ### DEFAULT THEME
 
-### Fancy Theme
+A well-designed theme with a lot customizations. If no theme is selected then it will be selected automatically.
 
-### Customized
+#### Basic
 
+``` java
 
-For Smart Theme, don't forget to call the `setAppIcon()` method. 
+        new updaate(this)
+                .setTheme(updaate.DEFAULT_THEME)
+                .check());
+
+```
+
+#### Customizations
+
+``` java
+
+        new updaate(this)
+                .setTheme(updaate.DEFAULT_THEME)
+                .setAppIcon(R.mipmap.ic_launcher)
+                .setTitle("An Update Available")
+                .setPositiveLabel("Update Now")
+                .setNegativeLabel("Maybe Later")
+                .setIconColor(R.color.colorAccent)
+                .setBackgroundColor(Color.parseColor("#FFFFFF"))
+                .setNegativeButtonColor(Color.parseColor("#dddddd"))
+                .setPrimaryColor(R.color.colorPrimary)
+                .setSecondaryColor(Color.parseColor("#666666"))
+                .setPositiveTextColor(Color.WHITE)
+                .hideNegativeButton(true)
+                .setDialogCornerRadius(10)
+                .setButtonCornerRadius(10)
+                .shouldCheckAfterLaunch(1)
+                .setCancelable(true)
+                .check());
+
+```
+
+### ADVANCED THEME
+
+#### Basic
+
+``` java
+
+        new updaate(this)
+                .setTheme(updaate.ADVANCED_THEME)
+                .check());
+
+```
+
+#### Customizations
+
+``` java
+
+        new updaate(this)
+                .setTheme(updaate.ADVANCED_THEME)
+                .setTitle("An Update Available")
+                .setPositiveLabel("Update Now")
+                .setNegativeLabel("Maybe Later")
+                .setBackgroundColor(Color.parseColor("#FFFFFF"))
+                .setPrimaryColor(R.color.colorPrimary)
+                .setSecondaryColor(Color.parseColor("#666666"))
+                .setPositiveTextColor(Color.WHITE)
+                .hideNegativeButton(true)
+                .setDialogCornerRadius(10)
+                .setButtonCornerRadius(10)
+                .useImageInsteadAnim(false)
+                .setHeaderAnimation(updaate.ANIMATION_1)
+                .setHeaderImage(updaate.IMAGE_3)
+                .shouldCheckAfterLaunch(1)
+                .setCancelable(true)
+                .check());
+
+```
+
 
 ## Customizations
 
-### Themes
-There different themese with pre desgined layouts, but you can customize them as well. If no theme defined then `Default Theme` will be used.
+### Global
 
-#### Default Theme
-```Java
-.setTheme(updaate.DEFAULT_THEME)
-```
-(If you don't select any theme, then default will be choosed automatically)
+- `.setTheme()`	- For selecting Theme
+- `.setTitle()` -  For Changing the Title
+- `.setPositiveLabel()` - For Changing the Positive Button Text
+- `.setNegativeLabel()` - For Changing the Negative Button Text
+- `.setBackgroundColor()` -  For Changing the Background Color
+- `.setPrimaryColor()` -  For Changing the Primary Color (Color of Title, Latest Version and Positive Button Background)
+- `.setSecondaryColor()` -  For Changing the Secondary Color (Color of Your Version, Negative Button Text)
+- `.setPositiveTextColor()` -  For Changing the Positive Text Color
+- `.shouldCheckAfterLaunch()` -  After how many launch, the library will recheck for update. If not set it will check in every launch.
+- `.setCancelable()` -  For Setting the dialog to be cancelable if touch outside the dialog
+- `.check()` - Start Checking. IT MUST BE CALLED.
+		
 
-#### Smart Theme
-```Java
-.setTheme(updaate.SMART_THEME)
-```
+### Theme Based
 
-#### Fancy Theme
-```Java
-.setTheme(updaate.FANCY_THEME)
-```
+#### SIMPLE
 
-### Text 
-Change different text on the layout by using these snippets.
+#### DEFAULT
 
-```Java
-.setTitle()  // Change Title  Text
-.setPositiveLabel() // Change Positive Button Text
-.setNegativeLabel() // Change Negative Button Text
-```
-
-
-### Image
-Change the icons on the layout by using these snippets.
-
-```Java
-.setAppIcon()
-```
-
-### Colors
-Change the colors on the layout by using these snippets.
-```Java
-.setIconColor() // Change Icon Color. Only works if it is a Vector.
-.setBackgroundColor() // Change the whole layouts background
-.setPrimaryColor() // Change color for primary obejects
-.setSecondaryColor() // Change color for secondary obejects
-.setPositiveTextColor() // Change Text Color for Positive Text
-.setNegativeButtonColor() // Change Text Color for Negative Text
-```
-### Recheck
-You can set check again for next launches, like after 5 app launch. If nothing set then it will check on Every Launch.
-```Java
-.shouldCheckAfterLaunch(1)
-
-```
+#### ADVANCED
 
 ## Attributes
 
