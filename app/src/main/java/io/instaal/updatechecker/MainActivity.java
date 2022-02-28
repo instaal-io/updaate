@@ -20,18 +20,62 @@ public class MainActivity extends AppCompatActivity {
         cardView.setOnClickListener(view ->
         new updaate(this)
                 .setTheme(updaate.SIMPLE_THEME)
+                .setAppIcon(R.mipmap.ic_launcher)
+                .setTitle("An Update Available")
+                .setPositiveLabel("Update Now")
+                .setNegativeLabel("Maybe Later")
+                .setBackgroundColor(Color.parseColor("#FFFFFF"))
+                .setNegativeButtonColor(Color.parseColor("#dddddd"))
+                .setPrimaryColor(R.color.colorPrimary)
+                .setSecondaryColor(Color.parseColor("#666666"))
+                .setPositiveTextColor(Color.WHITE)
+                .shouldCheckAfterLaunch(1)
+                .setCancelable(true)
                 .check());
 
 
         CardView cardView2 = findViewById(R.id.checkButton2);
         cardView2.setOnClickListener(view ->
-                new updaate(this)
-                        .check());
+
+        new updaate(this)
+                .setTheme(updaate.DEFAULT_THEME)
+                .setAppIcon(R.mipmap.ic_launcher)
+                .setTitle("An Update Available")
+                .setPositiveLabel("Update Now")
+                .setNegativeLabel("Maybe Later")
+                .setIconColor(R.color.colorAccent)
+                .setBackgroundColor(Color.parseColor("#FFFFFF"))
+                .setNegativeButtonColor(Color.parseColor("#dddddd"))
+                .setPrimaryColor(R.color.colorPrimary)
+                .setSecondaryColor(Color.parseColor("#666666"))
+                .setPositiveTextColor(Color.WHITE)
+                .hideNegativeButton(true)
+                .setDialogCornerRadius(10)
+                .setButtonCornerRadius(10)
+                .shouldCheckAfterLaunch(1)
+                .setCancelable(true)
+                .check());
 
         CardView cardView3 = findViewById(R.id.checkButton3);
         cardView3.setOnClickListener(view ->
-                new updaate(this)
-                        .check());
+        new updaate(this)
+                .setTheme(updaate.ADVANCED_THEME)
+                .setTitle("An Update Available")
+                .setPositiveLabel("Update Now")
+                .setNegativeLabel("Maybe Later")
+                .setBackgroundColor(Color.parseColor("#FFFFFF"))
+                .setPrimaryColor(R.color.colorPrimary)
+                .setSecondaryColor(Color.parseColor("#666666"))
+                .setPositiveTextColor(Color.WHITE)
+                .hideNegativeButton(true)
+                .setDialogCornerRadius(10)
+                .setButtonCornerRadius(10)
+                .useImageInsteadAnim(false)
+                .setHeaderAnimation(updaate.ANIMATION_1)
+                .setHeaderImage(updaate.IMAGE_3)
+                .shouldCheckAfterLaunch(1)
+                .setCancelable(true)
+                .check());
 
 
     }
