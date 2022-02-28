@@ -120,6 +120,7 @@
                     android:id="@+id/not_now_button"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
+                    android:layout_marginEnd="40dp"
                     android:layout_weight="1"
                     app:cardBackgroundColor="#ddd"
                     app:cardCornerRadius="10dp">
@@ -136,10 +137,6 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="10dp"
-                    android:layout_weight="0.4" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/update_button"
