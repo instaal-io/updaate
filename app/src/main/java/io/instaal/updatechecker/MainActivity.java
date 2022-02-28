@@ -23,7 +23,12 @@ public class MainActivity extends AppCompatActivity {
         cardView2.setOnClickListener(view -> new updaate(this).setTheme(updaate.SMART_THEME).check());
 
         CardView cardView3 = findViewById(R.id.checkButton3);
-        cardView3.setOnClickListener(view -> new updaate(this).setTheme(updaate.FANCY_THEME).check());
+        cardView3.setOnClickListener(view ->
+                new updaate(this)
+                        .setTheme(updaate.FANCY_THEME)
+                        .useImageInsteadAnim(false)
+                        .setHeaderAnimation(updaate.ANIMATION_5)
+                        .check());
 
 
     }

@@ -10,10 +10,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.net.Uri;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -23,8 +22,6 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.airbnb.lottie.LottieProperty;
-import com.airbnb.lottie.model.KeyPath;
 
 import org.jsoup.Jsoup;
 
@@ -47,6 +44,25 @@ public class updaate {
     private static final int DEFAULT_POSITIVE_TEXT_COLOR = Color.parseColor("#FFFFFF");
     private static final String LAUNCHES = "launches";
 
+    public static final String ANIMATION_1 = "anim1";
+    public static final String ANIMATION_2 = "anim2";
+    public static final String ANIMATION_3 = "anim3";
+    public static final String ANIMATION_4 = "anim4";
+    public static final String ANIMATION_5 = "anim5";
+    public static final String ANIMATION_6 = "anim6";
+    public static final String ANIMATION_7 = "anim7";
+    public static final String ANIMATION_8 = "anim8";
+    public static final String ANIMATION_9 = "anim9";
+
+    public static final String IMAGE_1 = "img1";
+    public static final String IMAGE_2 = "img2";
+    public static final String IMAGE_3 = "img3";
+    public static final String IMAGE_4 = "img4";
+    public static final String IMAGE_5 = "img5";
+    public static final String IMAGE_6 = "img6";
+    public static final String IMAGE_7 = "img7";
+    public static final String IMAGE_8 = "img8";
+    public static final String IMAGE_9 = "img9";
 
 
     private final Activity activity;
@@ -65,7 +81,9 @@ public class updaate {
     private int USER_LAUNCH_COUNT = 0;
     private String CURRENT_VERSION = "";
     private String LATEST_VERSION = "";
-
+    private boolean isImageOn = false;
+    private String ANIM_SELECT = "0";
+    private String IMAGE_SELECT = "0";
 
     public updaate(Activity activity) {
         this.activity = activity;
@@ -105,7 +123,15 @@ public class updaate {
 
         Executors.newSingleThreadExecutor().execute(() -> {
             try {
-                LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=" + activity.getPackageName() + "&hl=en")
+//                LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=" + activity.getPackageName() + "&hl=en")
+//                        .timeout(30000)
+//                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
+//                        .referrer("http://www.google.com")
+//                        .get()
+//                        .select("div.hAyfc:nth-child(4) > span:nth-child(2) > div:nth-child(1) > span:nth-child(1)")
+//                        .first())
+//                        .ownText();
+                LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=com.andronius.numberconverterplus&hl=en")
                         .timeout(30000)
                         .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
                         .referrer("http://www.google.com")
@@ -319,8 +345,80 @@ public class updaate {
         TextView positive_text = dialog.findViewById(R.id.positive_text);
 
         LottieAnimationView lottieAnimationView = dialog.findViewById(R.id.animation_view);
-        lottieAnimationView.enableMergePathsForKitKatAndAbove(true);
 
+        switch (ANIM_SELECT) {
+            case ANIMATION_2:
+                lottieAnimationView.setAnimation(R.raw.fancy_anim_2);
+                break;
+            case ANIMATION_3:
+                lottieAnimationView.setAnimation(R.raw.fancy_anim_3);
+                break;
+            case ANIMATION_4:
+                lottieAnimationView.setAnimation(R.raw.fancy_anim_4);
+                break;
+            case ANIMATION_5:
+                lottieAnimationView.setAnimation(R.raw.fancy_anim_5);
+                break;
+            case ANIMATION_6:
+                lottieAnimationView.setAnimation(R.raw.fancy_anim_6);
+                break;
+            case ANIMATION_7:
+                lottieAnimationView.setAnimation(R.raw.fancy_anim_7);
+                break;
+            case ANIMATION_8:
+                lottieAnimationView.setAnimation(R.raw.fancy_anim_8);
+                break;
+            case ANIMATION_9:
+                lottieAnimationView.setAnimation(R.raw.fancy_anim_9);
+                break;
+            case ANIMATION_1:
+            default:
+                lottieAnimationView.setAnimation(R.raw.fancy_anim_1);
+                break;
+        }
+
+
+        ImageView imageView = dialog.findViewById(R.id.imageView);
+
+        switch (IMAGE_SELECT) {
+            case IMAGE_2:
+                imageView.setImageResource(R.drawable.img_2);
+                break;
+            case IMAGE_3:
+                imageView.setImageResource(R.drawable.img_3);
+                break;
+            case IMAGE_4:
+                imageView.setImageResource(R.drawable.img_4);
+                break;
+            case IMAGE_5:
+                imageView.setImageResource(R.drawable.img_5);
+                break;
+            case IMAGE_6:
+                imageView.setImageResource(R.drawable.img_6);
+                break;
+            case IMAGE_7:
+                imageView.setImageResource(R.drawable.img_7);
+                break;
+            case IMAGE_8:
+                imageView.setImageResource(R.drawable.img_8);
+                break;
+            case IMAGE_9:
+                imageView.setImageResource(R.drawable.img_9);
+                break;
+            case IMAGE_1:
+            default:
+                imageView.setImageResource(R.drawable.img_1);
+                break;
+        }
+
+
+        if (isImageOn) {
+            lottieAnimationView.setVisibility(View.GONE);
+            imageView.setVisibility(View.VISIBLE);
+        } else {
+            lottieAnimationView.setVisibility(View.VISIBLE);
+            imageView.setVisibility(View.GONE);
+        }
 
         if (TITLE.equals("main")) {
             titleText.setText(DEFAULT_TITLE);
@@ -356,65 +454,12 @@ public class updaate {
                 lt_version_text.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
                 latest_version.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
 
-                lottieAnimationView.addValueCallback(new KeyPath("Background Complete Outlines", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(ContextCompat.getColor(activity, PRIMARY_COLOR), PorterDuff.Mode.SRC_ATOP));
-
-                lottieAnimationView.addValueCallback(new KeyPath("leave 5", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(ContextCompat.getColor(activity, PRIMARY_COLOR), PorterDuff.Mode.SRC_ATOP));
-                lottieAnimationView.addValueCallback(new KeyPath("leave 4", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(ContextCompat.getColor(activity, PRIMARY_COLOR), PorterDuff.Mode.SRC_ATOP));
-
-                lottieAnimationView.addValueCallback(new KeyPath("leave 3", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(ContextCompat.getColor(activity, PRIMARY_COLOR), PorterDuff.Mode.SRC_ATOP));
-
-                lottieAnimationView.addValueCallback(new KeyPath("leave 2", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(ContextCompat.getColor(activity, PRIMARY_COLOR), PorterDuff.Mode.SRC_ATOP));
-
-                lottieAnimationView.addValueCallback(new KeyPath("goal", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(ContextCompat.getColor(activity, PRIMARY_COLOR), PorterDuff.Mode.SRC_ATOP));
-                lottieAnimationView.addValueCallback(new KeyPath("leave 1", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(ContextCompat.getColor(activity, PRIMARY_COLOR), PorterDuff.Mode.SRC_ATOP));
 
             } catch (Resources.NotFoundException e) {
                 update_button.setCardBackgroundColor(PRIMARY_COLOR);
                 titleText.setTextColor(PRIMARY_COLOR);
                 lt_version_text.setTextColor(PRIMARY_COLOR);
                 latest_version.setTextColor(PRIMARY_COLOR);
-
-                lottieAnimationView.addValueCallback(new KeyPath("Background Complete Outlines", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(PRIMARY_COLOR, PorterDuff.Mode.SRC_ATOP));
-
-                lottieAnimationView.addValueCallback(new KeyPath("leave 5", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(PRIMARY_COLOR, PorterDuff.Mode.SRC_ATOP));
-                lottieAnimationView.addValueCallback(new KeyPath("leave 4", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(PRIMARY_COLOR, PorterDuff.Mode.SRC_ATOP));
-
-                lottieAnimationView.addValueCallback(new KeyPath("leave 3", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(PRIMARY_COLOR, PorterDuff.Mode.SRC_ATOP));
-
-                lottieAnimationView.addValueCallback(new KeyPath("leave 2", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(PRIMARY_COLOR, PorterDuff.Mode.SRC_ATOP));
-
-
-                lottieAnimationView.addValueCallback(new KeyPath("leave 1", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(PRIMARY_COLOR, PorterDuff.Mode.SRC_ATOP));
-
-                lottieAnimationView.addValueCallback(new KeyPath("goal", "**"),
-                        LottieProperty.COLOR_FILTER,
-                        frameInfo -> new PorterDuffColorFilter(PRIMARY_COLOR, PorterDuff.Mode.SRC_ATOP));
 
 
             }
@@ -734,5 +779,20 @@ public class updaate {
 
     }
 
+    public updaate useImageInsteadAnim(boolean trueOrfalse) {
+        isImageOn = trueOrfalse;
+        return this;
+    }
+
+    public updaate setHeaderAnimation(String animationName) {
+        ANIM_SELECT = animationName;
+        return this;
+    }
+
+    public updaate setHeaderImage(String imageName) {
+        IMAGE_SELECT = imageName;
+        return this;
+
+    }
 
 }
