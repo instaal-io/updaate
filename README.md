@@ -243,7 +243,22 @@ These customizations will work only for specific theme.
 
 #### DEFAULT
 
+- `.setAppIcon()` - For Changing the App Icon.
+- `.setIconColor()` - For Changing the App Icon Color. Works properly if the icon is a vector.
+- `.setNegativeButtonColor()` - For Changing the Negative Button Color.
+- `.hideNegativeButton()` - Show or Hide the Negative Button.
+- `.setDialogCornerRadius()` - For Changing the Radius of Whole Dialog Box.
+- `.setButtonCornerRadius()` - For Changing the Radius of the Buttons.
+
+
 #### ADVANCED
+
+- `.hideNegativeButton()` - Show or Hide the Negative Button.
+- `.setDialogCornerRadius()` - For Changing the Radius of Whole Dialog Box.
+- `.setButtonCornerRadius()` - For Changing the Radius of the Buttons.
+- `.useImageInsteadAnim()` - For choosing Image insted of Animation as Header.
+- `.setHeaderAnimation()` - For Selecting Animation.
+- `.setHeaderImage()` - For Selecing Header.
 
 ## Attributes
 
