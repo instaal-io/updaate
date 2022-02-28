@@ -212,24 +212,34 @@ A well-designed theme with a lot customizations. If no theme is selected then it
 
 ## Customizations
 
+Here is the detailed customizations.
+
 ### Global
 
-- `.setTheme()`	- For selecting Theme
-- `.setTitle()` -  For Changing the Title
-- `.setPositiveLabel()` - For Changing the Positive Button Text
-- `.setNegativeLabel()` - For Changing the Negative Button Text
-- `.setBackgroundColor()` -  For Changing the Background Color
-- `.setPrimaryColor()` -  For Changing the Primary Color (Color of Title, Latest Version and Positive Button Background)
-- `.setSecondaryColor()` -  For Changing the Secondary Color (Color of Your Version, Negative Button Text)
-- `.setPositiveTextColor()` -  For Changing the Positive Text Color
+These are available for all the themes.
+
+- `.setTheme()`	- For selecting Theme. If not set then it'll choose the DEFAULT Theme.
+- `.setTitle()` -  For Changing the Title.
+- `.setPositiveLabel()` - For Changing the Positive Button Text.
+- `.setNegativeLabel()` - For Changing the Negative Button Text.
+- `.setBackgroundColor()` -  For Changing the Background Color.
+- `.setPrimaryColor()` -  For Changing the Primary Color (Color of Title, Latest Version and Positive Button Background).
+- `.setSecondaryColor()` -  For Changing the Secondary Color (Color of Your Version, Negative Button Text).
+- `.setPositiveTextColor()` -  For Changing the Positive Text Color.
 - `.shouldCheckAfterLaunch()` -  After how many launch, the library will recheck for update. If not set it will check in every launch.
-- `.setCancelable()` -  For Setting the dialog to be cancelable if touch outside the dialog
+- `.setCancelable()` -  For Setting the dialog to be cancelable if touch outside the dialog.
 - `.check()` - Start Checking. IT MUST BE CALLED.
 		
 
 ### Theme Based
 
+These customizations will work only for specific theme.
+
 #### SIMPLE
+
+- `.setAppIcon()` - For Changing the App Icon.
+- `.setNegativeButtonColor()` - For Changing the Negative Button Color.
+
 
 #### DEFAULT
 
