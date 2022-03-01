@@ -174,6 +174,8 @@ A well-designed theme with a lot customizations. If no theme is selected then it
 
 ### ADVANCED THEME
 
+A highly customizable theme with tons of options, animation header as well as still images.
+
 #### Basic
 
 ``` java
