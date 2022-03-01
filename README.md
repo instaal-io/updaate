@@ -214,7 +214,7 @@ A highly customizable theme with tons of options, animation header as well as st
 
 ## Customizations
 
-Here is the detailed customizations.
+Here are the detailed customizations.
 
 ### Global
 
