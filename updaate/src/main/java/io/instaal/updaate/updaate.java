@@ -735,6 +735,9 @@ public class updaate {
     }
 
 
+    /**
+     *  select a pre defined theme
+     */
     public updaate setTheme(String string) {
         THEME = string;
         return this;
@@ -801,6 +804,10 @@ public class updaate {
 
     }
 
+    /**
+     * @param trueOrfalse
+     * @return boolean
+     */
     public updaate useImageInsteadAnim(boolean trueOrfalse) {
         isImageOn = trueOrfalse;
         return this;
