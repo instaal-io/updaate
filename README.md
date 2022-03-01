@@ -95,10 +95,10 @@ dependencies {
 ```
 
 
-## Usage
+## Usage (<a href="https://github.com/instaal-io/updaate/wiki">Wiki</a>)
 updaate has plenty of Options. Use Default theme or you can customize as much as you want. Here the usages for updaate:
 
-### SIMPLE THEME
+### SIMPLE THEME (<a href="https://github.com/instaal-io/updaate/wiki/Theme-(SIMPLE)">Wiki</a>)
 
 A Simple Material Design Theme. Basic Functionalities with Basic Customization
 
@@ -133,7 +133,7 @@ A Simple Material Design Theme. Basic Functionalities with Basic Customization
 
 ```
 
-### DEFAULT THEME
+### DEFAULT THEME (<a href="https://github.com/instaal-io/updaate/wiki/Theme-(DEFAULT)">Wiki</a>)
 
 A well-designed theme with a lot customizations. If no theme is selected then it will be selected automatically.
 
@@ -172,7 +172,7 @@ A well-designed theme with a lot customizations. If no theme is selected then it
 
 ```
 
-### ADVANCED THEME
+### ADVANCED THEME (<a href="https://github.com/instaal-io/updaate/wiki/Theme-(ADVANCED)">Wiki</a>)
 
 A highly customizable theme with tons of options, animation header as well as still images.
 
@@ -262,7 +262,7 @@ These customizations will work only for specific theme.
 - `.setHeaderAnimation()` - For Selecting Animation.
 - `.setHeaderImage()` - For Selecing Header.
 
-## Attributes
+## Attributes (<a href="https://github.com/instaal-io/updaate/wiki/Attributes">Wiki</a>)
 
 | Keyword | Type | Values | Description | 
 |---------|------|--------|-------------|
@@ -287,14 +287,6 @@ These customizations will work only for specific theme.
 | `shouldCheckAfterLaunch` | Int | Integer | Again Check for Update on (N)th Launch | 
 | `check` |  | | Start Checking for update | 
 
-
-## Theme Differences
-| Topic | Default | Smart | Fancy |
-|-------|---------|-------|-------|
-| App Icon | No | Yes | No |
-| Animation | No | No | Yes |
-| Negative Button | Yes | Yes | No |
-| Preview | ![Default](https://user-images.githubusercontent.com/42619122/155840252-1ee6e581-22f2-4a70-ae89-51e63884b434.png) | ![Smart](https://user-images.githubusercontent.com/42619122/155840255-4016f6da-3984-4a95-8b80-02e96edc08d6.png) | ![Fancy](https://user-images.githubusercontent.com/42619122/155840256-001cb494-6392-43d0-a4a9-a885d9e9ec8f.png) |
 
 
 ## Notes
