@@ -262,21 +262,28 @@ These customizations will work only for specific theme.
 
 ## Attributes
 
-| Keyword | Attribute | Description | Used In |
-|---------------|---------|---------|----------| 
-| `setTheme` | DEFAULT , SMART, FANCY | Select From Prebuilt Theme | All Theme |
-| `setAppIcon` | Drawable | Dialog Top Icon | Only SMART Theme |
-| `setIconColor` | Int | Color for App Icon (Only use if it's a vector) | Only SMART Theme |
-| `setTitle` | String | Dialog Title | All Theme |
-| `setPositiveLabel` | String | Positive Button Text | All Theme |
-| `setNegativeLabel` | String | Negative Button Text | All Theme |
-| `setBackgroundColor` | Int | Dialog Background Color | All Theme |
-| `setPrimaryColor` | Int | Color for Primary Objects | All Theme |
-| `setSecondaryColor` | Int | Color for Secondary Objects | All Theme |
-| `setPositiveTextColor` | Int | Color for Positive Button Text | All Theme |
-| `setNegativeButtonColor` | Int | Negative Button Background Color | Default & SMART | 
-| `shouldCheckAfterLaunch` | Int | Again Check for Launch | All Theme
-| `check` |  | Start Checking for update | |
+| Keyword | Type | Values | Description | 
+|---------|------|--------|-------------|
+| `setTheme` | String | SIMPLE, DEFAULT, ADVANCED | Select From Prebuilt Theme |
+| `setAppIcon` | Drawable | R.drawable, R.mipmap | Dialog Top Icon |
+| `setIconColor` | Int | R.color, Color.Name, Color.parse |Color for App Icon (Must be vector) | 
+| `setTitle` | String | Any Text | Dialog Title |
+| `setPositiveLabel` | String | Any Text | Positive Button Text |
+| `setNegativeLabel` | String | Any Text | Negative Button Text |
+| `setBackgroundColor` | Int | R.color, Color.Name, Color.parse | Dialog Background Color | 
+| `setPrimaryColor` | Int | R.color, Color.Name, Color.parse | Color for Primary Objects |
+| `setSecondaryColor` | Int | R.color, Color.Name, Color.parse | Color for Secondary Objects | 
+| `setPositiveTextColor` | Int | R.color, Color.Name, Color.parse | Color for Positive Button Text |
+| `setNegativeButtonColor` | Int |  R.color, Color.Name, Color.parse | Negative Button Background Color | 
+| `useImageInsteadAnim` | boolean | true, false | Use Image instead of Animation as Header |
+| `setHeaderAnimation` | String | ANIMATION_1, ANIMATION_2 etc | Select from Prebuilt Animations |
+| `setHeaderImage` | String | IMAGE_1, IMAGE_2 etc | Select from Prebuilt Images |
+| `setCancelable` | boolean | true, false | Cancelable if touched outside of dialog |
+| `hideNegativeButton` | boolean | true, false | Hide or Show Negative text/button |
+| `setButtonCornerRadius` | int | Integer | Corner Radius for Buttons |
+| `setDialogCornerRadius` | int | Integer | Corner Radius for Whole Dialog |
+| `shouldCheckAfterLaunch` | Int | Integer | Again Check for Update on (N)th Launch | 
+| `check` |  | | Start Checking for update | 
 
 
 ## Theme Differences
