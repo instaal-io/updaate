@@ -85,6 +85,10 @@ public class updaate {
     private int cardCornerRadius = 10;
     private int buttonCornerRadius = 10;
 
+    /**
+     * Initiating the library..
+     */
+
     public updaate(Activity activity) {
         this.activity = activity;
         sharedPreferences = this.activity.getApplicationContext().getSharedPreferences("updaate", Activity.MODE_PRIVATE);
