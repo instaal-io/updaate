@@ -805,8 +805,7 @@ public class updaate {
     }
 
     /**
-     * @param trueOrfalse
-     * @return boolean
+     * choose Image instead of Animation as a header of Advanced Theme Dialog
      */
     public updaate useImageInsteadAnim(boolean trueOrfalse) {
         isImageOn = trueOrfalse;
