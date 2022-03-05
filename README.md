@@ -260,7 +260,7 @@ These customizations will work only for specific theme.
 - `.setButtonCornerRadius()` - For Changing the Radius of the Buttons.
 - `.useImageInsteadAnim()` - For choosing Image insted of Animation as Header.
 - `.setHeaderAnimation()` - For Selecting Animation.
-- `.setHeaderImage()` - For Selecing Header.
+- `.setHeaderImage()` - For Selecting Header.
 
 ## Attributes (<a href="https://github.com/instaal-io/updaate/wiki/Attributes">Wiki</a>)
 
