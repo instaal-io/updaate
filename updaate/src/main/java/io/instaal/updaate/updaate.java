@@ -106,7 +106,7 @@ public class updaate {
     }
 
     /**
-     *
+     * set the title for the dialog
      */
     public updaate setTitle(String string) {
         TITLE = string;
@@ -114,7 +114,7 @@ public class updaate {
     }
 
     /**
-     *
+     *  For Changing the App Icon.
      */
     public updaate setAppIcon(int res) {
         APP_ICON = res;
@@ -122,7 +122,7 @@ public class updaate {
     }
 
     /**
-     *
+     * For Changing the Positive Button Text.
      */
     public updaate setPositiveLabel(String string) {
         UPDATE = string;
@@ -130,7 +130,7 @@ public class updaate {
     }
 
     /**
-     *
+     *  For Changing the Negative Button Text.
      */
     public updaate setNegativeLabel(String string) {
         NOT_NOW = string;
@@ -138,7 +138,7 @@ public class updaate {
     }
 
     /**
-     *
+     *  For Changing the Background Color.
      */
     public updaate setBackgroundColor(int color) {
         COLOR = color;
@@ -146,7 +146,7 @@ public class updaate {
     }
 
     /**
-     *
+     * For Changing the Negative Button Color.
      */
     public updaate setNegativeButtonColor(int color) {
         NEGATIVE_COLOR = color;
@@ -154,7 +154,7 @@ public class updaate {
     }
 
     /**
-     *
+     * For Changing the Primary Color (Color of Title, Latest Version and Positive Button Background)
      */
     public updaate setPrimaryColor(int color) {
         PRIMARY_COLOR = color;
@@ -162,7 +162,7 @@ public class updaate {
     }
 
     /**
-     *
+     * For Changing the Secondary Color (Color of Your Version, Negative Button Text)
      */
     public updaate setSecondaryColor(int color) {
         SECONDARY_COLOR = color;
@@ -170,7 +170,7 @@ public class updaate {
     }
 
     /**
-     *
+     *  For Changing the Positive Text Color.
      */
     public updaate setPositiveTextColor(int color) {
         POSITIVE_TEXT_COLOR = color;
@@ -178,7 +178,7 @@ public class updaate {
     }
 
     /**
-     *
+     *  For Changing the Positive Text Color.
      */
     public updaate setIconColor(int color) {
         ICON_COLOR = color;
@@ -186,7 +186,7 @@ public class updaate {
     }
 
     /**
-     *
+     * After how many launch, the library will recheck for update. If not set it will check in every launch.
      */
     public updaate shouldCheckAfterLaunch(int launch) {
         USER_LAUNCH_COUNT = launch;
@@ -203,7 +203,7 @@ public class updaate {
     }
 
     /**
-     *
+     * For Selecting Animation.
      */
     public updaate setHeaderAnimation(String animationName) {
         ANIM_SELECT = animationName;
@@ -211,7 +211,7 @@ public class updaate {
     }
 
     /**
-     *
+     *  For Selecting Header
      */
     public updaate setHeaderImage(String imageName) {
         IMAGE_SELECT = imageName;
@@ -220,7 +220,7 @@ public class updaate {
     }
 
     /**
-     *
+     *  For Setting the dialog to be cancelable if touch outside the dialog
      */
     public updaate setCancelable(boolean cancelable) {
         isCancelable = cancelable;
@@ -228,7 +228,7 @@ public class updaate {
     }
 
     /**
-     *
+     * Show or Hide the Negative Button.
      */
     public updaate hideNegativeButton(boolean hide) {
         hideNegativeButton = hide;
@@ -236,7 +236,7 @@ public class updaate {
     }
 
     /**
-     *
+     * For Changing the Radius of the Buttons.
      */
     public updaate setButtonCornerRadius(int cornerRadius) {
         buttonCornerRadius = cornerRadius;
@@ -244,7 +244,7 @@ public class updaate {
     }
 
     /**
-     *
+     * For Changing the Radius of Whole Dialog Box
      */
     public updaate setDialogCornerRadius(int cornerRadius) {
         cardCornerRadius = cornerRadius;
@@ -252,7 +252,7 @@ public class updaate {
     }
 
     /**
-     *
+     * Start Checking. Must be called.
      */
     public void check() {
         PackageManager packageManager = activity.getPackageManager();
@@ -279,7 +279,9 @@ public class updaate {
 
     }
 
-    // Done
+    /**
+     * After getting current version from check(), it will check for update from playstore
+     */
     private void CheckForUpdate() {
 
         Executors.newSingleThreadExecutor().execute(() -> {
@@ -305,7 +307,9 @@ public class updaate {
 
     }
 
-
+    /**
+     * Validates the update. If both version matches it will not show any dialog, if not dialog will be shown.
+     */
     private void ValidateUpdate(String latest_version) {
 
         if (!latest_version.equals(CURRENT_VERSION)) {
@@ -316,7 +320,9 @@ public class updaate {
 
 
     }
-
+    /**
+     * Choose dialog from theme
+     */
     private void chooseDialog() {
         switch (THEME) {
             case ADVANCED_THEME:
@@ -334,7 +340,9 @@ public class updaate {
     }
 
 
-    // Done
+    /**
+     * Simple Dialog
+     */
     @SuppressLint("SetTextI18n")
     private void showSimpleDialog() {
 
@@ -488,7 +496,9 @@ public class updaate {
     }
 
 
-    // Done
+    /**
+     * Default Dialog
+     */
     @SuppressLint("SetTextI18n")
     private void showDefaultDialog() {
 
@@ -663,7 +673,9 @@ public class updaate {
         dialog.show();
     }
 
-    // Done
+    /**
+     * Advanced Dialog
+     */
     @SuppressLint("SetTextI18n")
     private void showAdvancedDialog() {
 
