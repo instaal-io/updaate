@@ -29,6 +29,9 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.concurrent.Executors;
 
+/**
+ * Created by instaal Studio
+ */
 
 public class updaate {
 
@@ -102,60 +105,89 @@ public class updaate {
         return this;
     }
 
+    /**
+     *
+     */
     public updaate setTitle(String string) {
         TITLE = string;
         return this;
     }
 
+    /**
+     *
+     */
     public updaate setAppIcon(int res) {
         APP_ICON = res;
         return this;
     }
 
-
+    /**
+     *
+     */
     public updaate setPositiveLabel(String string) {
         UPDATE = string;
         return this;
     }
 
+    /**
+     *
+     */
     public updaate setNegativeLabel(String string) {
         NOT_NOW = string;
         return this;
     }
 
+    /**
+     *
+     */
     public updaate setBackgroundColor(int color) {
         COLOR = color;
         return this;
     }
 
-
+    /**
+     *
+     */
     public updaate setNegativeButtonColor(int color) {
         NEGATIVE_COLOR = color;
         return this;
     }
 
-
+    /**
+     *
+     */
     public updaate setPrimaryColor(int color) {
         PRIMARY_COLOR = color;
         return this;
     }
 
+    /**
+     *
+     */
     public updaate setSecondaryColor(int color) {
         SECONDARY_COLOR = color;
         return this;
     }
 
-
+    /**
+     *
+     */
     public updaate setPositiveTextColor(int color) {
         POSITIVE_TEXT_COLOR = color;
         return this;
     }
 
+    /**
+     *
+     */
     public updaate setIconColor(int color) {
         ICON_COLOR = color;
         return this;
     }
 
+    /**
+     *
+     */
     public updaate shouldCheckAfterLaunch(int launch) {
         USER_LAUNCH_COUNT = launch;
         return this;
@@ -170,38 +202,58 @@ public class updaate {
         return this;
     }
 
+    /**
+     *
+     */
     public updaate setHeaderAnimation(String animationName) {
         ANIM_SELECT = animationName;
         return this;
     }
 
+    /**
+     *
+     */
     public updaate setHeaderImage(String imageName) {
         IMAGE_SELECT = imageName;
         return this;
 
     }
 
+    /**
+     *
+     */
     public updaate setCancelable(boolean cancelable) {
         isCancelable = cancelable;
         return this;
     }
 
+    /**
+     *
+     */
     public updaate hideNegativeButton(boolean hide) {
         hideNegativeButton = hide;
         return this;
     }
 
+    /**
+     *
+     */
     public updaate setButtonCornerRadius(int cornerRadius) {
         buttonCornerRadius = cornerRadius;
         return this;
     }
 
+    /**
+     *
+     */
     public updaate setDialogCornerRadius(int cornerRadius) {
         cardCornerRadius = cornerRadius;
         return this;
     }
 
-
+    /**
+     *
+     */
     public void check() {
         PackageManager packageManager = activity.getPackageManager();
         PackageInfo packageInfo;
