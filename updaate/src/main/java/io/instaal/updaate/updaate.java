@@ -35,7 +35,7 @@ import java.util.concurrent.Executors;
 
 public class updaate {
 
-    public static final String SIMPLE_THEME = "simple";
+    public static final String BASIC_THEME = "basic";
     public static final String DEFAULT_THEME = "default";
     public static final String ADVANCED_THEME = "advanced";
     public static final String ANIMATION_1 = "anim1";
@@ -328,8 +328,8 @@ public class updaate {
             case ADVANCED_THEME:
                 showAdvancedDialog();
                 break;
-            case SIMPLE_THEME:
-                showSimpleDialog();
+            case BASIC_THEME:
+                showBasicDialog();
                 break;
             case DEFAULT_THEME:
             default:
@@ -341,17 +341,17 @@ public class updaate {
 
 
     /**
-     * Simple Dialog
+     * Basic Dialog
      */
     @SuppressLint("SetTextI18n")
-    private void showSimpleDialog() {
+    private void showBasicDialog() {
 
         Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(isCancelable);
-        dialog.setContentView(R.layout.simple_layout);
+        dialog.setContentView(R.layout.basic_layout);
 
         TextView titleText = dialog.findViewById(R.id.title_text);
         TextView current_version = dialog.findViewById(R.id.current_version);
