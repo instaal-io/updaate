@@ -45,7 +45,7 @@ This library is built by this conifg:
 ## Screenshot
 Here is some screenshots of the library
 
-| Simple | Default | Advanced |
+| Basic | Default | Advanced |
 |---------|--------|----------|
 | ![simple](https://github.com/instaal-io/updaate/blob/master/files/Screenshot_1.png) | ![default](https://github.com/instaal-io/updaate/blob/master/files/Screenshot_2.png) | ![advanced](https://github.com/instaal-io/updaate/blob/master/files/Screenshot_3.png) |
 
