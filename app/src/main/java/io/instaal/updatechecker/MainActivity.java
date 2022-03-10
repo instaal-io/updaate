@@ -1,13 +1,10 @@
 package io.instaal.updatechecker;
 
-import android.graphics.Color;
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
-import io.instaal.updaate.updaate;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
         cardView.setOnClickListener(view -> {
 
 
-                });
+        });
+
+
 
 
 //                new updaate(this)
