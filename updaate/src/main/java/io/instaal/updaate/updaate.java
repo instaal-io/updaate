@@ -35,9 +35,6 @@ import java.util.concurrent.Executors;
 
 public class updaate {
 
-    public static final String BASIC_THEME = "basic";
-    public static final String DEFAULT_THEME = "default";
-    public static final String ADVANCED_THEME = "advanced";
     public static final String ANIMATION_1 = "anim1";
     public static final String ANIMATION_2 = "anim2";
     public static final String ANIMATION_3 = "anim3";
@@ -64,7 +61,6 @@ public class updaate {
     private static final int DEFAULT_SECONDARY_COLOR = Color.parseColor("#666666");
     private static final int DEFAULT_POSITIVE_TEXT_COLOR = Color.parseColor("#FFFFFF");
     private static final String LAUNCHES = "launches";
-
 
 
 
