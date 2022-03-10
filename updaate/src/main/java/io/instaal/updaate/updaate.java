@@ -276,7 +276,7 @@ public class updaate {
             ImageView app_icon = dialog.findViewById(R.id.app_icon);
 
             if (APP_ICON == 0) {
-                app_icon.setImageResource(DEFAULT_APP_ICON);
+                app_icon.setVisibility(View.INVISIBLE);
             } else {
                 app_icon.setImageResource(APP_ICON);
             }
