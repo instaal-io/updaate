@@ -97,6 +97,356 @@ public class updaate {
         sharedPreferences = this.activity.getApplicationContext().getSharedPreferences("updaate", Activity.MODE_PRIVATE);
     }
 
+
+    public static class BasicTheme{
+        private Activity activity;
+        SharedPreferences sharedPreferences;
+        private String THEME = "default";
+        private String TITLE = "main";
+        private int APP_ICON = 0;
+        private String NOT_NOW = "not_now";
+        private String UPDATE = "update_now";
+        private int COLOR = 0;
+        private int NEGATIVE_COLOR = 0;
+        private int PRIMARY_COLOR = 0;
+        private int SECONDARY_COLOR = 0;
+        private int POSITIVE_TEXT_COLOR = 0;
+        private int ICON_COLOR = 0;
+        private int USER_LAUNCH_COUNT = 0;
+        private String CURRENT_VERSION = "";
+        private String LATEST_VERSION = "";
+        private boolean isImageOn = false;
+        private String ANIM_SELECT = "0";
+        private String IMAGE_SELECT = "0";
+        private boolean isCancelable = true;
+        private boolean hideNegativeButton = false;
+        private int cardCornerRadius = 10;
+        private int buttonCornerRadius = 10;
+
+        public BasicTheme(Activity activity) {
+            this.activity = activity;
+            sharedPreferences = this.activity.getApplicationContext().getSharedPreferences("updaate", Activity.MODE_PRIVATE);
+
+        }
+
+        public BasicTheme setTitle(String string) {
+            TITLE = string;
+            return this;
+        }
+
+
+        public BasicTheme setAppIcon(int res) {
+            APP_ICON = res;
+            return this;
+        }
+
+
+        public BasicTheme setPositiveLabel(String string) {
+            UPDATE = string;
+            return this;
+        }
+
+
+        public BasicTheme setNegativeLabel(String string) {
+            NOT_NOW = string;
+            return this;
+        }
+
+
+        public BasicTheme setBackgroundColor(int color) {
+            COLOR = color;
+            return this;
+        }
+
+
+        public BasicTheme setNegativeButtonColor(int color) {
+            NEGATIVE_COLOR = color;
+            return this;
+        }
+
+
+        public BasicTheme setPrimaryColor(int color) {
+            PRIMARY_COLOR = color;
+            return this;
+        }
+
+
+        public BasicTheme setSecondaryColor(int color) {
+            SECONDARY_COLOR = color;
+            return this;
+        }
+
+        public BasicTheme setPositiveTextColor(int color) {
+            POSITIVE_TEXT_COLOR = color;
+            return this;
+        }
+
+        public BasicTheme shouldCheckAfterLaunch(int launch) {
+            USER_LAUNCH_COUNT = launch;
+            return this;
+
+        }
+
+        public BasicTheme setCancelable(boolean cancelable) {
+            isCancelable = cancelable;
+            return this;
+        }
+
+        public void check() {
+            PackageManager packageManager = activity.getPackageManager();
+            PackageInfo packageInfo;
+            try {
+                packageInfo = packageManager.getPackageInfo(activity.getPackageName(), 0);
+                CURRENT_VERSION = packageInfo.versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (USER_LAUNCH_COUNT == 0) {
+                CheckForUpdate();
+
+            } else {
+
+                int LAUNCH_COUNT = sharedPreferences.getInt(LAUNCHES, 0);
+                sharedPreferences.edit().putInt(LAUNCHES, ++LAUNCH_COUNT).apply();
+
+                if (LAUNCH_COUNT >= USER_LAUNCH_COUNT) {
+                    CheckForUpdate();
+                    sharedPreferences.edit().putInt(LAUNCHES, 0).apply();
+                }
+            }
+
+        }
+
+
+        private void CheckForUpdate() {
+
+            Executors.newSingleThreadExecutor().execute(() -> {
+                try {
+                    LATEST_VERSION = Objects.requireNonNull(Jsoup.connect("https://play.google.com/store/apps/details?id=" + activity.getPackageName() + "&hl=en")
+                            .timeout(30000)
+                            .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
+                            .referrer("http://www.google.com")
+                            .get()
+                            .select("div.hAyfc:nth-child(4) > span:nth-child(2) > div:nth-child(1) > span:nth-child(1)")
+                            .first())
+                            .ownText();
+
+
+                    activity.runOnUiThread(() -> ValidateUpdate(LATEST_VERSION));
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Log.e("TAG", "CheckForUpdate: Not Found");
+                }
+            });
+
+
+        }
+
+
+        private void ValidateUpdate(String latest_version) {
+
+            if (!latest_version.equals(CURRENT_VERSION)) {
+                showBasicDialog();
+            } else {
+                Log.d("TAG", "ValidateUpdate: Already Latest Version");
+            }
+
+
+        }
+
+        private void showBasicDialog() {
+
+            Dialog dialog = new Dialog(activity);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+            dialog.setCancelable(isCancelable);
+            dialog.setContentView(R.layout.basic_layout);
+
+            TextView titleText = dialog.findViewById(R.id.title_text);
+            TextView current_version = dialog.findViewById(R.id.current_version);
+            TextView latest_version = dialog.findViewById(R.id.latest_version);
+            TextView ur_version_text = dialog.findViewById(R.id.ur_version_text);
+            TextView lt_version_text = dialog.findViewById(R.id.lt_version_text);
+            CardView update_button = dialog.findViewById(R.id.update_button);
+            CardView not_now_button = dialog.findViewById(R.id.not_now_button);
+            TextView negative_text = dialog.findViewById(R.id.negative_text);
+            TextView positive_text = dialog.findViewById(R.id.positive_text);
+            ImageView app_icon = dialog.findViewById(R.id.app_icon);
+
+            if (APP_ICON == 0) {
+                app_icon.setImageResource(DEFAULT_APP_ICON);
+            } else {
+                app_icon.setImageResource(APP_ICON);
+            }
+
+            if (TITLE.equals("main")) {
+                titleText.setText(DEFAULT_TITLE);
+            } else {
+                titleText.setText(TITLE);
+            }
+
+            if (UPDATE.equals("update_now")) {
+                positive_text.setText("Update");
+            } else {
+                positive_text.setText(UPDATE);
+            }
+
+            if (NOT_NOW.equals("not_now")) {
+                negative_text.setText("Not Now");
+            } else {
+                negative_text.setText(NOT_NOW);
+            }
+
+
+            // primary colors
+
+            if (PRIMARY_COLOR == 0) {
+                update_button.setCardBackgroundColor(DEFAULT_PRIMARY_COLOR);
+                lt_version_text.setTextColor(DEFAULT_PRIMARY_COLOR);
+                latest_version.setTextColor(DEFAULT_PRIMARY_COLOR);
+
+            } else {
+                try {
+                    update_button.setCardBackgroundColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+                    lt_version_text.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+                    latest_version.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
+
+
+                } catch (Resources.NotFoundException e) {
+                    update_button.setCardBackgroundColor(PRIMARY_COLOR);
+                    lt_version_text.setTextColor(PRIMARY_COLOR);
+                    latest_version.setTextColor(PRIMARY_COLOR);
+
+                }
+            }
+
+            // secondary colors
+            if (SECONDARY_COLOR == 0) {
+                titleText.setTextColor(DEFAULT_SECONDARY_COLOR);
+                negative_text.setTextColor(DEFAULT_SECONDARY_COLOR);
+                current_version.setTextColor(DEFAULT_SECONDARY_COLOR);
+                ur_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
+
+            } else {
+                try {
+                    negative_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                    current_version.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                    ur_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+                    titleText.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
+
+
+                } catch (Resources.NotFoundException e) {
+                    negative_text.setTextColor(SECONDARY_COLOR);
+                    current_version.setTextColor(SECONDARY_COLOR);
+                    ur_version_text.setTextColor(SECONDARY_COLOR);
+                    titleText.setTextColor(SECONDARY_COLOR);
+
+
+                }
+            }
+
+
+            if (NEGATIVE_COLOR == 0) {
+                not_now_button.setCardBackgroundColor(DEFAULT_NEGATIVE_COLOR);
+
+            } else {
+                try {
+                    not_now_button.setCardBackgroundColor(ContextCompat.getColor(activity, NEGATIVE_COLOR));
+
+                } catch (Resources.NotFoundException e) {
+
+                    not_now_button.setCardBackgroundColor(NEGATIVE_COLOR);
+
+                }
+            }
+
+            // Positive Button Text Color
+            if (POSITIVE_TEXT_COLOR == 0) {
+                positive_text.setTextColor(DEFAULT_POSITIVE_TEXT_COLOR);
+
+            } else {
+                try {
+                    positive_text.setTextColor(ContextCompat.getColor(activity, POSITIVE_TEXT_COLOR));
+
+                } catch (Resources.NotFoundException e) {
+                    positive_text.setTextColor(POSITIVE_TEXT_COLOR);
+
+
+                }
+            }
+
+
+            // background color
+            CardView wholeView = dialog.findViewById(R.id.main_card);
+            if (COLOR == 0) {
+                wholeView.setCardBackgroundColor(DEFAULT_COLOR);
+            } else {
+
+                try {
+                    wholeView.setCardBackgroundColor(ContextCompat.getColor(activity, COLOR));
+                } catch (Resources.NotFoundException e) {
+                    wholeView.setCardBackgroundColor(COLOR);
+                }
+
+            }
+
+            not_now_button.setOnClickListener(view -> dialog.dismiss());
+            update_button.setOnClickListener(view -> {
+                        dialog.dismiss();
+                        launchForUpdate();
+                    }
+            );
+
+
+            current_version.setText(CURRENT_VERSION);
+            latest_version.setText(LATEST_VERSION);
+
+            dialog.show();
+        }
+
+
+        private void launchForUpdate() {
+            Uri uri = Uri.parse("market://details?id=" + activity.getPackageName());
+            Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+            goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+            try {
+                activity.startActivity(goToMarket);
+            } catch (ActivityNotFoundException e) {
+                activity.startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://play.google.com/store/apps/details?id=" + activity.getPackageName())));
+            }
+        }
+
+
+
+
+    }
+
+
+
+
+    public static class DefaultTheme{
+
+
+
+
+    }
+
+    public static class AdvanceTheme{
+
+
+
+
+    }
+
+
+
+
+
     /**
      * select a pre defined theme
      */
@@ -105,77 +455,6 @@ public class updaate {
         return this;
     }
 
-    /**
-     * set the title for the dialog
-     */
-    public updaate setTitle(String string) {
-        TITLE = string;
-        return this;
-    }
-
-    /**
-     *  For Changing the App Icon.
-     */
-    public updaate setAppIcon(int res) {
-        APP_ICON = res;
-        return this;
-    }
-
-    /**
-     * For Changing the Positive Button Text.
-     */
-    public updaate setPositiveLabel(String string) {
-        UPDATE = string;
-        return this;
-    }
-
-    /**
-     *  For Changing the Negative Button Text.
-     */
-    public updaate setNegativeLabel(String string) {
-        NOT_NOW = string;
-        return this;
-    }
-
-    /**
-     *  For Changing the Background Color.
-     */
-    public updaate setBackgroundColor(int color) {
-        COLOR = color;
-        return this;
-    }
-
-    /**
-     * For Changing the Negative Button Color.
-     */
-    public updaate setNegativeButtonColor(int color) {
-        NEGATIVE_COLOR = color;
-        return this;
-    }
-
-    /**
-     * For Changing the Primary Color (Color of Title, Latest Version and Positive Button Background)
-     */
-    public updaate setPrimaryColor(int color) {
-        PRIMARY_COLOR = color;
-        return this;
-    }
-
-    /**
-     * For Changing the Secondary Color (Color of Your Version, Negative Button Text)
-     */
-    public updaate setSecondaryColor(int color) {
-        SECONDARY_COLOR = color;
-        return this;
-    }
-
-    /**
-     *  For Changing the Positive Text Color.
-     */
-    public updaate setPositiveTextColor(int color) {
-        POSITIVE_TEXT_COLOR = color;
-        return this;
-    }
 
     /**
      *  For Changing the Positive Text Color.
@@ -188,11 +467,7 @@ public class updaate {
     /**
      * After how many launch, the library will recheck for update. If not set it will check in every launch.
      */
-    public updaate shouldCheckAfterLaunch(int launch) {
-        USER_LAUNCH_COUNT = launch;
-        return this;
 
-    }
 
     /**
      * choose Image instead of Animation as a header of Advanced Theme Dialog
@@ -222,10 +497,7 @@ public class updaate {
     /**
      *  For Setting the dialog to be cancelable if touch outside the dialog
      */
-    public updaate setCancelable(boolean cancelable) {
-        isCancelable = cancelable;
-        return this;
-    }
+
 
     /**
      * Show or Hide the Negative Button.
@@ -328,9 +600,6 @@ public class updaate {
             case ADVANCED_THEME:
                 showAdvancedDialog();
                 break;
-            case BASIC_THEME:
-                showBasicDialog();
-                break;
             case DEFAULT_THEME:
             default:
                 showDefaultDialog();
@@ -340,160 +609,6 @@ public class updaate {
     }
 
 
-    /**
-     * Basic Dialog
-     */
-    @SuppressLint("SetTextI18n")
-    private void showBasicDialog() {
-
-        Dialog dialog = new Dialog(activity);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(isCancelable);
-        dialog.setContentView(R.layout.basic_layout);
-
-        TextView titleText = dialog.findViewById(R.id.title_text);
-        TextView current_version = dialog.findViewById(R.id.current_version);
-        TextView latest_version = dialog.findViewById(R.id.latest_version);
-        TextView ur_version_text = dialog.findViewById(R.id.ur_version_text);
-        TextView lt_version_text = dialog.findViewById(R.id.lt_version_text);
-        CardView update_button = dialog.findViewById(R.id.update_button);
-        CardView not_now_button = dialog.findViewById(R.id.not_now_button);
-        TextView negative_text = dialog.findViewById(R.id.negative_text);
-        TextView positive_text = dialog.findViewById(R.id.positive_text);
-        ImageView app_icon = dialog.findViewById(R.id.app_icon);
-
-        if (APP_ICON == 0) {
-            app_icon.setImageResource(DEFAULT_APP_ICON);
-        } else {
-            app_icon.setImageResource(APP_ICON);
-        }
-
-        if (TITLE.equals("main")) {
-            titleText.setText(DEFAULT_TITLE);
-        } else {
-            titleText.setText(TITLE);
-        }
-
-        if (UPDATE.equals("update_now")) {
-            positive_text.setText("Update");
-        } else {
-            positive_text.setText(UPDATE);
-        }
-
-        if (NOT_NOW.equals("not_now")) {
-            negative_text.setText("Not Now");
-        } else {
-            negative_text.setText(NOT_NOW);
-        }
-
-
-        // primary colors
-
-        if (PRIMARY_COLOR == 0) {
-            update_button.setCardBackgroundColor(DEFAULT_PRIMARY_COLOR);
-            lt_version_text.setTextColor(DEFAULT_PRIMARY_COLOR);
-            latest_version.setTextColor(DEFAULT_PRIMARY_COLOR);
-
-        } else {
-            try {
-                update_button.setCardBackgroundColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
-                lt_version_text.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
-                latest_version.setTextColor(ContextCompat.getColor(activity, PRIMARY_COLOR));
-
-
-            } catch (Resources.NotFoundException e) {
-                update_button.setCardBackgroundColor(PRIMARY_COLOR);
-                lt_version_text.setTextColor(PRIMARY_COLOR);
-                latest_version.setTextColor(PRIMARY_COLOR);
-
-            }
-        }
-
-        // secondary colors
-        if (SECONDARY_COLOR == 0) {
-            titleText.setTextColor(DEFAULT_SECONDARY_COLOR);
-            negative_text.setTextColor(DEFAULT_SECONDARY_COLOR);
-            current_version.setTextColor(DEFAULT_SECONDARY_COLOR);
-            ur_version_text.setTextColor(DEFAULT_SECONDARY_COLOR);
-
-        } else {
-            try {
-                negative_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-                current_version.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-                ur_version_text.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-                titleText.setTextColor(ContextCompat.getColor(activity, SECONDARY_COLOR));
-
-
-            } catch (Resources.NotFoundException e) {
-                negative_text.setTextColor(SECONDARY_COLOR);
-                current_version.setTextColor(SECONDARY_COLOR);
-                ur_version_text.setTextColor(SECONDARY_COLOR);
-                titleText.setTextColor(SECONDARY_COLOR);
-
-
-            }
-        }
-
-
-        if (NEGATIVE_COLOR == 0) {
-            not_now_button.setCardBackgroundColor(DEFAULT_NEGATIVE_COLOR);
-
-        } else {
-            try {
-                not_now_button.setCardBackgroundColor(ContextCompat.getColor(activity, NEGATIVE_COLOR));
-
-            } catch (Resources.NotFoundException e) {
-
-                not_now_button.setCardBackgroundColor(NEGATIVE_COLOR);
-
-            }
-        }
-
-        // Positive Button Text Color
-        if (POSITIVE_TEXT_COLOR == 0) {
-            positive_text.setTextColor(DEFAULT_POSITIVE_TEXT_COLOR);
-
-        } else {
-            try {
-                positive_text.setTextColor(ContextCompat.getColor(activity, POSITIVE_TEXT_COLOR));
-
-            } catch (Resources.NotFoundException e) {
-                positive_text.setTextColor(POSITIVE_TEXT_COLOR);
-
-
-            }
-        }
-
-
-        // background color
-        CardView wholeView = dialog.findViewById(R.id.main_card);
-        if (COLOR == 0) {
-            wholeView.setCardBackgroundColor(DEFAULT_COLOR);
-        } else {
-
-            try {
-                wholeView.setCardBackgroundColor(ContextCompat.getColor(activity, COLOR));
-            } catch (Resources.NotFoundException e) {
-                wholeView.setCardBackgroundColor(COLOR);
-            }
-
-        }
-
-        not_now_button.setOnClickListener(view -> dialog.dismiss());
-        update_button.setOnClickListener(view -> {
-                    dialog.dismiss();
-                    launchForUpdate();
-                }
-        );
-
-
-        current_version.setText(CURRENT_VERSION);
-        latest_version.setText(LATEST_VERSION);
-
-        dialog.show();
-    }
 
 
     /**
