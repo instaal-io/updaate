@@ -16,10 +16,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         CardView cardView = findViewById(R.id.checkButton);
-        cardView.setOnClickListener(view -> {
-            new updaate.DefaultTheme(this)
-                    .check();
-        });
+        cardView.setOnClickListener(view -> new updaate.DefaultTheme(this)
+                .check());
 
 
     }
