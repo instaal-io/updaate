@@ -458,7 +458,7 @@ public class updaate {
         }
 
 
-        public DefaultTheme hideNegativeButton(boolean hide) {
+        public DefaultTheme setNegativeButtonHidden(boolean hide) {
             hideNegativeButton = hide;
             return this;
         }
@@ -846,7 +846,7 @@ public class updaate {
         }
 
 
-        public AdvanceTheme hideNegativeButton(boolean hide) {
+        public AdvanceTheme setNegativeButtonButton(boolean hide) {
             hideNegativeButton = hide;
             return this;
         }
