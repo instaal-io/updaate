@@ -34,7 +34,6 @@ import java.util.concurrent.Executors;
 
 public class updaate {
 
-
     private static final String DEFAULT_TITLE = "New Update Available";
     private static final int DEFAULT_APP_ICON = R.drawable.update_icon_main;
     private static final int DEFAULT_COLOR = Color.parseColor("#FFFFFF");
