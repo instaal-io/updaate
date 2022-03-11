@@ -797,6 +797,7 @@ public class updaate {
         private int buttonCornerRadius = 10;
 
 
+
         public AdvanceTheme(Activity activity) {
             this.activity = activity;
             sharedPreferences = this.activity.getApplicationContext().getSharedPreferences("updaate", Activity.MODE_PRIVATE);
