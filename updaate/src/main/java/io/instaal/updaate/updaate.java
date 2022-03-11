@@ -34,24 +34,7 @@ import java.util.concurrent.Executors;
 
 public class updaate {
 
-    public static final String ANIMATION_1 = "anim1";
-    public static final String ANIMATION_2 = "anim2";
-    public static final String ANIMATION_3 = "anim3";
-    public static final String ANIMATION_4 = "anim4";
-    public static final String ANIMATION_5 = "anim5";
-    public static final String ANIMATION_6 = "anim6";
-    public static final String ANIMATION_7 = "anim7";
-    public static final String ANIMATION_8 = "anim8";
-    public static final String ANIMATION_9 = "anim9";
-    public static final String IMAGE_1 = "img1";
-    public static final String IMAGE_2 = "img2";
-    public static final String IMAGE_3 = "img3";
-    public static final String IMAGE_4 = "img4";
-    public static final String IMAGE_5 = "img5";
-    public static final String IMAGE_6 = "img6";
-    public static final String IMAGE_7 = "img7";
-    public static final String IMAGE_8 = "img8";
-    public static final String IMAGE_9 = "img9";
+
     private static final String DEFAULT_TITLE = "New Update Available";
     private static final int DEFAULT_APP_ICON = R.drawable.update_icon_main;
     private static final int DEFAULT_COLOR = Color.parseColor("#FFFFFF");
@@ -233,6 +216,7 @@ public class updaate {
                 app_icon.setVisibility(View.INVISIBLE);
             } else {
                 app_icon.setImageResource(APP_ICON);
+                app_icon.setVisibility(View.VISIBLE);
             }
 
             if (TITLE.equals("main")) {
@@ -378,9 +362,13 @@ public class updaate {
 
     public static class DefaultTheme {
 
-        SharedPreferences sharedPreferences;
+        public static final String ICON_1 = "icon1";
+        public static final String ICON_2 = "icon2";
+        public static final String ICON_3 = "icon3";
+        public static final String ICON_4 = "icon4";
+        public static final String ICON_5 = "icon5";
         private final Activity activity;
-        private final String THEME = "default";
+        SharedPreferences sharedPreferences;
         private String TITLE = "main";
         private int APP_ICON = 0;
         private String NOT_NOW = "not_now";
@@ -394,13 +382,11 @@ public class updaate {
         private int USER_LAUNCH_COUNT = 0;
         private String CURRENT_VERSION = "";
         private String LATEST_VERSION = "";
-        private final boolean isImageOn = false;
-        private final String ANIM_SELECT = "0";
-        private final String IMAGE_SELECT = "0";
         private boolean isCancelable = true;
         private boolean hideNegativeButton = false;
         private int cardCornerRadius = 10;
         private int buttonCornerRadius = 10;
+        private String pre_installed_icon = "";
 
 
         public DefaultTheme(Activity activity) {
@@ -417,6 +403,11 @@ public class updaate {
 
         public DefaultTheme setAppIcon(int res) {
             APP_ICON = res;
+            return this;
+        }
+
+        public DefaultTheme setPreInstalledIcon(String preInstalledIcon) {
+            pre_installed_icon = preInstalledIcon;
             return this;
         }
 
@@ -579,8 +570,28 @@ public class updaate {
 
 
             if (APP_ICON == 0) {
-                app_icon.setImageResource(DEFAULT_APP_ICON);
-            } else {
+                switch (pre_installed_icon) {
+                    case ICON_2:
+                        app_icon.setImageResource(R.drawable.update_icon_main_2);
+                        break;
+                    case ICON_3:
+                        app_icon.setImageResource(R.drawable.update_icon_main_3);
+                        break;
+                    case ICON_4:
+                        app_icon.setImageResource(R.drawable.update_icon_main_4);
+                        break;
+                    case ICON_5:
+                        app_icon.setImageResource(R.drawable.update_icon_main_5);
+                        break;
+                    case ICON_1:
+                    default:
+                        app_icon.setImageResource(R.drawable.update_icon_main);
+                        break;
+
+                }
+            }
+
+            if (APP_ICON != 0) {
                 app_icon.setImageResource(APP_ICON);
             }
 
@@ -747,6 +758,24 @@ public class updaate {
 
     public static class AdvanceTheme {
 
+        public static final String ANIMATION_1 = "anim1";
+        public static final String ANIMATION_2 = "anim2";
+        public static final String ANIMATION_3 = "anim3";
+        public static final String ANIMATION_4 = "anim4";
+        public static final String ANIMATION_5 = "anim5";
+        public static final String ANIMATION_6 = "anim6";
+        public static final String ANIMATION_7 = "anim7";
+        public static final String ANIMATION_8 = "anim8";
+        public static final String ANIMATION_9 = "anim9";
+        public static final String IMAGE_1 = "img1";
+        public static final String IMAGE_2 = "img2";
+        public static final String IMAGE_3 = "img3";
+        public static final String IMAGE_4 = "img4";
+        public static final String IMAGE_5 = "img5";
+        public static final String IMAGE_6 = "img6";
+        public static final String IMAGE_7 = "img7";
+        public static final String IMAGE_8 = "img8";
+        public static final String IMAGE_9 = "img9";
         private final Activity activity;
         SharedPreferences sharedPreferences;
         private String TITLE = "main";
