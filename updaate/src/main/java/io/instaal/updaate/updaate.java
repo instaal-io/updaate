@@ -795,7 +795,8 @@ public class updaate {
         private boolean hideNegativeButton = false;
         private int cardCornerRadius = 10;
         private int buttonCornerRadius = 10;
-
+        private int custom_image = 0;
+        private int custom_animation = 0;
 
 
         public AdvanceTheme(Activity activity) {
@@ -879,6 +880,15 @@ public class updaate {
 
         }
 
+        public AdvanceTheme setCustomHeaderAnim(int customHeaderAnim) {
+            custom_animation = customHeaderAnim;
+            return this;
+        }
+
+        public AdvanceTheme setCustomHeaderImage(int customHeaderImage) {
+            custom_image = customHeaderImage;
+            return this;
+        }
 
         public AdvanceTheme setCheckAfterLaunch(int launch) {
             USER_LAUNCH_COUNT = launch;
@@ -971,69 +981,79 @@ public class updaate {
 
             LottieAnimationView lottieAnimationView = dialog.findViewById(R.id.animation_view);
 
-            switch (ANIM_SELECT) {
-                case ANIMATION_2:
-                    lottieAnimationView.setAnimation(R.raw.fancy_anim_2);
-                    break;
-                case ANIMATION_3:
-                    lottieAnimationView.setAnimation(R.raw.fancy_anim_3);
-                    break;
-                case ANIMATION_4:
-                    lottieAnimationView.setAnimation(R.raw.fancy_anim_4);
-                    break;
-                case ANIMATION_5:
-                    lottieAnimationView.setAnimation(R.raw.fancy_anim_5);
-                    break;
-                case ANIMATION_6:
-                    lottieAnimationView.setAnimation(R.raw.fancy_anim_6);
-                    break;
-                case ANIMATION_7:
-                    lottieAnimationView.setAnimation(R.raw.fancy_anim_7);
-                    break;
-                case ANIMATION_8:
-                    lottieAnimationView.setAnimation(R.raw.fancy_anim_8);
-                    break;
-                case ANIMATION_9:
-                    lottieAnimationView.setAnimation(R.raw.fancy_anim_9);
-                    break;
-                case ANIMATION_1:
-                default:
-                    lottieAnimationView.setAnimation(R.raw.fancy_anim_1);
-                    break;
+            if (custom_animation == 0) {
+                switch (ANIM_SELECT) {
+                    case ANIMATION_2:
+                        lottieAnimationView.setAnimation(R.raw.fancy_anim_2);
+                        break;
+                    case ANIMATION_3:
+                        lottieAnimationView.setAnimation(R.raw.fancy_anim_3);
+                        break;
+                    case ANIMATION_4:
+                        lottieAnimationView.setAnimation(R.raw.fancy_anim_4);
+                        break;
+                    case ANIMATION_5:
+                        lottieAnimationView.setAnimation(R.raw.fancy_anim_5);
+                        break;
+                    case ANIMATION_6:
+                        lottieAnimationView.setAnimation(R.raw.fancy_anim_6);
+                        break;
+                    case ANIMATION_7:
+                        lottieAnimationView.setAnimation(R.raw.fancy_anim_7);
+                        break;
+                    case ANIMATION_8:
+                        lottieAnimationView.setAnimation(R.raw.fancy_anim_8);
+                        break;
+                    case ANIMATION_9:
+                        lottieAnimationView.setAnimation(R.raw.fancy_anim_9);
+                        break;
+                    case ANIMATION_1:
+                    default:
+                        lottieAnimationView.setAnimation(R.raw.fancy_anim_1);
+                        break;
+                }
+            } else {
+                lottieAnimationView.setAnimation(custom_animation);
             }
 
 
             ImageView imageView = dialog.findViewById(R.id.imageView);
 
-            switch (IMAGE_SELECT) {
-                case IMAGE_2:
-                    imageView.setImageResource(R.drawable.img_2);
-                    break;
-                case IMAGE_3:
-                    imageView.setImageResource(R.drawable.img_3);
-                    break;
-                case IMAGE_4:
-                    imageView.setImageResource(R.drawable.img_4);
-                    break;
-                case IMAGE_5:
-                    imageView.setImageResource(R.drawable.img_5);
-                    break;
-                case IMAGE_6:
-                    imageView.setImageResource(R.drawable.img_6);
-                    break;
-                case IMAGE_7:
-                    imageView.setImageResource(R.drawable.img_7);
-                    break;
-                case IMAGE_8:
-                    imageView.setImageResource(R.drawable.img_8);
-                    break;
-                case IMAGE_9:
-                    imageView.setImageResource(R.drawable.img_9);
-                    break;
-                case IMAGE_1:
-                default:
-                    imageView.setImageResource(R.drawable.img_1);
-                    break;
+
+            if (custom_image == 0) {
+                switch (IMAGE_SELECT) {
+                    case IMAGE_2:
+                        imageView.setImageResource(R.drawable.img_2);
+                        break;
+                    case IMAGE_3:
+                        imageView.setImageResource(R.drawable.img_3);
+                        break;
+                    case IMAGE_4:
+                        imageView.setImageResource(R.drawable.img_4);
+                        break;
+                    case IMAGE_5:
+                        imageView.setImageResource(R.drawable.img_5);
+                        break;
+                    case IMAGE_6:
+                        imageView.setImageResource(R.drawable.img_6);
+                        break;
+                    case IMAGE_7:
+                        imageView.setImageResource(R.drawable.img_7);
+                        break;
+                    case IMAGE_8:
+                        imageView.setImageResource(R.drawable.img_8);
+                        break;
+                    case IMAGE_9:
+                        imageView.setImageResource(R.drawable.img_9);
+                        break;
+                    case IMAGE_1:
+                    default:
+                        imageView.setImageResource(R.drawable.img_1);
+                        break;
+                }
+
+            } else {
+                imageView.setImageResource(custom_image);
             }
 
 
