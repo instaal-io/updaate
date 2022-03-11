@@ -1,6 +1,5 @@
 package io.instaal.updaate;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
@@ -63,8 +62,7 @@ public class updaate {
     private static final String LAUNCHES = "launches";
 
 
-
-    public static class BasicTheme{
+    public static class BasicTheme {
 
         private final Activity activity;
         SharedPreferences sharedPreferences;
@@ -378,11 +376,11 @@ public class updaate {
 
     }
 
-    public static class DefaultTheme{
+    public static class DefaultTheme {
 
-        private Activity activity;
         SharedPreferences sharedPreferences;
-        private String THEME = "default";
+        private final Activity activity;
+        private final String THEME = "default";
         private String TITLE = "main";
         private int APP_ICON = 0;
         private String NOT_NOW = "not_now";
@@ -396,9 +394,9 @@ public class updaate {
         private int USER_LAUNCH_COUNT = 0;
         private String CURRENT_VERSION = "";
         private String LATEST_VERSION = "";
-        private boolean isImageOn = false;
-        private String ANIM_SELECT = "0";
-        private String IMAGE_SELECT = "0";
+        private final boolean isImageOn = false;
+        private final String ANIM_SELECT = "0";
+        private final String IMAGE_SELECT = "0";
         private boolean isCancelable = true;
         private boolean hideNegativeButton = false;
         private int cardCornerRadius = 10;
@@ -745,10 +743,9 @@ public class updaate {
         }
 
 
-
     }
 
-    public static class AdvanceTheme{
+    public static class AdvanceTheme {
 
         private final Activity activity;
         SharedPreferences sharedPreferences;
