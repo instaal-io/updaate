@@ -197,7 +197,7 @@ public class updaate {
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
             dialog.setCancelable(isCancelable);
-            dialog.setContentView(R.layout.basic_layout);
+            dialog.setContentView(R.layout.updaate_basic_layout);
 
             TextView titleText = dialog.findViewById(R.id.title_text);
             TextView current_version = dialog.findViewById(R.id.current_version);
@@ -551,7 +551,7 @@ public class updaate {
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
             dialog.setCancelable(isCancelable);
-            dialog.setContentView(R.layout.default_layout);
+            dialog.setContentView(R.layout.updaate_default_layout);
 
 
             TextView titleText = dialog.findViewById(R.id.title_text);
@@ -570,20 +570,20 @@ public class updaate {
             if (APP_ICON == 0) {
                 switch (pre_installed_icon) {
                     case ICON_2:
-                        app_icon.setImageResource(R.drawable.update_icon_main_2);
+                        app_icon.setImageResource(R.drawable.updaate_icon_main_2);
                         break;
                     case ICON_3:
-                        app_icon.setImageResource(R.drawable.update_icon_main_3);
+                        app_icon.setImageResource(R.drawable.updaate_icon_main_3);
                         break;
                     case ICON_4:
-                        app_icon.setImageResource(R.drawable.update_icon_main_4);
+                        app_icon.setImageResource(R.drawable.updaate_icon_main_4);
                         break;
                     case ICON_5:
-                        app_icon.setImageResource(R.drawable.update_icon_main_5);
+                        app_icon.setImageResource(R.drawable.updaate_icon_main_5);
                         break;
                     case ICON_1:
                     default:
-                        app_icon.setImageResource(R.drawable.update_icon_main);
+                        app_icon.setImageResource(R.drawable.updaate_icon_main);
                         break;
 
                 }
@@ -966,7 +966,7 @@ public class updaate {
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
             dialog.setCancelable(isCancelable);
-            dialog.setContentView(R.layout.advanced_layout);
+            dialog.setContentView(R.layout.updaate_advanced_layout);
 
             TextView titleText = dialog.findViewById(R.id.title_text);
             TextView current_version = dialog.findViewById(R.id.current_version);
@@ -982,32 +982,32 @@ public class updaate {
             if (custom_animation == 0) {
                 switch (ANIM_SELECT) {
                     case ANIMATION_2:
-                        lottieAnimationView.setAnimation(R.raw.fancy_anim_2);
+                        lottieAnimationView.setAnimation(R.raw.updaate_anim_2);
                         break;
                     case ANIMATION_3:
-                        lottieAnimationView.setAnimation(R.raw.fancy_anim_3);
+                        lottieAnimationView.setAnimation(R.raw.updaate_anim_3);
                         break;
                     case ANIMATION_4:
-                        lottieAnimationView.setAnimation(R.raw.fancy_anim_4);
+                        lottieAnimationView.setAnimation(R.raw.updaate_anim_4);
                         break;
                     case ANIMATION_5:
-                        lottieAnimationView.setAnimation(R.raw.fancy_anim_5);
+                        lottieAnimationView.setAnimation(R.raw.updaate_anim_5);
                         break;
                     case ANIMATION_6:
-                        lottieAnimationView.setAnimation(R.raw.fancy_anim_6);
+                        lottieAnimationView.setAnimation(R.raw.updaate_anim_6);
                         break;
                     case ANIMATION_7:
-                        lottieAnimationView.setAnimation(R.raw.fancy_anim_7);
+                        lottieAnimationView.setAnimation(R.raw.updaate_anim_7);
                         break;
                     case ANIMATION_8:
-                        lottieAnimationView.setAnimation(R.raw.fancy_anim_8);
+                        lottieAnimationView.setAnimation(R.raw.updaate_anim_8);
                         break;
                     case ANIMATION_9:
-                        lottieAnimationView.setAnimation(R.raw.fancy_anim_9);
+                        lottieAnimationView.setAnimation(R.raw.updaate_anim_9);
                         break;
                     case ANIMATION_1:
                     default:
-                        lottieAnimationView.setAnimation(R.raw.fancy_anim_1);
+                        lottieAnimationView.setAnimation(R.raw.updaate_anim_1);
                         break;
                 }
             } else {
@@ -1021,32 +1021,32 @@ public class updaate {
             if (custom_image == 0) {
                 switch (IMAGE_SELECT) {
                     case IMAGE_2:
-                        imageView.setImageResource(R.drawable.img_2);
+                        imageView.setImageResource(R.drawable.updaate_img_2);
                         break;
                     case IMAGE_3:
-                        imageView.setImageResource(R.drawable.img_3);
+                        imageView.setImageResource(R.drawable.updaate_img_3);
                         break;
                     case IMAGE_4:
-                        imageView.setImageResource(R.drawable.img_4);
+                        imageView.setImageResource(R.drawable.updaate_img_4);
                         break;
                     case IMAGE_5:
-                        imageView.setImageResource(R.drawable.img_5);
+                        imageView.setImageResource(R.drawable.updaate_img_5);
                         break;
                     case IMAGE_6:
-                        imageView.setImageResource(R.drawable.img_6);
+                        imageView.setImageResource(R.drawable.updaate_img_6);
                         break;
                     case IMAGE_7:
-                        imageView.setImageResource(R.drawable.img_7);
+                        imageView.setImageResource(R.drawable.updaate_img_7);
                         break;
                     case IMAGE_8:
-                        imageView.setImageResource(R.drawable.img_8);
+                        imageView.setImageResource(R.drawable.updaate_img_8);
                         break;
                     case IMAGE_9:
-                        imageView.setImageResource(R.drawable.img_9);
+                        imageView.setImageResource(R.drawable.updaate_img_9);
                         break;
                     case IMAGE_1:
                     default:
-                        imageView.setImageResource(R.drawable.img_1);
+                        imageView.setImageResource(R.drawable.updaate_img_1);
                         break;
                 }
 
