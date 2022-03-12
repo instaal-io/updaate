@@ -61,7 +61,7 @@
                     android:layout_marginEnd="5dp"
                     android:gravity="center"
                     android:text="@string/your_version"
-                    android:textColor="@color/secondary_text_color"
+                    android:textColor="@color/lib_secondary_text_color"
                     android:textSize="14sp" />
 
                 <TextView
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/demo_version1"
-                    android:textColor="@color/secondary_text_color"
+                    android:textColor="@color/lib_secondary_text_color"
                     android:textSize="15sp" />
             </LinearLayout>
 
@@ -133,7 +133,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="@string/not_now"
-                        android:textColor="@color/secondary_text_color"
+                        android:textColor="@color/lib_secondary_text_color"
                         android:textSize="16sp" />
 
 

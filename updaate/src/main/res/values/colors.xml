@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="theme_color_main">#5a3ae7</color>
-    <color name="secondary_text_color">#666666</color>
+    <color name="lib_theme_color_main">#5a3ae7</color>
+    <color name="lib_secondary_text_color">#666666</color>
 
 </resources>
