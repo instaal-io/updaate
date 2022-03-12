@@ -365,6 +365,11 @@ public class updaate {
         public static final String ICON_3 = "icon3";
         public static final String ICON_4 = "icon4";
         public static final String ICON_5 = "icon5";
+        public static final String ICON_6 = "icon6";
+        public static final String ICON_7 = "icon7";
+        public static final String ICON_8 = "icon8";
+        public static final String ICON_9 = "icon9";
+
         private final Activity activity;
         SharedPreferences sharedPreferences;
         private String TITLE = "main";
@@ -580,6 +585,18 @@ public class updaate {
                         break;
                     case ICON_5:
                         app_icon.setImageResource(R.drawable.updaate_icon_main_5);
+                        break;
+                    case ICON_6:
+                        app_icon.setImageResource(R.drawable.updaate_icon_main_6);
+                        break;
+                    case ICON_7:
+                        app_icon.setImageResource(R.drawable.updaate_icon_main_7);
+                        break;
+                    case ICON_8:
+                        app_icon.setImageResource(R.drawable.updaate_icon_main_8);
+                        break;
+                    case ICON_9:
+                        app_icon.setImageResource(R.drawable.updaate_icon_main_9);
                         break;
                     case ICON_1:
                     default:
