@@ -983,7 +983,7 @@ public class updaate {
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             dialog.getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
             dialog.setCancelable(isCancelable);
-            dialog.setContentView(R.layout.updaate_advanced_layout);
+            dialog.setContentView(R.layout.updaate_advance_layout);
 
             TextView titleText = dialog.findViewById(R.id.title_text);
             TextView current_version = dialog.findViewById(R.id.current_version);
