@@ -1086,6 +1086,7 @@ public class updaate {
                 titleText.setText(TITLE);
             }
 
+
             if (UPDATE.equals("update_now")) {
                 positive_text.setText("Update Now");
             } else {
