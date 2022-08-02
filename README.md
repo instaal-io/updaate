@@ -15,12 +15,6 @@
 
 <b>updaate</b> is a Smart Android Library for checking your Android App Updates on <b>Google Play Store</b>. <b>updaate</b> checks the updates and notifies with beautiful <b>material design dialogs</b>. You can <b>customize</b> the dialog in various ways.
 
-## Demo
-Download and Check out the demo app for more
-
-<a href="https://github.com/instaal-io/updaate/blob/master/app_release.apk"> <img src="https://user-images.githubusercontent.com/42619122/155009169-c92bbebb-7e96-452e-956b-b5905d2cdcdc.png" height="100" width="200" alt="Download"/> </a>
-
-
 ## What's New
 It's first release, so everything is new.
 Check out `Releases` Tab for Info. 
@@ -89,7 +83,7 @@ Add this to your module's `build.gradle` file (make sure the version matches the
 ```gradle
 dependencies {
 	...
-		implementation 'com.github.instaal-io:updaate:1.0'
+		implementation 'com.github.instaal-io:updaate:78cd7f91fc'
 
 }
 ```
